@@ -10,9 +10,125 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_03_211242) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_095927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dietary_information_recipes", force: :cascade do |t|
+    t.bigint "dietary_information_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dietary_information_id"], name: "index_dietary_information_recipes_on_dietary_information_id"
+    t.index ["recipe_id"], name: "index_dietary_information_recipes_on_recipe_id"
+  end
+
+  create_table "dietary_information_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "dietary_information_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dietary_information_id"], name: "index_dietary_information_users_on_dietary_information_id"
+    t.index ["user_id"], name: "index_dietary_information_users_on_user_id"
+  end
+
+  create_table "dietary_informations", force: :cascade do |t|
+    t.string "name"
+    t.string "allergy"
+    t.string "intolerance"
+    t.string "preference"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fridge_ingredients", force: :cascade do |t|
+    t.bigint "ingredient_id", null: false
+    t.bigint "fridge_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fridge_id"], name: "index_fridge_ingredients_on_fridge_id"
+    t.index ["ingredient_id"], name: "index_fridge_ingredients_on_ingredient_id"
+  end
+
+  create_table "fridges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_fridges_on_user_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "nutriscore"
+    t.string "name"
+    t.date "expiry_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "list_ingredients", force: :cascade do |t|
+    t.bigint "ingredient_id", null: false
+    t.bigint "list_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_list_ingredients_on_ingredient_id"
+    t.index ["list_id"], name: "index_list_ingredients_on_list_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.time "prep_time"
+    t.string "instruction"
+    t.integer "difficulty"
+    t.string "utensil"
+    t.string "title"
+    t.time "cooking_time"
+    t.time "total_time"
+    t.integer "serving"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "rating"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "to_do_recipes", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_to_do_recipes_on_recipe_id"
+    t.index ["user_id"], name: "index_to_do_recipes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +142,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_211242) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dietary_information_recipes", "dietary_informations"
+  add_foreign_key "dietary_information_recipes", "recipes"
+  add_foreign_key "dietary_information_users", "dietary_informations"
+  add_foreign_key "dietary_information_users", "users"
+  add_foreign_key "fridge_ingredients", "fridges"
+  add_foreign_key "fridge_ingredients", "ingredients"
+  add_foreign_key "fridges", "users"
+  add_foreign_key "list_ingredients", "ingredients"
+  add_foreign_key "list_ingredients", "lists"
+  add_foreign_key "lists", "users"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "reviews", "recipes"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "to_do_recipes", "recipes"
+  add_foreign_key "to_do_recipes", "users"
 end
