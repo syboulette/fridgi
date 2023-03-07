@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :fridges, only: [:show, :create, :destroy, :edit]
   resources :recipes, only: [:new, :create, :destroy, :index, :show] do 
-    colection do 
+    collection do 
       get :my_recipes
     end
     resources :reviews, only: [:new, :create, :destroy, :edit]
