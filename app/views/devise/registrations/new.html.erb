@@ -22,9 +22,8 @@
       <%= f.input :address,
                   required: true,
                   input_html: { autocomplete: "street-address" } %>
-      <%# <%= f.input :country,
-                  required: true,
-                  input_html: { autocomplete: "country" } %>
+      <%= f.country_select :country,
+                  required: true %>
       <%= f.input :city,
                   required: true %>
       <%= f.input :post_code,
@@ -44,7 +43,7 @@
 </div>
 
 
-<section class="h-100 h-custom gradient-custom-2">
+<%# <section class="h-100 h-custom gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
@@ -211,4 +210,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> %>
