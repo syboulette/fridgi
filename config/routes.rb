@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   
   resources :users, only: [:show]
-  resources :fridges, only: [:show, :create, :destroy, :edit]
+  resources :fridges, only: [:show, :index, :create, :destroy, :edit]
   resources :recipes, only: [:new, :create, :destroy, :index, :show] do 
     collection do 
       get :my_recipes

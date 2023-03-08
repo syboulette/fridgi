@@ -1,0 +1,8 @@
+<%= @fridge.name %>
+<ul>
+  <% @ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+    <li><%= ingredient.expiry_date %></li>
+    <li><%= ingredient.nutriscore %></li>
+  <% end %>
+</ul>
