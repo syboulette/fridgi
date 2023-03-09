@@ -1,9 +1,12 @@
 <%= simple_form_for(@recipe) do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title, label: "Recipe Title" %>
   <%= f.input :prep_time %>
   <%= f.input :cooking_time %>
   <%= f.input :total_time %>
-  <%= f.input :difficulty, :collection => %w[1 2 3 4 5] %>
-  <%= f.input :serving %>
+  <%= f.input :difficulty, :collection => %w[1 2 3 4 5], label: "Difficulty level: 1 = easy, 5 = challenging" %>
+  <%= f.association :dietary_information_recipes %>
+  <%= f.input :serving, label: "Serving size" %>
+  <%= f.association :recipe_ingredients %>
+  <%= f.input :image, as: :file, label: "Show us what it looks like:" %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
