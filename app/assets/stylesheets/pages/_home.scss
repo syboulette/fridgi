@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+.center-box {
+  width: 1000px;
+  height: 500px;
+  background-color: white;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 10px rgba(0,0,0,.1);
+}
+
+.btn {
+  display: block;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
