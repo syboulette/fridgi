@@ -1,9 +1,46 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url("https://use.typekit.net/hfn2egb.css");
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "area-normal", sans-serif, 20px;
+
+$headers-font: "area-normal", sans-serif, 40px;
+
+
+h1 {
+  font-family: "area-normal", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-size: 40px;
+}
+
+h2 {
+  font-family: "area-normal", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+  font-size: 32px;
+  text-decoration: underline;
+}
+
+h3 {
+  font-family: "area-normal", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  text-align: left;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+h4 {
+  font-family: "area-normal", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  text-align: left;
+  font-size: 24px;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
