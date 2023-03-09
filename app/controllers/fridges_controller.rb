@@ -1,30 +1,30 @@
 class FridgesController < ApplicationController
 
-  def index
-    @fridges = Fridge.where(user: current_user)
-  end
+#   def index
+#     @fridges = Fridge.where(user: current_user)
+#   end
   
 
-  def new 
-    @fridge = Fridge.new
-  end
+#   def new 
+#     @fridge = Fridge.new
+#   end
   
-  def create 
-1
-  end
+#   def create 
+# 1
+#   end
 
-  def show
-    @fridge = Fridge.find(params[:id])
-    @ingredients = @fridge.fridge_ingredients
-  end
+#   def show
+#     @fridge = Fridge.find(params[:id])
+#     @ingredients = @fridge.fridge_ingredients
+#   end
 
-  def edit
+#   def edit
 
-  end
+#   end
 
-  def add
+#   def add
 
-  end
+#   end
 
 
 
