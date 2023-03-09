@@ -3,23 +3,13 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
-  def index
-    @recipes = policy_scope(Recipe).all
-
-    if params[:query].present?
-      @recipes = Recipe.recipe_search(params[:query])
-    else
-      @recipes = Book.all
-    end
-  end
-
   def new
     @recipe = Recipe.new
     authorize @recipe
   end
 
   def create
-    @recipe = recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
     authorize @recipe
@@ -29,16 +19,6 @@ class RecipesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    authorize @recipe
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private
