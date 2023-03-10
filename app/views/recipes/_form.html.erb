@@ -6,8 +6,7 @@
   <%= f.input :difficulty, collection: %w[1 2 3 4 5], label: "Difficulty level: 1 = easy, 5 = challenging" %>
   <%= f.association :dietary_information_recipes, collection: %w[Vegetarian Vegan Pescetarian Gluten-Free Dairy-Free Low-Carb Healthy], label: "Dietary information" %>
   <%= f.input :serving, label: "Servings" %>
-  <%= f.association :recipe_ingredients %>
+  <%= f.association :recipe_ingredients, collection: %w[Vegetarian Vegan Pescetarian Gluten-Free] %>
   <%= f.input :image, as: :file, label: "Show us what it looks like:" %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
-
