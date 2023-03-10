@@ -3,9 +3,10 @@
 @import url("https://use.typekit.net/hfn2egb.css");
 
 // Define fonts for body and headers
-$body-font: "area-normal", sans-serif, 20px;
+$body-font: 'area-normal', sans-serif;
+$headers-font: 'area-normal', sans-serif;
 
-$headers-font: "area-normal", sans-serif, 40px;
+
 
 
 h1 {
@@ -42,6 +43,13 @@ h4 {
   font-size: 24px;
 }
 
+p {
+  font-family: "area-normal", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 18px;
+  color: rgb(66, 66, 66);
+}
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
