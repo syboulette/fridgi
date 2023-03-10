@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
-        fridge = Fridge.new(name: 'My Fridgy')
+        fridge = Fridge.new(name: 'My Fridgi')
         fridge.user = resource
         fridge.save!
         set_flash_message! :notice, :signed_up
