@@ -10,6 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         fridge = Fridge.new(name: 'My Fridgy')
         fridge.user = resource
         fridge.save!
+        list = List.new(name: 'My Fridgy')
+        list.user = resource
+        list.save!
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
