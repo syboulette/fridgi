@@ -3,7 +3,6 @@ class FridgesController < ApplicationController
 
   def show
     authorize @fridge
-    
     @fridge_ingredients = @fridge.fridge_ingredients
   end
 
