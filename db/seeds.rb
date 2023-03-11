@@ -15,7 +15,6 @@ puts "Ingredient destroyed"
 # Ingredient
 #############################################
 
-
 filepath = "db/updated_ingredients.csv"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
