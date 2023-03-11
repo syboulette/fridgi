@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lists = policy_scope(List)
+    @lists = policy_scope(List).all
   end
 
   def show
