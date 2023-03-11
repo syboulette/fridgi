@@ -4,7 +4,11 @@ class RecipePolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    def resolve
+      scope.all
+    end
   end
+
   def new?
     true
   end
@@ -18,10 +22,6 @@ class RecipePolicy < ApplicationPolicy
   end
 
   def show?
-    true
-  end
-
-  def index?
     true
   end
 
