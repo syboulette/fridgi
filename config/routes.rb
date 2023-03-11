@@ -17,4 +17,3 @@ Rails.application.routes.draw do
 
   resources :lists, only: [:show, :index, :create, :destroy, :edit]
 end
-
