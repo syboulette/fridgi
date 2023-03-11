@@ -22,7 +22,7 @@ puts "Ingredient destroyed"
 # User
 #############################################
 user = User.create!({
-  first_name: "Louis", 
+  first_name: "Louis",
   last_name: "Ramos",
   email: "louisramosdev@gmail.com",
   password: "password",
