@@ -4,11 +4,11 @@ class ListsController < ApplicationController
 
   def index
     @lists = policy_scope(List)
-    @lists = List.where(user_id: current_user.id)
   end
 
   def show
     authorize @list
+    @list_ingredients = @list.list_ingredients
   end
 
   def new
@@ -33,17 +33,14 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    authorize @list
     @list.destroy
     redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
   end
 
   private
 
-  def list_params
-    params.require(:list)
-  end
-
   def set_list
-    @list = List.find(params[:id])
+    @list = List.find_by(user: current_user)
   end
 end
