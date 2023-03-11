@@ -1,31 +1,23 @@
 class FridgesController < ApplicationController
+  before_action :set_fridge
 
-#   def index
-#     @fridges = Fridge.where(user: current_user)
-#   end
+  def show
+    authorize @fridge
+    @fridge_ingredients = @fridge.fridge_ingredients
+  end
+
+  def edit
+
+  end
+
+  def add
+
+  end
+
+  private
   
-
-#   def new 
-#     @fridge = Fridge.new
-#   end
-  
-#   def create 
-# 1
-#   end
-
-#   def show
-#     @fridge = Fridge.find(params[:id])
-#     @ingredients = @fridge.fridge_ingredients
-#   end
-
-#   def edit
-
-#   end
-
-#   def add
-
-#   end
-
-
+  def set_fridge
+    @fridge = Fridge.find_by(user: current_user)
+  end
 
 end
