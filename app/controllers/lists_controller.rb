@@ -7,13 +7,13 @@ class ListsController < ApplicationController
     @lists = List.where(user_id: current_user.id)
   end
 
-  def new
-    @list = List.new
-    @fridge_ingredients = FridgeIngredient.find(params[:fridge_ingredients_id])
+  def show
     authorize @list
   end
 
-  def show
+  def new
+    @list = List.new
+    @fridge_ingredients = FridgeIngredient.find(params[:fridge_ingredients_id])
     authorize @list
   end
 
@@ -40,7 +40,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:start_date, :end_date)
+    params.require(:list)
   end
 
   def set_list
