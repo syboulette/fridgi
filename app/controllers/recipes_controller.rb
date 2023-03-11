@@ -34,6 +34,13 @@ class RecipesController < ApplicationController
     authorize @recipe
   end
 
+  def destroy
+    authorize @recipe
+
+    @recipe.destroy
+    redirect_to root_path, status: :see_other, notice: "The recipe has been deleted!"
+  end
+
   private
 
   def recipe_params
