@@ -21,4 +21,7 @@ class RecipePolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    true
+  end
 end

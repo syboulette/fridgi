@@ -2,6 +2,16 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @recipe = policy_scope(Recipe).all
+
+    if params[:query].present?
+      @recipe = Recipe.Recipe_search(params[:query])
+    else
+      @recipe = Recipe.all
+    end
+  end
+
   def new
     @recipe = Recipe.new
     authorize @recipe
