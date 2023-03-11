@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   
   root to: "pages#home"
   
-  resources :users, only: [:show, :edit]
-  resources :fridges, only: [:show, :index, :create, :destroy, :edit]
+  resources :users, only: [:show]
+  get "/my-fridgi", to: "fridges#show", as: :fridge
+  resources :fridges, only: [:create, :destroy, :edit]
   resources :recipes, only: [:new, :create, :destroy, :index, :show] do 
     collection do 
       get :my_recipes
