@@ -7,6 +7,8 @@
   <%= f.association :dietary_information_recipes, collection: %w[Vegetarian Vegan Pescetarian Gluten-Free Dairy-Free Low-Carb Healthy], label: "Dietary information" %>
   <%= f.input :serving, label: "Servings" %>
   <%= f.input :image, as: :file, label: "Show us what it looks like:" %>
-  <%= f.input :instruction, as: :text, placeholder: "How to make your recipe?" %>
+  <%= f.association :recipe_ingredients, as: "text", placeholder: "2 Apples, 5 Potatoes ..." %>
+  <%= f.input :utensil, label: "Utensils", placeholder: "A salad bowl" %>
+  <%= f.input :instruction, as: :text, placeholder: "Describe each step of the recipe." %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

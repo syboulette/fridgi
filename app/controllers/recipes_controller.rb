@@ -21,6 +21,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def show
+    authorize @recipe
+  end
+
   private
 
   def recipe_params

@@ -13,4 +13,12 @@ class RecipePolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    true
+  end
+
+  def show?
+    true
+  end
+
 end
