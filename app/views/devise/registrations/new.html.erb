@@ -1,45 +1,111 @@
-<div class="container py-5 h-100">
-  <h2>Sign up</h2>
+<section class="h-100 h-custom gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
+                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+                    <%= f.error_notification %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-    <%= f.error_notification %>
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
 
-    <div class="form-inputs">
-      <%= f.input :first_name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "given-name", class: "form-group" }; %>
-      <%= f.input :last_name,
-                  required: true,
-                  input_html: { autocomplete: "family-name", class: "form-group" } %>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password", class: "form-group" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password", class: "form-group" } %>
-      <%= f.input :address,
-                  required: true,
-                  input_html: { autocomplete: "street-address", class: "form-group" } %>
-      <%= f.input :country,
-                  required: true,
-                  input_html: { class: "form-group" } %>
-      <%= f.input :city,
-                  required: true,
-                  input_html: { class: "form-group" } %>
-      <%= f.input :post_code,
-                  required: true,
-                  input_html: { autocomplete: "postal-code", class: "form-group" } %>
-      <%= f.input :email,
-                  required: true,
-                  input_html: { autocomplete: "email", class: "form-group" }%>
+                        <div class="form-outline">
+                          <%= f.input :first_name, label: false,
+                                      required: true,
+                                      autofocus: true,
+                                      input_html: { placeholder: "First name", autocomplete: "given-name", class: "form-control form-control-lg" }
+                                      %>
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <%= f.input :last_name, label: false,
+                                      required: true,
+                                      input_html: { placeholder: "Last name", autocomplete: "family-name", class: "form-control form-control-lg" }
+                                      %>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <%= f.input :password, label: false,
+                                      required: true,
+                                      #hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                                      input_html: { placeholder: "Password", autocomplete: "new-password", class: "form-control form-control-lg" }
+                                      %>
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <%= f.input :password_confirmation, label: false,
+                                      required: true,
+                                      input_html: { placeholder: "Password confirmation", autocomplete: "new-password", class: "form-control form-control-lg" }
+                                      %>
+                        </div>
+                      </div>
+
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <%= f.input :email, label: false,
+                                      required: true,
+                                      input_html: { placeholder: "Email", autocomplete: "email", class: "form-control form-control-lg" }
+                                      %>
+                        </div>
+                      <div>
+                </div>
+              </div>
+              <div class="col-lg-6 bg-indigo text-white">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5">Contact Details</h3>
+
+
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                          <%= f.input :address, label: false,
+                                      required: true,
+                                      input_html: { autocomplete: "street-address", class: "form-control form-control-lg" }
+                                      %>
+                    </div>
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                          <%= f.input :country, label: false,
+                                      required: true,
+                                      input_html: { class: "form-control form-control-lg" } %>
+                    </div>
+                  </div>
+                            <%= f.input :city, label: false,
+                                        required: true,
+                                        input_html: { class: "form-control form-control-lg" } %>
+                            <%= f.input :post_code, label: false,
+                                        required: true,
+                                        input_html: { autocomplete: "postal-code", class: "form-control form-control-lg" }
+                                        %>
+                </div>
+              </div>
+                            </div>
+                          </div>
+                          <div class="form-actions">
+                            <%= f.button :submit, "Register", class: "btn btn-primary" %>
+                          </div>
+                        <% end %>
+
+                        <%= render "devise/shared/links" %>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-</div>
+  </div>
+</section>
