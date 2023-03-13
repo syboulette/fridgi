@@ -38,6 +38,19 @@ class ListsController < ApplicationController
     redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
   end
 
+  def edit
+    authorize @list
+  end
+
+  def update
+    authorize @list
+    if @list.update(list_params)
+      redirect_to list_path(@list)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_list
