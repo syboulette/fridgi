@@ -3,17 +3,17 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lists = policy_scope(List)
-    @lists = List.where(user_id: current_user.id)
+    @lists = policy_scope(List).all
+  end
+
+  def show
+    authorize @list
+    @list_ingredients = @list.list_ingredients
   end
 
   def new
     @list = List.new
     @fridge_ingredients = FridgeIngredient.find(params[:fridge_ingredients_id])
-    authorize @list
-  end
-
-  def show
     authorize @list
   end
 
@@ -33,17 +33,14 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    authorize @list
     @list.destroy
     redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
   end
 
   private
 
-  def list_params
-    params.require(:list).permit(:start_date, :end_date)
-  end
-
   def set_list
-    @list = List.find(params[:id])
+    @list = List.find_by(user: current_user)
   end
 end
