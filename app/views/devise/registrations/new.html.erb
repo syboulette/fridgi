@@ -14,7 +14,7 @@
                     <div class="row">
                       <div class="col-md-6 mb-4 pb-2">
 
-                        <div class="form-outline">
+                        <div class="form-input">
                           <%= f.input :first_name, label: false,
                                       required: true,
                                       autofocus: true,
@@ -26,7 +26,7 @@
 
                       <div class="col-md-6 mb-4 pb-2">
 
-                        <div class="form-outline">
+                        <div class="form-input">
                           <%= f.input :last_name, label: false,
                                       required: true,
                                       input_html: { placeholder: "Last name", autocomplete: "family-name", class: "form-control form-control-lg" }
@@ -35,7 +35,7 @@
                       </div>
                     </div>
                       <div class="mb-4 pb-2">
-                        <div class="form-outline">
+                        <div class="form-input">
                           <%= f.input :password, label: false,
                                       required: true,
                                       #hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -45,7 +45,7 @@
                       </div>
 
                       <div class="mb-4 pb-2">
-                        <div class="form-outline">
+                        <div class="form-input">
                           <%= f.input :password_confirmation, label: false,
                                       required: true,
                                       input_html: { placeholder: "Password confirmation", autocomplete: "new-password", class: "form-control form-control-lg" }
@@ -54,7 +54,7 @@
                       </div>
 
                       <div class="mb-4 pb-2">
-                        <div class="form-outline">
+                        <div class="form-input">
                           <%= f.input :email, label: false,
                                       required: true,
                                       input_html: { placeholder: "Email", autocomplete: "email", class: "form-control form-control-lg" }
@@ -69,7 +69,7 @@
 
 
                   <div class="mb-4 pb-2">
-                    <div class="form-outline form-white">
+                    <div class="form-input form-white">
                           <%= f.input :address, label: false,
                                       required: true,
                                       input_html: { autocomplete: "street-address", class: "form-control form-control-lg" }
@@ -78,7 +78,7 @@
                   </div>
 
                   <div class="mb-4 pb-2">
-                    <div class="form-outline form-white">
+                    <div class="form-input form-white">
                           <%= f.input :country, label: false,
                                       required: true,
                                       input_html: { class: "form-control form-control-lg" } %>
@@ -109,3 +109,14 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
+  <div class="devise-form">
+    <div class="title">
+      <h1>SIGN UP!</h1>
+      <h3>and get access to exclusive features</h3>
+    </div>
