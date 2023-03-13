@@ -1,10 +1,36 @@
 <h1><%= @recipe.title %></h1>
-<h1><%= @recipe.prep_time %></h1>
-<h1><%= @recipe.cooking_time %></h1>
-<h1><%= @recipe.total_time %></h1>
-<h1><%= @recipe.difficulty %></h1>
-<h1><%= @recipe.utensil %></h1>
-<h1><%= @recipe.instruction %></h1>
+  <div class="container">
+    <div class=image>IMAGE</div>
+      <div class="Info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %></p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %></p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %></p>
+        <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <p><%= @recipe.difficulty %> </p>
+        <h5>Utensils
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="Ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |ingredient| %>
+                <p><li><%= ingredient %></li></p>
+              <% end %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+   </div>
+
+
 
 
 <%# Still just the raw basics, have to add dietary requirements, ingredients, frontend, buttons to redirect%>

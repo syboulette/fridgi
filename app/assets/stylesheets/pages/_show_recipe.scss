@@ -1,0 +1,18 @@
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Image Info Ingredients"
+    ". Description ."
+    ". Description .";
+}
+
+.Image { grid-area: Image; }
+
+.Info { grid-area: Info; }
+
+.Ingredients { grid-area: Ingredients; }
+
+.Description { grid-area: Description; }
