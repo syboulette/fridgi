@@ -134,7 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.time "prep_time"
+    t.integer "prep_time"
     t.string "instruction"
     t.integer "difficulty"
     t.string "utensil"
