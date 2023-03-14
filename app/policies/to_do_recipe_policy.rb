@@ -1,4 +1,4 @@
-class ToDoRecipesPolicy < ApplicationPolicy
+class ToDoRecipePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
