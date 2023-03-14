@@ -6,6 +6,10 @@
     <% @lists.each do |list| %>
       <div class="card">
         <h6 class="card-text list-title"><em><%= list.name %></em></h6>
+        <div class="inner-flex">
+          <%= link_to "Edit", edit_list_path(list), class:"buttons btn btn-warning"%>
+          <%= button_to "Delete", list, method: :delete, class:"btn btn-danger" %>
+        </div>
         <p class="card-text list-extract">You have <%= list.list_ingredients.count %> ingredients in this list</p>
         <p class="card-text list-extract">Created on <%= list.created_at.strftime("%d %b %Y") %></p>
         <p><%= link_to "open my list", list_path(list), class: "btn btn-info btn-sm "%></p>

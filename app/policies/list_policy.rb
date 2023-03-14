@@ -4,12 +4,13 @@ class ListPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def new?
     create?
   end
 
   def create?
-    record.user == user
+    true
   end
 
   def show?
