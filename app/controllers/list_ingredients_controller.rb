@@ -31,7 +31,7 @@ class ListIngredientsController < ApplicationController
   def destroy
     authorize @list_ingredient
     @list_ingredient.destroy
-    redirect_to list_ingredients_path, status: :see_other, notice: "The ingredient has been deleted!"
+    redirect_to list_path(@list_ingredient.list), status: :see_other, notice: "The ingredient has been deleted!"
     end
 
   def edit
@@ -54,6 +54,6 @@ class ListIngredientsController < ApplicationController
   end
 
   def set_list_ingredient
-    @list_ingredient = ListIngredients.find_by(id: params[:id])
+    @list_ingredient = ListIngredient.find_by(id: params[:id])
   end
 end

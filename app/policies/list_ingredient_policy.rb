@@ -5,4 +5,7 @@ class ListIngredientPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+  def destroy?
+    user
+  end
 end

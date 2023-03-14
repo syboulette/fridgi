@@ -8,6 +8,8 @@ class ListsController < ApplicationController
 
   def show
     authorize @list
+    @list_ingredients = @list.list_ingredients
+    @new_ingredient = Ingredient.new
   end
 
   def new
