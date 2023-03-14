@@ -5,7 +5,7 @@
         <h6 class="line-text list_ingredient-name"><em><%= list_ingredient.name %></em></h6>
         <p class="line-text list-quantity"><%= list_ingredient.quantity %></p>
         <p class="line-text list-extract">Created on <%= list.created_at.strftime("%d %b %Y") %></p>
-        <p><%= link_to "open my list", list_path(list), class: "btn btn-info btn-sm "%></p>
+        <p><%= link_to "add ingredient", list_path(list), class: "btn btn-info btn-sm "%></p>
       </div>
     <% end %>
   </div>
