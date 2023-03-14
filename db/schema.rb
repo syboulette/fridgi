@@ -139,8 +139,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
     t.integer "difficulty"
     t.string "utensil"
     t.string "title"
-    t.time "cooking_time"
-    t.time "total_time"
+    t.integer "cooking_time"
+    t.integer "total_time"
     t.integer "serving"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
