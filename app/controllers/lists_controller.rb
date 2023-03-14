@@ -31,10 +31,9 @@ class ListsController < ApplicationController
 
   def destroy
     authorize @list
-
     @list.destroy
     redirect_to lists_path, status: :see_other, notice: "The list has been deleted!"
-  end
+    end
 
   def edit
     authorize @list

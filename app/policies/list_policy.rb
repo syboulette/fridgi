@@ -14,7 +14,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    true
   end
 
   def edit?
