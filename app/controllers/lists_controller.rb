@@ -8,7 +8,6 @@ class ListsController < ApplicationController
 
   def show
     authorize @list
-    @list_ingredients = @list.list_ingredients
   end
 
   def new
@@ -55,6 +54,6 @@ class ListsController < ApplicationController
   end
 
   def set_list
-    @list = List.find_by(user: current_user)
+    @list = List.find_by(id: params[:id])
   end
 end

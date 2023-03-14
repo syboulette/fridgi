@@ -1,12 +1,10 @@
-<%= simple_form_for @lists do |f| %>
-    <%= f.simple_fields_for :ingredients do |w| %>
-      <%= w.input :name, as: :text %>
+<%= simple_form_for list_ingredients do |f| %>
+  <%= f.association :ingredients do |w| %>
+    <%= w.input :name, as: :text %>
     <% end %>
-    <%= f.simple_fields_for :list_ingredients do |b| %>
-      <%= b.input :quantity, as: :integer %>
-      <%= b.input :quantity, as: :text %>
-    <% end %>
+  <%= f.input :quantity, label: "Quantity" %>
+  <%= f.input :unit, label: "Unit" %>
   <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-     add ingredient
+    add ingredient
   <% end %>
 <% end %>

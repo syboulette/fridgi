@@ -110,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit"
     t.index ["ingredient_id"], name: "index_list_ingredients_on_ingredient_id"
     t.index ["list_id"], name: "index_list_ingredients_on_list_id"
   end
@@ -133,13 +134,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer "prep_time"
+    t.time "prep_time"
     t.string "instruction"
     t.integer "difficulty"
     t.string "utensil"
     t.string "title"
-    t.integer "cooking_time"
-    t.integer "total_time"
+    t.time "cooking_time"
+    t.time "total_time"
     t.integer "serving"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

@@ -1,12 +1,19 @@
 <h1>List 1</h1>
-<div class="ingredient-list">
-  <% @list_ingredients.each do |list_ingredient| %>
+<div class="list">
+  <% if @list_has_list_ingredients %>
+    <% @list_ingredients.each do |list_ingredient| %>
       <div class="line">
-        <h6 class="line-text list_ingredient-name"><em><%= list_ingredient.name %></em></h6>
-        <p class="line-text list-quantity"><%= list_ingredient.quantity %></p>
-        <p class="line-text list-extract">Created on <%= list.created_at.strftime("%d %b %Y") %></p>
+        <h6 class="line-text ingredient-name"><em><%= @list_ingredient.name %></em></h6>
+        <h6 class="line-text ingredient-quantity"><em><%= @list_ingredient.quantity %></em></h6>
+        <h6 class="line-text list_unit"><em><%= @list_ingredient.unit %></em></h6>
+        <div class="inner-flex">
+          <%= button_to "Delete", list_ingredient, method: :delete, class:"btn btn-danger" %>
+        </div>
       </div>
     <% end %>
-  </div>
-  <%= render 'lists/edit_list_ingredient_form'%>
-<p><%= link_to "edit my list", edit_list_path, class: "btn btn-info btn-sm "%></p>
+  <% else %>
+    <h6>Oups! your list is empty...</h6>
+  <% end %>
+</div>
+<%= render "list_ingredients/form" %> 
+
