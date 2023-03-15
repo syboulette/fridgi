@@ -10,11 +10,11 @@ class ListPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user
   end
 
   def show?
-    true
+    user
   end
 
   def edit?
@@ -22,11 +22,11 @@ class ListPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    user
   end
 
   def destroy?
-    true
+    user
   end
 end
 
