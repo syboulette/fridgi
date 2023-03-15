@@ -1,0 +1,8 @@
+<h1>Edit <%=list_ingredient.ingredient.name%> / <%=list_ingredient.quantity%> / <%=list_ingredient.unit%></h1>
+<%= simple_form_for @new_list_ingredient do |f| %>
+  <%= f.input :list, as: :hidden, input_html: {value: @list.id} %>
+  <%= f.input :name, input_html: {value: list_ingredient.ingredient.name} %> 
+  <%= f.input :quantity, input_html: {value: list_ingredient.quantity} %>
+  <%= f.input :unit, input_html: {value: list_ingredient.unit} %>
+  <%= f.button :submit %>
+<% end %>
