@@ -31,9 +31,14 @@ end
 #############################################
 # User
 #############################################
-<<<<<<< HEAD
+puts 'creating users...'
 
-
-puts "#{user.first_name} #{user.last_name} added to the users"
-=======
->>>>>>> e745923b2ee6a9af8e80534bb19a884c240468e6
+20.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,      #=> "Kaci"
+    last_name: Faker::Name.last_name,        #=> "Ernser"
+    email: Faker::Internet.email(domain: 'example'), #=> "alice@example.name"
+    password: Faker::Internet.password(min_length: 6)
+  )
+end
+puts 'Finished seeding users!'

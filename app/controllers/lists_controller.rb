@@ -9,24 +9,22 @@ class ListsController < ApplicationController
   def show
     authorize @list
     @list_ingredients = @list.list_ingredients
+    @new_ingredient = Ingredient.new
   end
 
   def new
     @list = List.new
-    @fridge_ingredients = FridgeIngredient.find(params[:fridge_ingredients_id])
     authorize @list
   end
 
   def create
     @list = List.new(list_params)
     @list.user = current_user
-    @fridge_ingredients = FridgeIngredient.find(params[:fridge_ingredient_id])
-    @list.fridge_ingredient = @fridge_ingredient
 
     authorize @list
 
-    if @list.save!
-      redirect_to list_path(@list)
+    if @list.save
+      redirect_to lists_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,12 +33,29 @@ class ListsController < ApplicationController
   def destroy
     authorize @list
     @list.destroy
-    redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
+    redirect_to lists_path, status: :see_other, notice: "The list has been deleted!"
+    end
+
+  def edit
+    authorize @list
+  end
+
+  def update
+    authorize @list
+    if @list.update(list_params)
+      redirect_to list_path(@list)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
+  def list_params
+    params.require(:list).permit(:name, :list_ingredients)
+  end
+
   def set_list
-    @list = List.find_by(user: current_user)
+    @list = List.find_by(id: params[:id])
   end
 end

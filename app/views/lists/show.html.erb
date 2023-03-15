@@ -1,1 +1,19 @@
 <h1>List 1</h1>
+<div class="list">
+  <% if @list_ingredients.any? %>
+    <% @list_ingredients.each do |list_ingredient| %>
+      <div class="line">
+        <h6 class="line-text ingredient-name"><em><%= list_ingredient.ingredient.name %></em></h6>
+        <h6 class="line-text ingredient-quantity"><em><%= list_ingredient.quantity %></em></h6>
+        <h6 class="line-text list_unit"><em><%= list_ingredient.unit %></em></h6>
+        <div class="inner-flex">
+          <%= button_to "Delete", list_ingredient_path(list_ingredient), method: :delete, class:"btn btn-danger" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h6>Oups! your list is empty...</h6>
+  <% end %>
+</div>
+<%= render "list_ingredients/add_ingredient_form" %>
+
