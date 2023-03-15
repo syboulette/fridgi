@@ -32,7 +32,7 @@ class ListIngredientsController < ApplicationController
     authorize @list_ingredient
     @list_ingredient.destroy
     redirect_to list_path(@list_ingredient.list), status: :see_other, notice: "The ingredient has been deleted!"
-    end
+  end
 
   def edit
     authorize @list_ingredient
