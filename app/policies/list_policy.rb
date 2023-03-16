@@ -4,16 +4,17 @@ class ListPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def new?
     create?
   end
 
   def create?
-    record.user == user
+    user
   end
 
   def show?
-    record.user == user
+    user
   end
 
   def edit?
@@ -21,11 +22,11 @@ class ListPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    user
   end
 
   def destroy?
-    record.user == user
+    user
   end
 end
 
