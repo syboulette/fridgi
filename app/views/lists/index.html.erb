@@ -6,7 +6,6 @@
     <div class="card">
       <h6 class="card-text list-title"><em><%= list.name %></em></h6>
       <div class="inner-flex">
-        <%= link_to "Edit", edit_list_path(list), class:"buttons btn btn-warning"%>
         <%= button_to "Delete", list, method: :delete, class:"btn btn-danger" %>
       </div>
       <p class="card-text list-extract">You have <%= list.list_ingredients.count %> ingredients in this list</p>

@@ -8,4 +8,13 @@ class ListIngredientPolicy < ApplicationPolicy
   def destroy?
     user
   end
+  def edit?
+    update?
+  end
+  def create?
+    user
+  end
+  def update?
+    user
+  end
 end

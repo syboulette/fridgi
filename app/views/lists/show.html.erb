@@ -8,6 +8,7 @@
         <h6 class="line-text list_unit"><em><%= list_ingredient.unit %></em></h6>
         <div class="inner-flex">
           <%= button_to "Delete", list_ingredient_path(list_ingredient), method: :delete, class:"btn btn-danger" %>
+          <%= link_to "Edit ingredient", edit_list_list_ingredient_path(list_ingredient.list), class: "btn btn-info btn-sm"%>
         </div>
       </div>
     <% end %>
@@ -15,5 +16,4 @@
     <h6>Oups! your list is empty...</h6>
   <% end %>
 </div>
-<%= render "list_ingredients/add_ingredient_form" %>
-
+<%= render "list_ingredients/add_ingredient_form", edit: false %>
