@@ -10,21 +10,17 @@ class ListIngredientsController < ApplicationController
     authorize @list_ingredient
   end
 
-  def new
-    @list_ingredient = ListIngredients.new
-    authorize @list_ingredient
-  end
-
   def create
-    @list_ingredient = ListIngredients.new(list_ingredient_params)
-    @list_ingredient.user = current_user
-
+    @list_ingredient = ListIngredient.new(list_ingredient_params)
+    @ingredient = Ingredient.new(ingredient_params)
+    @list_ingredient.list = List.find(params[:list_id])
+    @list_ingredient.ingredient = @ingredient
+    authorize @ingredient
     authorize @list_ingredient
-
-    if @list_ingredient.save
-      redirect_to list_ingredients_path
+    if @ingredient.save! && @list_ingredient.save!
+      redirect_to list_path(@list_ingredient.list)
     else
-      render :new, status: :unprocessable_entity
+      render "lists/show", status: :unprocessable_entity
     end
   end
 
@@ -35,22 +31,29 @@ class ListIngredientsController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:list_id])
     authorize @list_ingredient
   end
 
   def update
+    @ingredient = @list_ingredient.ingredient
     authorize @list_ingredient
-    if @list_ingredient.update(list_ingredient_params)
-      redirect_to list_ingredient_path(@list_ingredient)
+
+    if @list_ingredient.update!(list_ingredient_params) && @ingredient.update!(ingredient_params)
+      redirect_to list_path(@list_ingredient.list)
     else
-      render :new, status: :unprocessable_entity
+      render "lists/show", status: :unprocessable_entity
     end
   end
 
   private
 
   def list_ingredient_params
-    params.require(:ingredient_id, :list_id, :quantity, :unit).permit(:quantity, :unit, :ingredient_id, :list_id)
+    params.require(:list_ingredient).permit(:quantity, :unit)
+  end
+
+  def ingredient_params
+    params.require(:list_ingredient).permit(:name)
   end
 
   def set_list_ingredient
