@@ -1,9 +1,15 @@
 .navbar-lewagon {
-  display: flex;
-  justify-content: space-between;
+  position: sticky;
+  left: 0 ; right: 0; top: 0; 
+  flex-shrink: 0;
+  margin-top: auto;
   background: $primary;
-  padding-left: 50px;
-  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  border-color: black;
+  border: 1px;
 }
 
 .navbar-lewagon .navbar-collapse {

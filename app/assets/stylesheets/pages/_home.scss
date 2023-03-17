@@ -1,24 +1,19 @@
 /* Add some content at the bottom of the video/page */
-.page {
-  top: 80px;
-  padding: 0;
-  margin: 0;
-}
 
 .header {
-  position: relative;
-  padding: 0;
-  margin: 0;
+  position: fixed;
+  height: 100%;
 }
 
 #myVideo {
-  min-width: 100%;
+  min-height: 100%;
+  align-self: start;
+  top: 0;
 }
 
 .content {
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
+  background: $video-filtre;
+  color: $primary;
   position: absolute;
   top: 0;
   width: 100%;
@@ -26,22 +21,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 80px;
 }
 .content-text {
   text-align: center;
-}
-/* Style the button used to pause/play the video */
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
+  font-size: 120px;
 }
 
-#myBtn:hover {
-  background: #ddd;
-  color: black;
+.btn {
+  padding: 10px 20px;
+  background-color: $primary;
+  color: $light-gray;
+}
+.btn:hover{
+  padding: 10px 20px;
+  background-color: $light-gray;
+  color: $primary;
 }
