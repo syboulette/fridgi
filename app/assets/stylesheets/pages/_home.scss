@@ -1,29 +1,47 @@
-// Specific CSS for your home-page
-.center-box {
-  width: 1000px;
-  height: 500px;
-  background-color: white;
-  margin: auto;
-  margin-top: 50px;
+/* Add some content at the bottom of the video/page */
+.page {
+  top: 80px;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+#myVideo {
+  min-width: 100%;
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.content-text {
   text-align: center;
-  padding: 30px;
-  border-radius: 4px;
-  box-shadow: 0 10px 10px rgba(0,0,0,.1);
+}
+/* Style the button used to pause/play the video */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
 }
 
-.btn {
-  display: block;
-  width: 150px;
-  height: 50px;
-  margin: auto;
-  margin-top: 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
+#myBtn:hover {
+  background: #ddd;
+  color: black;
 }
