@@ -1,2 +1,19 @@
-<h1> This is where you create a new recipe </h1>
-<%= render "lists/new_list_form" %>
+<h1>My new Recipe</h1>
+
+<%= simple_form_for(@recipe) do |f| %>
+  <%= f.simple_fields_for [@recipe, @recipe_ingredient] do |p| %>
+    <%= f.input :name, input_html: {value: @recipe_ingredient.ingredient.name} %> 
+    <%= f.input :quantity %>
+    <%= f.input :unit %>
+    <%= f.button :submit %>
+  <% end %>
+  <%= f.input :prep_time %>
+  <%= f.input :instruction %>
+  <%= f.input :difficulty %>
+  <%= f.input :utensil %>
+  <%= f.input :title %>
+  <%= f.input :cooking_time %>
+  <%= f.input :total_time %>
+  <%= f.input :serving %>
+  <%= f.button :submit %>
+<% end %>
