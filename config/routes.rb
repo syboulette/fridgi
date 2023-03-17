@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :recipes, only: [:new, :create, :destroy, :index, :show] do
-    collection do
-      get :my_recipes
-    end
+  resources :recipes do
+    resources :recipe_ingredients  
+  end 
+
     resources :reviews, only: [:new, :create, :destroy, :edit]
   end
   resources :favorite_recipes, only: [:new, :create, :edit, :index]

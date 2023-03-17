@@ -1,10 +1,22 @@
-<h1><%= @recipe.title %></h1>
-<h1><%= @recipe.prep_time %></h1>
-<h1><%= @recipe.cooking_time %></h1>
-<h1><%= @recipe.total_time %></h1>
-<h1><%= @recipe.difficulty %></h1>
-<h1><%= @recipe.utensil %></h1>
-<h1><%= @recipe.instruction %></h1>
-
-
-<%# Still just the raw basics, have to add dietary requirements, ingredients, frontend, buttons to redirect%>
+<h1><%=@recipe.name%></h1>
+<div class="recipe">
+  <% @recipes.each do |recipe| %>
+    <div class="line">
+      <%recipe.rating%>
+      <%recipe.prep_time%>
+      <%recipe.cooking_time%>
+      <%recipe.total_time%>
+      <%= @recipe_ingredients.each do |r| %>
+        <%r.ingredient.name%>
+        <%r.quantity%>
+        <%r.unit%>
+      <%end%>
+      <%recipe.description%>
+      <%recipe.review.comment%>
+    <%end%>
+    <%= button_to "Delete", recipe_path(recipe), method: :delete, class:"btn btn-danger" %>
+    <%= link_to "Edit Recipe", "/recipes/#{recipe.recipe_id}", class: "btn btn-info btn-sm"%>
+  </div>
+</div>
+</div>
+<%= render "recipe_ingredients/add_ingredient_form", edit: false %>

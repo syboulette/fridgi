@@ -1,5 +1,5 @@
 <%= simple_form_for [@fridge, @fridge_ingredient] do |f| %>
-  <%= f.input :name, collection: Ingredient.all,  input_html: (edit ? {value: @ingredient.name} : {value: ""}) %> 
+  <%= f.input :name, collection: @ingredients, input_html: (edit ? {value: @fridge_ingredient.ingredient.name} : {value: ""}) %> 
   <%= f.input :quantity %>
   <%= f.input :unit %>
   <%= f.button :submit, (edit ? "Save" : "+ Ingredient")%>

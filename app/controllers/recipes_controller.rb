@@ -1,15 +1,16 @@
 class RecipesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipe = policy_scope(Recipe).all
+    @recipes = policy_scope(Recipe).all
+  end
 
-    if params[:query].present?
-      @recipe = Recipe.Recipe_search(params[:query])
-    else
-      @recipe = Recipe.all
-    end
+  def show
+    authorize @recipe
+    @recipe_ingredients = @recipe.recipe_ingredients
+    @recipe_ingredient = RecipeIngredient.new
+
   end
 
   def new
@@ -24,30 +25,38 @@ class RecipesController < ApplicationController
     authorize @recipe
 
     if @recipe.save
+      redirect_to recipes_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    authorize @recipe
+    @recipe.destroy
+    redirect_to recipes_path, status: :see_other, notice: "The recipe has been deleted!"
+    end
+
+  def edit
+    authorize @recipe
+  end
+
+  def update
+    authorize @recipe
+    if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def show
-    authorize @recipe
-  end
-
-  def destroy
-    authorize @recipe
-
-    @recipe.destroy
-    redirect_to root_path, status: :see_other, notice: "The recipe has been deleted!"
-  end
-
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :instruction, :total_time, :serving, :recipe_ingredients)
+    params.require(:recipe).permit(:prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving)
   end
 
   def set_recipe
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
   end
 end
