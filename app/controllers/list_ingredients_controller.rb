@@ -2,10 +2,6 @@ class ListIngredientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_list_ingredient, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @list_ingredients = policy_scope(ListIngredients_Ingredient).all
-  end
-
   def show
     authorize @list_ingredient
   end

@@ -1,9 +1,19 @@
-<%= @fridge.name %>
-<ul>
-  <% @fridge_ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
-    <li><%= ingredient.expiry_date %></li>
-    <li><%= ingredient.nutriscore %></li>
+<h1><%=@fridge.name%></h1>
+<div class="fridge">
+  <% if @fridge_ingredients.any? %>
+    <% @fridge_ingredients.each do |fridge_ingredient| %>
+      <div class="line">
+        <h6 class="line-text ingredient-name"><em><%= fridge_ingredient.ingredient.name %></em></h6>
+        <h6 class="line-text ingredient-quantity"><em><%= fridge_ingredient.quantity %></em></h6>
+        <h6 class="line-text fridge_unit"><em><%= fridge_ingredient.unit %></em></h6>
+        <div class="inner-flex">
+          <%= button_to "Delete", fridge_ingredient_path(fridge_ingredient), method: :delete, class:"btn btn-danger" %>
+          <%= link_to "Edit ingredient", "/fridges/#{fridge_ingredient.fridge_id}/fridge_ingredients/#{fridge_ingredient.id}/edit", class: "btn btn-info btn-sm"%>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h6>Oups! your fridge is empty...</h6>
   <% end %>
-</ul>
-
+</div>
+<%= render "fridge_ingredients/add_ingredient_form", edit: false %>

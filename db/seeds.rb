@@ -21,7 +21,7 @@ CSV.foreach(filepath, headers: :first_row) do |row|
   # API search here for nutrient score
   # save nutriscore to a variable like score
   # You might need a condition to not create an Ingredient without a nutriscore, unless a nutriscore is not required
-  Ingredient.create!(name: row['ingredient']) #nutriscore: score
+  Ingredient.create!(name: row['ingredient']) # nutriscore: score
 end
 
 #############################################
