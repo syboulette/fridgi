@@ -1,19 +1,30 @@
 <h1>My new Recipe</h1>
-
-<%= simple_form_for(@recipe) do |f| %>
-  <%= f.simple_fields_for [@recipe, @recipe_ingredient] do |p| %>
-    <%= f.input :name, input_html: {value: @recipe_ingredient.ingredient.name} %> 
-    <%= f.input :quantity %>
-    <%= f.input :unit %>
-    <%= f.button :submit %>
+<div class="recipe_ingredient">
+  <% if @recipe.recipe_ingredients.any? %>
+    <% @recipe_ingredients.each do |recipe_ingredient| %>
+      <div class="line">
+        <h6 <em><%= recipe_ingredient.ingredient.name %></em></h6>
+        <h6 <em><%= recipe_ingredient.quantity %></em></h6>
+        <h6 <em><%= recipe_ingredient.unit %></em></h6>
+        <div class="icon">
+          <%= link_to image_tag("edit.svg"), "/recipes/#{recipe_ingredient.recipe_id}/recipe_ingredients/#{recipe_ingredient.id}/edit" %>
+          <%= link_to image_tag("bin.svg"), recipe_ingredient_path(recipe_ingredient), method: :delete %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h6>Oups! your recipe is empty...</h6>
   <% end %>
-  <%= f.input :prep_time %>
-  <%= f.input :instruction %>
-  <%= f.input :difficulty %>
-  <%= f.input :utensil %>
+</div>
+<%= render "recipe_ingredients/add_ingredient_form", edit: false %>
+
+
+<%= simple_form_for @recipe do |f| %>
   <%= f.input :title %>
-  <%= f.input :cooking_time %>
-  <%= f.input :total_time %>
-  <%= f.input :serving %>
-  <%= f.button :submit %>
-<% end %>
+  <%= f.input :instruction%>
+  <%= f.input :total_time%>
+  <%= f.input :prep_time%>
+  <%= f.input :serving%>
+  <%= f.button :submit%>
+
+<%end%>

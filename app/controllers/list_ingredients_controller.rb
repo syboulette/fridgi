@@ -42,9 +42,26 @@ class ListIngredientsController < ApplicationController
     end
   end
 
+  def bulk_update
+    @selected_list_ingredients = ListIngredient.where(id: params.fetch(:ids, []).compact)
+    @fridge_ingredient = FridgeIngredient.new(@selected_list_ingredient_params)
+    authorize @list_ingredient
+    authorize @fridge_ingredient
+    if @fridge_ingredient.save!
+      @selected_list_ingredient.destroy
+    else
+      redirect_to list_path(@list_ingredient.list)
+    end
+    flash[:notice] = "#{@selected_list_ingredients.count} list_ingredients marked as #{params[:commit]}"
+    redirect_to list_path(@list_ingredient.list)
+  end
+
   private
 
   def list_ingredient_params
+    params.require(:list_ingredient).permit(:quantity, :unit)
+  end
+  def selected_list_ingredient_params
     params.require(:list_ingredient).permit(:quantity, :unit)
   end
 
@@ -52,7 +69,11 @@ class ListIngredientsController < ApplicationController
     params.require(:list_ingredient).permit(:name)
   end
 
+  def set_selected_list_ingredients
+    @selected_list_ingredients = ListIngredient.where(id: params.fetch(:ids, []).compact)
+  end
+
   def set_list_ingredient
-    @list_ingredient = ListIngredient.find_by(id: params[:id])
+    @list_ingredient = ListIngredient.find(params[:id])
   end
 end

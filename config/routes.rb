@@ -8,14 +8,18 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :recipes do
-    resources :recipe_ingredients  
-    resources :reviews, only: [:new, :create, :destroy, :edit]
-  end 
-
+    resources :recipe_ingredients, only: [:edit, :update]
+  end
+  resources :recipe_ingredients, only: [:new, :create, :destroy]
   resources :favorite_recipes, only: [:new, :create, :edit, :index]
 
   resources :lists do
-    resources :list_ingredients, only: [:new, :create, :edit, :update]  
+    resources :list_ingredients, only: [:new, :create, :edit, :update] do  
+      collection do
+        patch :bulk_update
+        put :bulk_update
+      end
+    end
   end 
   resources :list_ingredients, only: [:destroy]
 

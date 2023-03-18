@@ -1,0 +1,19 @@
+<%=simple_form_for :recipe_ingredients do |ci|%>
+  <div class="recipe_ingredient_fields">
+    <div class="col">
+      <%= ci.label :quantity %>
+      <%= ci.number_field :quantity %><br>
+    </div>
+    <div class="col">
+      <%= ci.label :unit %>
+      <%= ci.text_field :unit %><br>
+    </div>
+    <%= ci.simple_fields_for :ingredient do |i|%>
+      <div class="col">
+        <%= i.label :name, "Ingredient name" %>
+        <%= i.text_field :name %><br>
+      </div>
+    <%end%>
+  <%= ci.submit "add ingredient", class: "btn btn-primary"%>
+  </div>
+<%end%>

@@ -5,6 +5,11 @@ class ListIngredientPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def bulk_update?
+    true
+  end
+
   def destroy?
     user
   end

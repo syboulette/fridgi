@@ -1,19 +1,6 @@
-<h1><%=list.name%></h1>
-<div class="list">
-  <% if @list_ingredients.any? %>
-    <% @list_ingredients.each do |list_ingredient| %>
-      <div class="line">
-        <h6 class="line-text ingredient-name"><em><%= list_ingredient.ingredient.name %></em></h6>
-        <h6 class="line-text ingredient-quantity"><em><%= list_ingredient.quantity %></em></h6>
-        <h6 class="line-text list_unit"><em><%= list_ingredient.unit %></em></h6>
-        <div class="inner-flex">
-          <%= button_to "Delete", list_ingredient_path(list_ingredient), method: :delete, class:"btn btn-danger" %>
-          <%= link_to "Edit ingredient", "/lists/#{list_ingredient.list_id}/list_ingredients/#{list_ingredient.id}/edit", class: "btn btn-info btn-sm"%>
-        </div>
-      </div>
-    <% end %>
-  <% else %>
-    <h6>Oups! your list is empty...</h6>
-  <% end %>
-</div>
+<h1><%=@list.name%></h1>
+<%= form_with url: bulk_update_list_list_ingredients_path(@list), method: :patch, id: :bulk_actions_form do |form| %>
+  <%= form.submit "Bought!" %>
+<% end %>
+<%= render partial: "list_ingredients", collection: @list_ingredients %>
 <%= render "list_ingredients/add_ingredient_form", edit: false %>

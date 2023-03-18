@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "bootstrap", "~> 5.0"
+
+gem "bootstrap_form", "~> 5.1"
+
+gem 'link_to_add_fields'
+
 gem "faker"
 
 gem "pundit"
