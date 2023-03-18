@@ -1,0 +1,8 @@
+<%=simple_form_for @recipe_ingredient, recipe_ingredients_path  do |ci|%>
+  <%= ci.input :quantity %>
+  <%= ci.input :unit %>
+  <%= ci.simple_fields_for :ingredient do |i|%>
+    <%= i.input :name %>
+  <%end%>
+  <%= ci.submit "add ingredient", class: "btn btn-primary"%>
+<%end%>

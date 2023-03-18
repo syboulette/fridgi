@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem "bootstrap", "~> 5.0"
+
+gem "bootstrap_form", "~> 5.1"
+
+gem 'link_to_add_fields'
+
 gem "faker"
 
 gem "pundit"
@@ -58,7 +64,7 @@ gem "sassc-rails"
 
 gem "devise"
 gem "autoprefixer-rails"
-gem "font-awesome-sass", "~> 6.1"
+gem "font-awesome-sass", "~> 6.3.0"
 gem "simple_form", github: "heartcombo/simple_form"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

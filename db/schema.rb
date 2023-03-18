@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_18_093125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit"
     t.index ["fridge_id"], name: "index_fridge_ingredients_on_fridge_id"
     t.index ["ingredient_id"], name: "index_fridge_ingredients_on_ingredient_id"
   end
@@ -111,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unit"
+    t.boolean "bought", default: false
     t.index ["ingredient_id"], name: "index_list_ingredients_on_ingredient_id"
     t.index ["list_id"], name: "index_list_ingredients_on_list_id"
   end
@@ -129,6 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_121356) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit"
     t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
     t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
