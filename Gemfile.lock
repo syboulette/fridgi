@@ -87,9 +87,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
-    bootstrap_form (5.1.0)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -143,8 +140,6 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
-    link_to_add_fields (0.1.0)
-      rails (>= 3.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -292,7 +287,6 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.0)
-  bootstrap_form (~> 5.1)
   capybara
   cloudinary
   debug
@@ -302,7 +296,6 @@ DEPENDENCIES
   font-awesome-sass (~> 6.3.0)
   jbuilder
   jsbundling-rails
-  link_to_add_fields
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
