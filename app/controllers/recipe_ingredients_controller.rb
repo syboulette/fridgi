@@ -18,7 +18,7 @@ class RecipeIngredientsController < ApplicationController
     authorize @ingredient
     authorize @recipe_ingredient
     if @ingredient.save! && @recipe_ingredient.save!
-      notice: "The ingredient has been created!"
+      redirect_to recipe_path(@recipe_ingredient.recipe), notice: "The ingredient has been created!"
     else
       render "recipes/show", status: :unprocessable_entity
     end
