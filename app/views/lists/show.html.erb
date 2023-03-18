@@ -2,6 +2,26 @@
 <%#= form_tag url: list_ingredient_bulk_update_path(@list_ingredients), method: :patch do %>
   <%# <%= check_box_tag :bought %>
   <%#= submit_tag "bought" %>
-<%# end %>
-<%= render partial: "list_ingredients/list_ingredients", collection: @list_ingredients %>
+  <%# end %>
+
+    <% if @list_ingredients.any? %>
+      <div class="list">
+      <% @list_ingredients.each do |list_ingredient| %>
+        <div class="line">
+          <%#= check_box_tag "bought", list_ingredient.id, nil, { multiple: true, form: :bulk_actions_form } %>
+          <h6 <em><%= list_ingredient.ingredient.name %></em></h6>
+          <h6 <em><%= list_ingredient.quantity %></em></h6>
+          <h6 <em><%= list_ingredient.unit %></em></h6>
+          <div class="icon">
+            <%= link_to image_tag("edit.svg"), "/lists/#{list_ingredient.list_id}/list_ingredients/#{list_ingredient.id}/edit" %>
+            <%= link_to image_tag("bin.svg"), "/list_ingredients/#{list_ingredient.id}", method: :delete, data: { confirm: "Are you sure?" }  %>
+          </div>
+        </div>
+      <% end %>
+<% else %>
+  <h6>Oups! your list is empty...</h6>
+<% end %>
+</div>
 <%= render "list_ingredients/add_ingredient_form", edit: false %>
+<%#= render partial: "list_ingredients/list_ingredients", collection: @list_ingredients %>
+

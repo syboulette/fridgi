@@ -1,4 +1,4 @@
-<%=simple_form_for @recipe_ingredient, recipe_ingredients_path  do |ci|%>
+<%=simple_form_for @recipe_ingredient do |ci|%>
   <%= ci.input :quantity %>
   <%= ci.input :unit %>
   <%= ci.simple_fields_for :ingredient do |i|%>
