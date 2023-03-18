@@ -10,12 +10,10 @@ class RecipesController < ApplicationController
     authorize @recipe
     @recipe_ingredients = @recipe.recipe_ingredients
     @recipe_ingredient = RecipeIngredient.new
-
   end
 
   def new
     @recipe = Recipe.new
-    @recipe_ingredient = RecipeIngredient.new
     authorize @recipe
   end
 
@@ -26,7 +24,7 @@ class RecipesController < ApplicationController
     authorize @recipe
 
     if @recipe.save
-      redirect_to  new_recipe_recipe_ingredient_path(@recipe)
+      redirect_to recipe_path(@recipe)
     else
       render :new, status: :unprocessable_entity
     end
@@ -55,7 +53,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_ingredients, :prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving, recipes_ingredients_attributes: [:ingredient_id, :quantity ])
+    params.require(:recipe).permit(:prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving, recipe_ingredients_attributes: [:ingredient_id, :quantity ])
   end
 
   def set_recipe

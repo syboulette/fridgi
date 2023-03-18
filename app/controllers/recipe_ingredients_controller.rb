@@ -15,10 +15,13 @@ class RecipeIngredientsController < ApplicationController
     @ingredient = Ingredient.new(ingredient_params)
     @recipe_ingredient.recipe = Recipe.find(params[:recipe_id])
     @recipe_ingredient.ingredient = @ingredient
+
     authorize @ingredient
+
     authorize @recipe_ingredient
+
     if @ingredient.save! && @recipe_ingredient.save!
-      redirect_to recipe_path(@recipe_ingredient.recipe), notice: "The ingredient has been created!"
+      redirect_to recipe_path(@recipe_ingredient.recipe)
     else
       render "recipes/show", status: :unprocessable_entity
     end

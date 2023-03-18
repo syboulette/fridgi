@@ -14,6 +14,7 @@
   <%= f.simple_fields_for :ingredients do |fi| %>
     <%= fi.input :ingredient_id, collection: Ingredient.all, label_method: :name, label_value: :id, include_hidden: false %>
     <%= fi.input :quantity %>
+    <%= f.submit "Add" %>
   <% end %>
-  <%= f.submit "Add Ingredients" %>
+  <%= f.submit "Done!" %>
 <% end %>
