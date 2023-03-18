@@ -1,6 +1,7 @@
 <h1><%=@list.name%></h1>
-<%= form_with url: bulk_update_list_list_ingredients_path(@list), method: :patch, id: :bulk_actions_form do |form| %>
-  <%= form.submit "Bought!" %>
-<% end %>
-<%= render partial: "list_ingredients", collection: @list_ingredients %>
+<%#= form_tag url: list_ingredient_bulk_update_path(@list_ingredients), method: :patch do %>
+  <%# <%= check_box_tag :bought %>
+  <%#= submit_tag "bought" %>
+<%# end %>
+<%= render partial: "list_ingredients/list_ingredients", collection: @list_ingredients %>
 <%= render "list_ingredients/add_ingredient_form", edit: false %>

@@ -7,7 +7,7 @@ class ListIngredientPolicy < ApplicationPolicy
   end
 
   def bulk_update?
-    true
+    user
   end
 
   def destroy?

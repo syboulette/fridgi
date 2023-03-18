@@ -1,9 +1,10 @@
 class ListIngredientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list_ingredient, only: [:show, :edit, :update, :destroy]
+  before_action :set_list_ingredient, only: [:show, :edit, :update, :destroy, :bulk_update]
 
   def show
     authorize @list_ingredient
+    @fridge_ingredient = FridgeIngredient.new
   end
 
   def create
@@ -43,13 +44,14 @@ class ListIngredientsController < ApplicationController
   end
 
   def bulk_update
-    @selected_list_ingredients = ListIngredient.where(id: params.fetch(:ids, []).compact)
-    @fridge_ingredient = FridgeIngredient.new(@selected_list_ingredient_params)
+    @fridge_ingredient = FridgeIngredient.new
+    @selecteds = ListIngredient.where(bought: params[:bought])
     authorize @list_ingredient
     authorize @fridge_ingredient
-    if @fridge_ingredient.save!
-      @selected_list_ingredient.destroy
-    else
+    selecteds.each do |s|
+      @fridge_ingredient = FridgeIngredient.new(name: s.ingredient.name, quantity: s.quantity, unit: s.unit)
+      @fridge_ingredient.save!
+      s.destroy
       redirect_to list_path(@list_ingredient.list)
     end
     flash[:notice] = "#{@selected_list_ingredients.count} list_ingredients marked as #{params[:commit]}"
