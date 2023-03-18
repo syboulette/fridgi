@@ -3,6 +3,8 @@ class RecipeIngredientPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
+  
   def destroy?
     user
   end
