@@ -22,25 +22,22 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-    @recipe_ingredient = RecipeIngredient.new(recipe_ingredient_params)
-    @ingredient = Ingredient.new(ingredient_params)
-    @recipe_ingredient.recipe = Recipe.find(params[:recipe_id])
-    @recipe_ingredient.ingredient = @ingredient
-    authorize @ingredient
-    authorize @recipe_ingredient
-    if @recipe.save! && @ingredient.save! && @recipe_ingredient.save!
-      render "recipes/show"
-    else
-      render "recipes/show", status: :unprocessable_entity
-    end
+
     authorize @recipe
+
+    if @recipe.save
+      redirect_to  new_recipe_recipe_ingredient_path(@recipe)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
 
   def destroy
     authorize @recipe
     @recipe.destroy
     redirect_to recipes_path, status: :see_other, notice: "The recipe has been deleted!"
-    end
+  end
 
   def edit
     authorize @recipe
@@ -58,7 +55,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:recipe_ingredients, :prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving)
+    params.require(:recipe).permit(:recipe_ingredients, :prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving, recipes_ingredients_attributes: [:ingredient_id, :quantity ])
   end
 
   def set_recipe
