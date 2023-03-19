@@ -7,7 +7,7 @@
       <div class="Info">
         <h5>Prep Time</h5>
         <p><%= @recipe.prep_time %> minutes</p>
-        <h5>Cooking Time</h5> i>
+        <h5>Cooking Time</h5>
         <p><%= @recipe.cooking_time %> minutes</p>
         <h5>Total Time</h5>
         <p><%= @recipe.total_time %> minutes</p>
@@ -22,7 +22,7 @@
           <h5>Ingredients</h5>
             <ul>
               <% @recipe_ingredients.each do |ingredient| %>
-                <%= ingredient.ingredient.name  %> <%= ingredient.quantity %>
+                <%= ingredient.name %> <%= ingredient.quantity %>
                 <% end  %>
             </ul>
         </div>
