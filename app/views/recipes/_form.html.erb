@@ -1,4 +1,4 @@
-<%= simple_form_for @recipe do |f| %>
+<%= simple_form_for @recipe, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <%= f.input :title, label: "Recipe Title" %>
   <%= f.input :prep_time, placeholder: "in minutes" %>
   <%= f.input :cooking_time, label: "Cook Time", placeholder: "in minutes"  %>
@@ -11,10 +11,12 @@
   <%= f.input :instruction, as: :text, placeholder: "Describe each step of the recipe." %>
   <%#= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, include_hidden: false, item_label_class: "ps-1"  %>
   <%#= f.association :ingredients, label_method: :name, value_method: :id   %>
-  <%= f.simple_fields_for :ingredients do |fi| %>
-    <%= fi.input :ingredient_id, collection: Ingredient.all, label_method: :name, label_value: :id, include_hidden: false %>
-    <%= fi.input :quantity %>
-    <%= f.submit "Add" %>
-  <% end %>
+  <template data-nested-form-target="template">
+    <%= f.simple_fields_for :recipe_ingredients, RecipeIngredient.new, child_index: 'NEW_RECORD' do |ingredient_f| %>
+      <%= render "ingredient_form", f: ingredient_f %>
+    <% end %>
+  </template>
+  <div data-nested-form-target="target"></div>
+  <button type="button" data-action="nested-form#add">Add ingredient</button>
   <%= f.submit "Done!" %>
 <% end %>

@@ -14,13 +14,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.recipe_ingredients.build
     authorize @recipe
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-
     authorize @recipe
 
     if @recipe.save

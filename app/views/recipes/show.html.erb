@@ -21,8 +21,8 @@
         <div class="Ingredients">
           <h5>Ingredients</h5>
             <ul>
-              <% @recipe_ingredients.each do |ingredient| %>
-                <%= ingredient.name %> <%= ingredient.quantity %>
+              <% @recipe.ingredients.each do |ingredient| %>
+                <li><%= ingredient.name %> <%= ingredient.quantity %></li>
                 <% end  %>
             </ul>
         </div>
