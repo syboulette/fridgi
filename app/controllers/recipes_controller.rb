@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe).all
+    @favourite_recipe = FavouriteRecipe.new
   end
 
   def show

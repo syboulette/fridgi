@@ -1,0 +1,10 @@
+<div>
+  <%= current_user.favourite_recipes.each do |p| %>
+  <div class ="row hoverable posts-background">
+    <div class ="col s10">
+    <%= link_to "#{p.name}", favorite_recipes(p)%>
+    <p>Added on: <%=p.created_at.strftime("%b %d, %Y")%></p>
+    </div>
+</div>
+<% end %>
+</div>
