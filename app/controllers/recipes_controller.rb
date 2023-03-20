@@ -30,7 +30,6 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def destroy
     authorize @recipe
     @recipe.destroy
@@ -46,14 +45,15 @@ class RecipesController < ApplicationController
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
-      render :new, status: :unprocessable_entity
+      render :edit
     end
   end
+
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving, recipe_ingredients_attributes: [:ingredient_id, :quantity ])
+    params.require(:recipe).permit(:prep_time, :instruction, :difficulty, :utensil, :title, :cooking_time, :total_time, :serving, recipe_ingredients_attributes: [:ingredient_id, :quantity])
   end
 
   def set_recipe

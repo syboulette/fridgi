@@ -7,3 +7,8 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import { Application } from '@hotwired/stimulus'
+import NestedForm from 'stimulus-rails-nested-form'
+
+const application = Application.start()
+application.register('nested-form', NestedForm)

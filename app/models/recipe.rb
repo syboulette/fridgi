@@ -5,5 +5,5 @@ class Recipe < ApplicationRecord
   has_many :dietary_information_recipes
   accepts_nested_attributes_for :recipe_ingredients
 
-  validates_presence_of :title
+  validates_presence_of :title, :total_time, :instruction
 end
