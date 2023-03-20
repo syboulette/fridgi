@@ -4,7 +4,6 @@ class ListIngredientsController < ApplicationController
 
   def show
     authorize @list_ingredient
-    @fridge_ingredient = FridgeIngredient.new
   end
 
   def create
@@ -63,16 +62,12 @@ class ListIngredientsController < ApplicationController
   def list_ingredient_params
     params.require(:list_ingredient).permit(:quantity, :unit)
   end
-  def selected_list_ingredient_params
-    params.require(:list_ingredient).permit(:quantity, :unit)
-  end
 
   def ingredient_params
     params.require(:list_ingredient).permit(:name)
   end
-
-  def set_selected_list_ingredients
-    @selected_list_ingredients = ListIngredient.where(id: params.fetch(:ids, []).compact)
+  def list_params
+    params.require(:list_ingredient).permit(:name)
   end
 
   def set_list_ingredient

@@ -1,0 +1,86 @@
+.content-page {
+  display: flex;
+  align-items: center;
+}
+
+.fridge {
+  background-image: url("fridge.svg");
+  flex: 2;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-top: 9.5%;
+  justify-content: center;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 27%;
+}
+.inside-fridge {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.fridge-item {
+  background-image: url("brown_bag.svg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  min-height: 240px;
+  margin: 0 10px;
+  width: 135px;
+  text-align: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 90px;
+  margin-bottom: 20px;
+}
+.content_fridge {
+  align-items: center;
+}
+.fridge-icon {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-self: bottom;
+}
+.fridge-item img{
+  height: 32px;
+  color: $primary;
+  justify-content: space-between;
+  margin-right: 20px;
+  display: flex;
+}
+.fridge-units{
+  display: flex;
+  flex-direction: row;
+}
+.add_ingredient {
+  background-image: url("postit.svg");
+  flex: 1;
+  align-items: end;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 10px 50px;
+}
+form.simple_form.new_list_ingredient{
+  align-items: end;
+  justify-content: space-between;
+  border-radius: 20px;
+  margin: 10px 50px;
+  padding: 5px 10px;
+}
+.fridge-row {
+  border-bottom: 2px solid $light-gray;
+}

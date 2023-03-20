@@ -6,6 +6,7 @@ class FridgesController < ApplicationController
     authorize @fridge
     @fridge_ingredients = @fridge.fridge_ingredients
     @fridge_ingredient = FridgeIngredient.new
+    @ingredient = Ingredient.new
   end
 
   private

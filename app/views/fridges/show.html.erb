@@ -1,17 +1,31 @@
-<h1><%=@fridge.name%></h1>
-  <% if @fridge_ingredients.any? %>
-    <% @fridge_ingredients.each do |fridge_ingredient| %>
-  <div class="line">
-    <h6 <em><%= fridge_ingredient.ingredient.name %></em></h6>
-    <h6 <em><%= fridge_ingredient.quantity %></em></h6>
-    <h6 <em><%= fridge_ingredient.unit %></em></h6>
-    <div class="icon">
-      <%= link_to image_tag("edit.svg"), "/fridges/#{fridge_ingredient.fridge_id}/fridge_ingredients/#{fridge_ingredient.id}/edit" %>
-      <%= link_to image_tag("bin.svg"), fridge_ingredient_path(fridge_ingredient), method: :delete %>
+<h1 class="page_title"><%=@fridge.name%></h1>
+<p class="page_subtitle">There is nothing more important than a well made list. </p>
+<p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
+<div class="content-page">
+  <div class="fridge">
+    <div class="inside-fridge">
+      <% if @fridge_ingredients.any? %>
+        <%# <div class="fridge-row"> %>
+          <% @fridge_ingredients.each do |fridge_ingredient| %>
+            <div class="fridge-item">
+              <h6 class="content_fridge"><%= fridge_ingredient.ingredient.name %></em></h6>
+              <div class="fridge-units">
+                <h6 class="content_fridge"><%= fridge_ingredient.quantity %></em></h6>
+                <h6 class="content_fridge"><%= fridge_ingredient.unit %></em></h6>
+              </div>
+              <div class="fridge-icon">
+                <%= link_to image_tag("edit.svg"), edit_fridge_fridge_ingredient_path(@fridge) %>
+                <%= link_to image_tag("eat.svg"), fridge_ingredient_path(fridge_ingredient), data: {turbo_method: :delete, turbo_confirm: ""} %>
+              </div>
+            </div>
+          <% end %>
+        <%# </div> %>
+      <% else %>
+        <h6>Oups! your fridge is empty...</h6>
+      <% end %>
     </div>
   </div>
-  <% end %>
-  <% else %>
-    <h6>Oups! your fridge is empty...</h6>
-  <% end %>
+  <div class="add_ingredient">
   <%= render "fridge_ingredients/add_ingredient_form", edit: false %>
+  </div>
+</div>
