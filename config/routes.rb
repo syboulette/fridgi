@@ -9,9 +9,10 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :recipe_ingredients, only: [:edit, :update]
+    resources :favourite_recipes, only: [:create]
   end
   resources :recipe_ingredients, only: [:new, :create, :destroy]
-  resources :favourite_recipes, only: [:new, :create, :edit, :index]
+  resources :favourite_recipes, only: [:edit, :index, :destroy]
 
   resources :lists do
     resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy] do

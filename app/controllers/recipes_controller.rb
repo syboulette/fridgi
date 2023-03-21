@@ -4,14 +4,13 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe).all
-    @favourite_recipe = FavouriteRecipe.new
   end
 
   def show
     authorize @recipe
     @recipe_ingredients = @recipe.recipe_ingredients
     @recipe_ingredient = RecipeIngredient.new
-
+    @favourite_recipe = FavouriteRecipe.new
   end
 
   def new

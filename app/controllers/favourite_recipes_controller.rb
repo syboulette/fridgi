@@ -1,25 +1,29 @@
 class FavouriteRecipesController < ApplicationController
   before_action :authenticate_user!, only: :create
-  def create
-    @favourite_recipe = FavouriteRecipe.new(favourite_recipe_params)
-    @recipe = Recipe.find_by_id(params[:recipe_id])
-    @favourite_recipe.recipe = @recipe
-    @favourite_recipe.user = current_user
-    if favourite_recipe.save!
-      redirect_to favourite_recipes_path
-    else
-      redirect_to recipes_path
-    end
-    authorize @favourite_recipe
+
+  def index
+    @favourite_recipes = policy_scope(current_user.favourite_recipes)
   end
 
-  def new
-    @favourite_recipe = FavouriteRecipe.new
+  def create
+    @favourite_recipe = FavouriteRecipe.new(favourite_recipe_params)
+    @favourite_recipe.user = current_user
     authorize @favourite_recipe
+    if @favourite_recipe.save!
+      redirect_to recipe_path(Recipe.find(params[:recipe_id]))
+      flash[:notice] = "Recipe was saved"
+    else
+      redirect_to recipes_path
+      flash[:alert] = "Recipe not saved"
+    end
   end
+
+
+
   private
 
   def favourite_recipe_params
-    params.require(:favourite_recipe).permit[:user_id, :recipe_id]
+    params.permit(:recipe_id)
   end
+
 end

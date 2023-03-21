@@ -4,7 +4,7 @@
 <div class="container">
   <% @recipes.each do |recipe| %>
     <div class="card">
-      <h6 class="card-text recipe-title"><em><%= recipe.name %></em></h6>
+      <h6 class="card-text recipe-title"><em><%= recipe.title %></em></h6>
       <div class="inner-flex">
         <%= button_to "Delete", recipe, method: :delete, class:"btn btn-danger" %>
       </div>
@@ -14,13 +14,3 @@
     </div>
   <% end %>
 </div>
-
-
-<%# BOOKMARKS %>
-<%= simple_form_for @favourite_recipe do |f| %>
-  <% if current_user %>
-    <%= f.submit "Bookmark", class: "btn btn-danger pic-large", id: "buttonz" %>
-  <% else %>
-    <%= f.submit "Bookmarked!", class: "btn btn-danger pic-large", id: "buttonz", disabled: "true" %>
-  <% end %>
-<% end %>

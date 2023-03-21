@@ -1,22 +1,43 @@
-<h1><%=@recipe.name%></h1>
-<div class="recipe">
-  <% @recipes.each do |recipe| %>
-    <div class="line">
-      <%recipe.rating%>
-      <%recipe.prep_time%>
-      <%recipe.cooking_time%>
-      <%recipe.total_time%>
-      <%= @recipe_ingredients.each do |r| %>
-        <%r.ingredient.name%>
-        <%r.quantity%>
-        <%r.unit%>
-      <%end%>
-      <%recipe.description%>
-      <%recipe.review.comment%>
-    <%end%>
-    <%= button_to "Delete", recipe_path(recipe), method: :delete, class:"btn btn-danger" %>
-    <%= link_to "Edit Recipe", "/recipes/#{recipe.recipe_id}", class: "btn btn-info btn-sm"%>
-  </div>
-</div>
-</div>
-<%= render "recipe_ingredients/add_ingredient_form", edit: false %>
+<h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="Info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="Ingredients">
+        <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.ingredients.each do |ingredient| %>
+              <li><%= ingredient.name %> <%= ingredient.quantity %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+   </div>
+
+<%# BOOKMARKS %>
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+  <% if current_user %>
+    <%= f.submit "Bookmark", class: "btn btn-danger pic-large", id: "buttonz" %>
+  <% else %>
+    <%= f.submit "Bookmarked!", class: "btn btn-danger pic-large", id: "buttonz", disabled: "true" %>
+  <% end %>
+<% end %>
