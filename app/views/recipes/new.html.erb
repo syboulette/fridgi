@@ -3,17 +3,5 @@
     <div class="col-md-6">
     <%= render "recipes/form" %>
     </div>
-  <% if @recipe.ingredients.any? %>
-    <% @recipe_ingredients.each do |recipe_ingredient| %>
-    <ul>
-      <h6><%= recipe_ingredient.ingredient.name %></h6>
-      <h6><%= recipe_ingredient.quantity %></h6>
-    </li>
-    </ul>
-    <% end %>
-  <% end %>
-  </div>
-    </div>
   </div>
 </div>
-

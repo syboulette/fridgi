@@ -4,7 +4,7 @@
       <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
     <%#else%>
       <%#end%>
-      <div class="Info">
+      <div class="info">
         <h5>Prep Time</h5>
         <p><%= @recipe.prep_time %> minutes</p>
         <h5>Cooking Time</h5>
@@ -18,7 +18,7 @@
         <h5>Utensils:</h5>
         <p><%= @recipe.utensil %></p>
       </div>
-        <div class="Ingredients">
+        <div class="ingredients">
           <h5>Ingredients</h5>
             <ul>
               <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
