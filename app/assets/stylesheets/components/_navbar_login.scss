@@ -1,7 +1,12 @@
 .navbar-lewagon {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  flex-shrink: 0;
   justify-content: space-between;
   background: $primary;
   height: 80px;
+  z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
