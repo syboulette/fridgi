@@ -1,9 +1,9 @@
 <div>
-  <% @favourite_recipes.each do |p| %>
+  <% @favourite_recipes.each do |fr| %>
     <div class ="row hoverable posts-background">
       <div class ="col s10">
-        <%= link_to "#{p.recipe.title}", recipe_path(p.recipe)%>
-        <p>Added on: <%=p.created_at.strftime("%b %d, %Y")%></p>
+        <%= link_to "#{fr.recipe.title}", recipe_path(fr.recipe)%>
+        <p>Added on: <%=fr.created_at.strftime("%b %d, %Y")%></p>
       </div>
     </div>
   <% end %>
