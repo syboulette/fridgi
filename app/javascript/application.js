@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 import 'chosen-js'
+import 'checkbox_list'
 //= require jquery_ujs
 //= require jquery
 //= require popper

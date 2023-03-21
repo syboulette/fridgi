@@ -28,4 +28,8 @@ class ListPolicy < ApplicationPolicy
   def destroy?
     user
   end
+
+  def bulk_update?
+    user = current_user
+  end
 end

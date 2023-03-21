@@ -42,27 +42,14 @@ class ListIngredientsController < ApplicationController
     end
   end
 
-  def bulk_update
-    @fridge_ingredient = FridgeIngredient.new
-    @selecteds = ListIngredient.where(bought: params[:bought])
-    authorize @list_ingredient
-    authorize @fridge_ingredient
-    selecteds.each do |s|
-      @fridge_ingredient = FridgeIngredient.new(name: s.ingredient.name, quantity: s.quantity, unit: s.unit)
-      @fridge_ingredient.save!
-      s.destroy
-      redirect_to list_path(@list_ingredient.list)
-    end
-    flash[:notice] = "#{@selected_list_ingredients.count} list_ingredients marked as #{params[:commit]}"
-    redirect_to list_path(@list_ingredient.list)
-  end
-
   private
 
   def list_ingredient_params
     params.require(:list_ingredient).permit(:quantity, :unit)
   end
-
+  def fridge_ingredient_params
+    params.require(:list_ingredient).permit(:quantity, :unit)
+  end
   def ingredient_params
     params.require(:list_ingredient).permit(:name)
   end

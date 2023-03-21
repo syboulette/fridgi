@@ -14,11 +14,15 @@ Rails.application.routes.draw do
   resources :favorite_recipes, only: [:new, :create, :edit, :index]
 
   resources :lists do
-    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy] do  
-      patch 'list_ingredients/bulk_update', to: 'list_ingredients#bulk_update', as: 'bulk_update'
-    end
+    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy]
   end 
-  resources :list_ingredients, only: [:destroy]
+  resources :lists do
+    collection do
+      post :bulk_update
+    end
+  end
+
+
   
   resources :fridges, only: [:show] do
     resources :fridge_ingredients, only: [:new, :create, :edit, :update]  

@@ -27,7 +27,7 @@
   background-image: url("brown_bag.svg");
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   background-repeat: no-repeat;
   background-size: auto 100%;
   min-height: 240px;
@@ -41,8 +41,9 @@
   padding-top: 90px;
   margin-bottom: 20px;
 }
+
 .content_fridge {
-  align-items: center;
+  align-items: start;
 }
 .fridge-icon {
   overflow: hidden;
@@ -80,7 +81,4 @@ form.simple_form.new_list_ingredient{
   border-radius: 20px;
   margin: 10px 50px;
   padding: 5px 10px;
-}
-.fridge-row {
-  border-bottom: 2px solid $light-gray;
 }
