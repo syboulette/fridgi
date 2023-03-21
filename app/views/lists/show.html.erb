@@ -14,9 +14,9 @@
           <h6 class="header_list unit">Units</h6>
           <h6 class="header_list edit">Edit</h6>
         </div>
-          <% @list_ingredients.each do |list_ingredient| %>
-            <div class="line">
-              <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id, nil, { multiple: true, form: :bulk_actions_form } %>
+          <%= form_tag copy_to_fridge_lists_path do %>
+            <% @list.list_ingredients.each do |list_ingredient| %>
+              <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
               <h6 class="content_list ingredient"><%= list_ingredient.ingredient.name %></em></h6>
               <h6 class="content_list quantity"><%= list_ingredient.quantity %></em></h6>
               <h6 class="content_list unit"><%= list_ingredient.unit %></em></h6>
@@ -25,6 +25,7 @@
                 <%= link_to image_tag("bin.svg"), list_list_ingredient_path(list_ingredient), data: {turbo_method: :delete, turbo_confirm: ""} %>
               </div>
             </div>
+            <% end %>
           <% end %>
       <% else %>
         <h6>Oups! your list is empty...</h6>
