@@ -18,12 +18,9 @@ class FavouriteRecipesController < ApplicationController
     end
   end
 
-
-
   private
 
   def favourite_recipe_params
     params.permit(:recipe_id)
   end
-
 end
