@@ -9,8 +9,7 @@
   <%= f.input :photo, as: :file, label: "Show us what it looks like:" %>
   <%= f.input :utensil, label: "Utensils", placeholder: "A salad bowl" %>
   <%= f.input :instruction, as: :text, placeholder: "Describe each step of the recipe." %>
-  <%#= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, include_hidden: false, item_label_class: "ps-1"  %>
-  <%#= f.association :ingredients, label_method: :name, value_method: :id   %>
+
   <template data-nested-form-target="template">
     <%= f.simple_fields_for :recipe_ingredients, RecipeIngredient.new, child_index: 'NEW_RECORD' do |ingredient_f| %>
       <%= render "ingredient_form", f: ingredient_f %>
@@ -18,5 +17,7 @@
   </template>
   <div data-nested-form-target="target"></div>
   <button type="button" data-action="nested-form#add">Add ingredient</button>
-  <%= f.submit "Done!" %>
+  <br>
+  <br>
+  <%= f.submit "Done!", class: "btn btn-primary" %>
 <% end %>

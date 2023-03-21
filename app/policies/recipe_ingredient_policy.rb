@@ -4,7 +4,7 @@ class RecipeIngredientPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def destroy?
     user
   end
@@ -17,4 +17,5 @@ class RecipeIngredientPolicy < ApplicationPolicy
   def update?
     user
   end
+
 end
