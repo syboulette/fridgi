@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :users, only: [:show]
+  resources :users do
+    resources :recipes, only: [:index]
+  end
 
   resources :recipes do
     resources :recipe_ingredients, only: [:edit, :update]
@@ -14,15 +16,15 @@ Rails.application.routes.draw do
   resources :favorite_recipes, only: [:new, :create, :edit, :index]
 
   resources :lists do
-    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy] do  
+    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy] do
       patch 'list_ingredients/bulk_update', to: 'list_ingredients#bulk_update', as: 'bulk_update'
     end
-  end 
+  end
   resources :list_ingredients, only: [:destroy]
-  
+
   resources :fridges, only: [:show] do
-    resources :fridge_ingredients, only: [:new, :create, :edit, :update]  
-  end 
+    resources :fridge_ingredients, only: [:new, :create, :edit, :update]
+  end
   resources :fridge_ingredients, only: [:destroy]
 
   resources :ingredients, only: [:create, :edit, :update]
