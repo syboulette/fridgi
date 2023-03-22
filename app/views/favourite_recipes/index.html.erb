@@ -4,6 +4,7 @@
       <div class ="col s10">
         <%= link_to "#{fr.recipe.title}", recipe_path(fr.recipe)%>
         <p>Added on: <%=fr.created_at.strftime("%b %d, %Y")%></p>
+
       </div>
     </div>
   <% end %>
