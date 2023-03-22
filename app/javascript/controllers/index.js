@@ -2,10 +2,15 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
-
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import NestedForm from 'stimulus-rails-nested-form'
 
 const application = Application.start()
+const context = require.context(".", true, /\.js$/)
+const definitions = definitionsFromContext(context)
+
+application.load(definitions)
+application.register("hello", HelloController)
 application.register('nested-form', NestedForm)
