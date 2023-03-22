@@ -37,9 +37,10 @@
 <%# BOOKMARKS work in progress%>
 
 <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
-  <% if current_user %>
-    <%= f.submit "Bookmark", class: "btn btn-danger pic-large", id: "buttonz" %>
+  <%# if @recipe.favourite_recipes.include? current_user %>
+  <% if favorite_recipes = current_user.recipes.joins(:favourite_recipes).select('recipes.*') %>
+    <%= f.submit "♡", class: "btn btn-danger pic-large", id: "buttonz" %>
   <% else %>
-    <%= f.submit "Bookmarked!", class: "btn btn-danger pic-large", id: "buttonz", disabled: "true" %>
+    <%= f.submit "❤️", class: "btn btn-danger pic-large", id: "buttonz", disabled: "true" %>
   <% end %>
 <% end %>
