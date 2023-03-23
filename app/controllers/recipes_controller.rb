@@ -64,6 +64,16 @@ class RecipesController < ApplicationController
     redirect_to lists_path(list.id), notice: "The missing ingredient have been added to your list!"
   end 
 
+  def remove_recipe_ingredient_from_fridge
+    @user = user
+    fridge = user.fridge
+    authorize @recipe
+    recipe_ingredients.each do |ingredient| 
+      ListIngredient.new(ingredient_id: ingredient.id, quantity: (@recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity), unit: @recipe_ingredient.unit, list_id: list.id)
+    end 
+    redirect_to lists_path(list.id), notice: "The missing ingredient have been added to your list!"
+  end 
+
 
   private
 
