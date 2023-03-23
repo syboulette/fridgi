@@ -1,0 +1,442 @@
+Started GET "/" for ::1 at 2023-03-22 11:31:11 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230318093125_add_bought_to_list_ingredients.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2023-03-22 11:31:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230318093125_add_bought_to_list_ingredients.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-03-22 11:31:44 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 504)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.7ms | Allocations: 1094)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 4334.8ms | Allocations: 208387)
+Completed 200 OK in 4343ms (Views: 4336.5ms | ActiveRecord: 0.0ms | Allocations: 212902)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-03-22 11:31:49 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users/sign_in" for ::1 at 2023-03-22 11:31:51 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 672)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 739.6ms | Allocations: 968369)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.4ms | Allocations: 687)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 744.6ms | Allocations: 978673)
+Completed 200 OK in 773ms (Views: 746.1ms | ActiveRecord: 14.5ms | Allocations: 989972)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-03-22 11:31:54 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 154)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 5800)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.6ms | Allocations: 684)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 15891)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms | Allocations: 17444)
+
+
+Started POST "/users" for ::1 at 2023-03-22 11:32:15 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Sybille", "last_name"=>"Lambotte", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"lambottesybille@gmail.com", "address"=>"154 rue de Genève", "country"=>"Switzerland", "city"=>"Thônex", "post_code"=>"", "phone_number"=>"0792496848"}, "commit"=>"Register"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lambottesybille@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 81)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 4917)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.3ms | Allocations: 660)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 14901)
+Completed 422 Unprocessable Entity in 313ms (Views: 8.0ms | ActiveRecord: 3.2ms | Allocations: 22716)
+
+
+Started POST "/users" for ::1 at 2023-03-22 11:32:33 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Sybille", "last_name"=>"Lambotte", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"lambottesybillep@gmail.com", "address"=>"154 rue de Genève", "country"=>"Switzerland", "city"=>"Thônex", "post_code"=>"", "phone_number"=>"0792496848"}, "commit"=>"Register"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lambottesybillep@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mUser Create (7.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "phone_number", "language", "address", "country", "city", "post_code") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["email", "lambottesybillep@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-03-22 10:32:33.621580"], ["updated_at", "2023-03-22 10:32:33.621580"], ["first_name", "Sybille"], ["last_name", "Lambotte"], ["phone_number", "0792496848"], ["language", nil], ["address", "154 rue de Genève"], ["country", "Switzerland"], ["city", "Thônex"], ["post_code", ""]]
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:12:in `create'
+  [1m[36mFridge Create (3.6ms)[0m  [1m[32mINSERT INTO "fridges" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["name", "My Fridgi"], ["created_at", "2023-03-22 10:32:33.646864"], ["updated_at", "2023-03-22 10:32:33.646864"]]
+  ↳ app/controllers/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mList Create (2.7ms)[0m  [1m[32mINSERT INTO "lists" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My List"], ["user_id", 2], ["created_at", "2023-03-22 10:32:33.657209"], ["updated_at", "2023-03-22 10:32:33.657209"]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+Redirected to http://localhost:3000/
+Completed 303 See Other in 307ms (ActiveRecord: 24.7ms | Allocations: 20607)
+
+
+Started GET "/" for ::1 at 2023-03-22 11:32:33 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 74)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:12
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1760)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 32)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 12567)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.9ms | Allocations: 12830)
+
+
+Started GET "/recipes" for ::1 at 2023-03-22 11:32:36 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (2.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:5
+  Rendered recipes/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1107)
+  Rendered shared/_navbar_login.html.erb (Duration: 13.8ms | Allocations: 1406)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 11905)
+Completed 200 OK in 41ms (Views: 28.0ms | ActiveRecord: 3.3ms | Allocations: 16050)
+
+
+Started GET "/recipes/new" for ::1 at 2023-03-22 11:32:37 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (1.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/recipes/_ingredient_form.html.erb:2
+  Rendered recipes/_ingredient_form.html.erb (Duration: 7.1ms | Allocations: 4947)
+  Rendered recipes/_form.html.erb (Duration: 26.6ms | Allocations: 16109)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 27.2ms | Allocations: 16362)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1374)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 27052)
+Completed 200 OK in 83ms (Views: 28.7ms | ActiveRecord: 23.4ms | Allocations: 42803)
+
+
+Started GET "/recipes/new" for ::1 at 2023-03-22 11:34:46 +0100
+Processing by RecipesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/recipes/_ingredient_form.html.erb:2
+  Rendered recipes/_ingredient_form.html.erb (Duration: 3.4ms | Allocations: 2764)
+  Rendered recipes/_form.html.erb (Duration: 9.6ms | Allocations: 9340)
+  Rendered recipes/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 9404)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.2ms | Allocations: 1357)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 19933)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 1.4ms | Allocations: 22000)
+
+
+Started GET "/lists" for ::1 at 2023-03-22 22:00:23 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 5029)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-22 22:00:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 681)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 10029)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.8ms | Allocations: 1074)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 202)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 4081.8ms | Allocations: 169489)
+Completed 200 OK in 4097ms (Views: 4084.1ms | ActiveRecord: 7.8ms | Allocations: 181574)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-03-22 22:00:32 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 153)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 5712)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.6ms | Allocations: 684)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 15849)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.0ms | Allocations: 17433)
+
+
+Started POST "/users" for ::1 at 2023-03-22 22:00:53 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Sybille", "last_name"=>"Lambotte", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"lambottesybillel@gmail.com", "address"=>"154 rue de Genève", "country"=>"Switzerland", "city"=>"Thônex", "post_code"=>"", "phone_number"=>"0792496848"}, "commit"=>"Register"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lambottesybillel@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "phone_number", "language", "address", "country", "city", "post_code") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["email", "lambottesybillel@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-03-22 21:00:53.332375"], ["updated_at", "2023-03-22 21:00:53.332375"], ["first_name", "Sybille"], ["last_name", "Lambotte"], ["phone_number", "0792496848"], ["language", nil], ["address", "154 rue de Genève"], ["country", "Switzerland"], ["city", "Thônex"], ["post_code", ""]]
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:12:in `create'
+  [1m[36mFridge Create (0.6ms)[0m  [1m[32mINSERT INTO "fridges" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", "My Fridgi"], ["created_at", "2023-03-22 21:00:53.344049"], ["updated_at", "2023-03-22 21:00:53.344049"]]
+  ↳ app/controllers/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mList Create (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My List"], ["user_id", 3], ["created_at", "2023-03-22 21:00:53.362827"], ["updated_at", "2023-03-22 21:00:53.362827"]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+Redirected to http://localhost:3000/lists
+Completed 303 See Other in 305ms (ActiveRecord: 14.7ms | Allocations: 22137)
+
+
+Started GET "/lists" for ::1 at 2023-03-22 22:00:53 +0100
+Processing by ListsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:5
+  [1m[36mListIngredient Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/index.html.erb:11
+  [1m[36mListIngredient Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/index.html.erb:11
+  [1m[36mListIngredient Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 3]]
+  ↳ app/views/lists/index.html.erb:11
+  Rendered lists/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 7468)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1773)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 41)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 18749)
+Completed 200 OK in 38ms (Views: 29.9ms | ActiveRecord: 4.0ms | Allocations: 21669)
+
+
+Started GET "/fridges/1" for ::1 at 2023-03-22 22:01:00 +0100
+Processing by FridgesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridge Load (0.7ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridges_controller.rb:18:in `set_fridge'
+  Rendering layout layouts/application.html.erb
+  Rendering fridges/show.html.erb within layouts/application
+  [1m[36mFridgeIngredient Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1 LIMIT $2[0m  [["fridge_id", 1], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:2
+  [1m[36mFridgeIngredient Load (0.3ms)[0m  [1m[34mSELECT "fridge_ingredients".* FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+  ↳ app/views/fridges/show.html.erb:3
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  Rendered fridge_ingredients/_add_ingredient_form.html.erb (Duration: 4.5ms | Allocations: 3107)
+  Rendered fridges/show.html.erb within layouts/application (Duration: 31.6ms | Allocations: 17434)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.2ms | Allocations: 1352)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 27898)
+Completed 200 OK in 69ms (Views: 37.0ms | ActiveRecord: 17.2ms | Allocations: 36976)
+
+
+Started GET "/fridges/1" for ::1 at 2023-03-23 09:20:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FridgesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridge Load (0.6ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridges_controller.rb:18:in `set_fridge'
+  Rendering layout layouts/application.html.erb
+  Rendering fridges/show.html.erb within layouts/application
+  [1m[36mFridgeIngredient Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1 LIMIT $2[0m  [["fridge_id", 1], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:2
+  [1m[36mFridgeIngredient Load (0.2ms)[0m  [1m[34mSELECT "fridge_ingredients".* FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+  ↳ app/views/fridges/show.html.erb:3
+  [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (1.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  Rendered fridge_ingredients/_add_ingredient_form.html.erb (Duration: 147.1ms | Allocations: 285547)
+  Rendered fridges/show.html.erb within layouts/application (Duration: 400.2ms | Allocations: 361556)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1731)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 407.2ms | Allocations: 373536)
+Completed 200 OK in 450ms (Views: 398.1ms | ActiveRecord: 30.5ms | Allocations: 401303)
+
+
+Started GET "/fridges/1" for ::1 at 2023-03-23 09:20:12 +0100
+Processing by FridgesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridges_controller.rb:18:in `set_fridge'
+  Rendering layout layouts/application.html.erb
+  Rendering fridges/show.html.erb within layouts/application
+  [1m[36mFridgeIngredient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1 LIMIT $2[0m  [["fridge_id", 1], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:2
+  [1m[36mFridgeIngredient Load (0.2ms)[0m  [1m[34mSELECT "fridge_ingredients".* FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+  ↳ app/views/fridges/show.html.erb:3
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  Rendered fridge_ingredients/_add_ingredient_form.html.erb (Duration: 2.1ms | Allocations: 2247)
+  Rendered fridges/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 9689)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1334)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 20088)
+Completed 200 OK in 24ms (Views: 19.0ms | ActiveRecord: 1.9ms | Allocations: 22525)
+
+
