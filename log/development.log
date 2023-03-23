@@ -381,3 +381,62 @@ Processing by FridgesController#show as HTML
 Completed 200 OK in 69ms (Views: 37.0ms | ActiveRecord: 17.2ms | Allocations: 36976)
 
 
+Started GET "/fridges/1" for ::1 at 2023-03-23 09:20:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FridgesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridge Load (0.6ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridges_controller.rb:18:in `set_fridge'
+  Rendering layout layouts/application.html.erb
+  Rendering fridges/show.html.erb within layouts/application
+  [1m[36mFridgeIngredient Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1 LIMIT $2[0m  [["fridge_id", 1], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:2
+  [1m[36mFridgeIngredient Load (0.2ms)[0m  [1m[34mSELECT "fridge_ingredients".* FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+  ↳ app/views/fridges/show.html.erb:3
+  [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (1.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  Rendered fridge_ingredients/_add_ingredient_form.html.erb (Duration: 147.1ms | Allocations: 285547)
+  Rendered fridges/show.html.erb within layouts/application (Duration: 400.2ms | Allocations: 361556)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1731)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 407.2ms | Allocations: 373536)
+Completed 200 OK in 450ms (Views: 398.1ms | ActiveRecord: 30.5ms | Allocations: 401303)
+
+
+Started GET "/fridges/1" for ::1 at 2023-03-23 09:20:12 +0100
+Processing by FridgesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridges_controller.rb:18:in `set_fridge'
+  Rendering layout layouts/application.html.erb
+  Rendering fridges/show.html.erb within layouts/application
+  [1m[36mFridgeIngredient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1 LIMIT $2[0m  [["fridge_id", 1], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:2
+  [1m[36mFridgeIngredient Load (0.2ms)[0m  [1m[34mSELECT "fridge_ingredients".* FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+  ↳ app/views/fridges/show.html.erb:3
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  Rendered fridge_ingredients/_add_ingredient_form.html.erb (Duration: 2.1ms | Allocations: 2247)
+  Rendered fridges/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 9689)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1334)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 20088)
+Completed 200 OK in 24ms (Views: 19.0ms | ActiveRecord: 1.9ms | Allocations: 22525)
+
+
