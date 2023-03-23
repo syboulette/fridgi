@@ -4,7 +4,6 @@ class ListIngredientsController < ApplicationController
 
   def show
     authorize @list_ingredient
-    @fridge_ingredient = FridgeIngredient.new
   end
 
   def create
@@ -28,8 +27,21 @@ class ListIngredientsController < ApplicationController
   end
 
   def edit
-    @list = List.find(params[:list_id])
+    @list_ingredient = ListIngredient.find(params[:id])
+    @list = @list_ingredient.list
     authorize @list_ingredient
+    respond_to do |format|
+      format.html { render :edit }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("edit-form", partial: "list_ingredients/edit_ingredient_form", locals: { list_ingredient: @list_ingredient }) }
+    end
+  end
+
+  def handleSuccess
+    render turbo_stream: turbo_stream.update(
+      dom_id(ListIngredient.find(params[:id])),
+      partial: "list_ingredients/edit_ingredient_form",
+      locals: { list_ingredient: ListIngredient.find(params[:id]) }
+    )
   end
 
   def update
@@ -43,19 +55,17 @@ class ListIngredientsController < ApplicationController
     end
   end
 
-  def bulk_update
-    @fridge_ingredient = FridgeIngredient.new
-    @selecteds = ListIngredient.where(bought: params[:bought])
-    authorize @list_ingredient
-    authorize @fridge_ingredient
-    selecteds.each do |s|
-      @fridge_ingredient = FridgeIngredient.new(name: s.ingredient.name, quantity: s.quantity, unit: s.unit)
-      @fridge_ingredient.save!
-      s.destroy
-      redirect_to list_path(@list_ingredient.list)
+  def copy_to_fridge
+    user = current_user
+    fridge = user.fridge
+
+    params[:list_ingredient_ids].each do |list_ingredient_id|
+      list_ingredient = ListIngredient.find(list_ingredient_id)
+      fridge.fridge_ingredients.create(list_ingredient_params)
+      list_ingredient.destroy
     end
-    flash[:notice] = "#{@selected_list_ingredients.count} list_ingredients marked as #{params[:commit]}"
-    redirect_to list_path(@list_ingredient.list)
+
+    redirect_to lists_path, notice: "Selected ingredients have been added to your fridge."
   end
 
   private
@@ -63,16 +73,14 @@ class ListIngredientsController < ApplicationController
   def list_ingredient_params
     params.require(:list_ingredient).permit(:quantity, :unit)
   end
-  def selected_list_ingredient_params
+  def fridge_ingredient_params
     params.require(:list_ingredient).permit(:quantity, :unit)
   end
-
   def ingredient_params
     params.require(:list_ingredient).permit(:name)
   end
-
-  def set_selected_list_ingredients
-    @selected_list_ingredients = ListIngredient.where(id: params.fetch(:ids, []).compact)
+  def list_params
+    params.require(:list_ingredient).permit(:name)
   end
 
   def set_list_ingredient

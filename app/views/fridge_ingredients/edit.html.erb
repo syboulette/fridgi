@@ -1,1 +1,6 @@
-<%= render "fridge_ingredients/add_ingredient_form", edit: false %>
+<%= simple_form_for [@fridge, @fridge_ingredient] do |f| %>
+  <%= f.input :name, collection: Ingredient.all, label_method: :name, value_method: :id, input_html: { class: 'chosen-select' } %> 
+  <%= f.input :quantity %>
+  <%= f.input :unit %>
+  <%= f.button :submit%>
+<% end %>

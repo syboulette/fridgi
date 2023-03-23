@@ -16,10 +16,12 @@ Rails.application.routes.draw do
   resources :favorite_recipes, only: [:new, :create, :edit, :index]
 
   resources :lists do
-    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy]
+    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy] 
+  end 
+  resources :lists do
+    post 'lists/copy_to_fridge', to: 'lists#copy_to_fridge', as: 'copy_to_fridge_lists'
   end
-  resources :list_ingredients, only: [:destroy]
-
+  
   resources :fridges, only: [:show] do
     resources :fridge_ingredients, only: [:new, :create, :edit, :update]
   end

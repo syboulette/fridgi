@@ -6,6 +6,10 @@ class IngredientPolicy < ApplicationPolicy
     # end
   end
 
+  def move_bought_to_fridge?
+    true 
+  end
+
   def create?
     user
   end

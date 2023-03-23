@@ -7,7 +7,7 @@ class FridgeIngredientPolicy < ApplicationPolicy
   end
   
   def show?
-    user
+    user == current_user
   end
 
   def create?
@@ -23,6 +23,6 @@ class FridgeIngredientPolicy < ApplicationPolicy
   end
 
   def update?
-    user
+    user == current_user
   end
 end
