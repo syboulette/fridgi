@@ -54,6 +54,17 @@ class RecipesController < ApplicationController
     end
   end
 
+  def add_recipe_ingredient_to_list
+    @user = user
+    list = user.list.last
+    authorize @recipe
+    missing_ingredients.each do |ingredient| 
+      ListIngredient.new(ingredient_id: ingredient.id, quantity: (@recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity), unit: @recipe_ingredient.unit, list_id: list.id)
+    end 
+    redirect_to lists_path(list.id), notice: "The missing ingredient have been added to your list!"
+  end 
+
+
   private
 
   def recipe_params

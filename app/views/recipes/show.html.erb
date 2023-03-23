@@ -31,5 +31,37 @@
             <p><%= @recipe.instruction %></p>
           </div>
       </div>
-    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-   </div>
+      <div class="missing_ingredient">
+        <h2>Missing Ingredients</h2>
+          <% recipe_ingredient_ids = @recipe_ingredients.pluck(:ingredient_id) %>
+          <% missing_ingredients = [] %>
+          <% recipe_ingredient_ids.each do |ingredient_id| %>
+            <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient_id) %>
+            <% if fridge_ingredient.nil? %>
+              <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient_id, quantity: 0) %>
+            <% end %>
+            <% if fridge_ingredient.quantity < @recipe_ingredients.find_by(ingredient_id: ingredient_id).quantity %>
+              <% missing_ingredients << Ingredient.find(ingredient_id) %>
+            <% end %>
+          <% end %>
+          <% if missing_ingredients.empty? %>
+            <h3>You have everything for your recipe!</h3>
+            <p>You can make your recipe now!</p>
+            <%= link_to "make recipe now", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+          <% else %>
+
+            <h3>You are missing</h3>
+            <% missing_ingredients.each do |ingredient| %>
+              <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient.id) %>
+              <% if fridge_ingredient.nil? %>
+                <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient.id, quantity: 0) %>
+              <% end %>
+              <li><%= @recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity %> <%= ingredient.name %></li>
+            <% end %>
+            <h3>Add missing ingredients </h3>
+            <%= link_to "to list", recipe_add_recipe_ingredient_to_list_recipes(@recipe), class: "btn btn-primary" %>
+          <% end %>
+          
+        </div>
+        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+  </div>
