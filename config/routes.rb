@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :users do
-    resources :recipes, only: [:index]
-  end
+  resources :users, only: [:show]
+
+  get '/recipes/user_recipes', to: 'recipes#user_recipes'
 
   resources :recipes do
     resources :recipe_ingredients, only: [:edit, :update]
