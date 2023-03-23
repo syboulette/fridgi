@@ -1,6 +1,8 @@
 <%# it is only to show the reults, it is NOT in form! %>
 <h1>Cookbook!</h1>
 <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+<p><%= link_to "Favourites", favourite_recipes_path, class: "btn btn-info btn-sm "%></p>
+
 <div class="container">
   <% @recipes.each do |recipe| %>
     <div class="card">
