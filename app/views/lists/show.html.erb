@@ -1,31 +1,28 @@
-<h1 class="page_title"><%=@list.name%></h1>
-<p class="page_subtitle">There is nothing more important than a well made list. </p>
-<p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
 <div class="content-page">
   <div class="list">
     <div class="inside-list">
+      <div class="header-list">
+        <h1 class="page_title"><%=@list.name%></h1>
+        <p class="page_subtitle">There is nothing more important than a well made list. </p>
+        <p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
+      </div>
       <% if @list_ingredients.any? %>
-        <%= form_with url: bulk_update_lists_path, method: :post, id: :bulk_actions_form do |form| %
-          <%= form.submit "bought" %>
-        <% end %>
         <div class="line">
           <h6 class="header_list ingredient">Ingredients</h6>
           <h6 class="header_list quantity">Quantity</h6>
           <h6 class="header_list unit">Units</h6>
           <h6 class="header_list edit">Edit</h6>
         </div>
-          <%= form_tag copy_to_fridge_lists_path do %>
-            <% @list.list_ingredients.each do |list_ingredient| %>
-              <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
+          <% @list.list_ingredients.each do |list_ingredient| %>
+            <div class="line">
               <h6 class="content_list ingredient"><%= list_ingredient.ingredient.name %></em></h6>
               <h6 class="content_list quantity"><%= list_ingredient.quantity %></em></h6>
               <h6 class="content_list unit"><%= list_ingredient.unit %></em></h6>
               <div class="content_list icon">
-                <%= link_to image_tag("edit.svg"), "/lists/#{list_ingredient.list_id}/list_ingredients/#{list_ingredient.id}/edit" %>
+                <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
                 <%= link_to image_tag("bin.svg"), list_list_ingredient_path(list_ingredient), data: {turbo_method: :delete, turbo_confirm: ""} %>
               </div>
             </div>
-            <% end %>
           <% end %>
       <% else %>
         <h6>Oups! your list is empty...</h6>
@@ -36,3 +33,4 @@
     <%= render "list_ingredients/add_ingredient_form", edit: false %>
   </div>
 </div>
+<div class="edit-form" id="edit-form"></div>

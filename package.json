@@ -8,6 +8,7 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "chosen-js": "^1.8.7",
+    "stimulus": "^3.2.1",
     "stimulus-rails-nested-form": "^4.1.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
