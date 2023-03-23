@@ -1,4 +1,3 @@
-
 import { Application } from "@hotwired/stimulus"
 import NestedForm from 'stimulus-rails-nested-form'
 
