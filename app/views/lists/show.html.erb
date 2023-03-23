@@ -13,19 +13,25 @@
           <h6 class="header_list unit">Units</h6>
           <h6 class="header_list edit">Edit</h6>
         </div>
-          <% @list.list_ingredients.each do |list_ingredient| %>
-            <div class="line">
-              <h6 class="content_list ingredient"><%= list_ingredient.ingredient.name %></em></h6>
-              <h6 class="content_list quantity"><%= list_ingredient.quantity %></em></h6>
-              <h6 class="content_list unit"><%= list_ingredient.unit %></em></h6>
-              <div class="content_list icon">
-                <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
-                <%= link_to image_tag("bin.svg"), list_list_ingredient_path(list_ingredient), data: {turbo_method: :delete, turbo_confirm: ""} %>
+        <%= form_tag list_copy_to_fridge_lists_path(@list) do %>
+          <% @list_ingredients.each do |list_ingredient| %>
+              <div class="line">
+                <h6 class="content_list ingredient">
+                  <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
+                  <%= list_ingredient.ingredient.name %></h6>
+                <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
+                <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
+                <div class="content_list icon">
+                  <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
+                  <%= link_to image_tag("bin.svg"), list_list_ingredient_path(list_ingredient), data: { turbo_method: :delete, turbo_confirm: "" } %>
+                </div>
               </div>
-            </div>
+              <turbo-frame id="edit-form"></turbo-frame>
           <% end %>
+          <%= submit_tag "Copy to Fridge" %>
+        <% end %>
       <% else %>
-        <h6>Oups! your list is empty...</h6>
+        <h6>Oups! Your list is empty...</h6>
       <% end %>
     </div>
   </div>
@@ -33,4 +39,5 @@
     <%= render "list_ingredients/add_ingredient_form", edit: false %>
   </div>
 </div>
-<div class="edit-form" id="edit-form"></div>
+
+

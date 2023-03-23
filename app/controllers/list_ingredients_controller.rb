@@ -28,6 +28,7 @@ class ListIngredientsController < ApplicationController
 
   def edit
     @list_ingredient = ListIngredient.find(params[:id])
+    @list = @list_ingredient.list
     authorize @list_ingredient
     respond_to do |format|
       format.html { render :edit }
@@ -38,21 +39,21 @@ class ListIngredientsController < ApplicationController
   def handleSuccess
     render turbo_stream: turbo_stream.update(
       dom_id(ListIngredient.find(params[:id])),
-      partial: "list_ingredients/list_ingredient",
+      partial: "list_ingredients/edit_ingredient_form",
       locals: { list_ingredient: ListIngredient.find(params[:id]) }
     )
   end
 
-  # def update
-  #   @ingredient = @list_ingredient.ingredient
-  #   authorize @list_ingredient
+  def update
+    @ingredient = @list_ingredient.ingredient
+    authorize @list_ingredient
 
-  #   if @list_ingredient.update!(list_ingredient_params) && @ingredient.update!(ingredient_params)
-  #     redirect_to list_path(@list_ingredient.list)
-  #   else
-  #     render "lists/show", status: :unprocessable_entity
-  #   end
-  # end
+    if @list_ingredient.update!(list_ingredient_params) && @ingredient.update!(ingredient_params)
+      redirect_to list_path(@list_ingredient.list)
+    else
+      render "lists/show", status: :unprocessable_entity
+    end
+  end
 
   def copy_to_fridge
     user = current_user

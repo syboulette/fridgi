@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :bulk_update]
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
     @lists = policy_scope(List).all
@@ -50,23 +50,20 @@ class ListsController < ApplicationController
     end
   end
 
-  def bulk_update
-    skip_authorization
-    @list_ingredient = ListIngredient.new
-    @ingredient = @list_ingredient.ingredient
-    @selected_list_ingredients = ListIngredient.where(id: params.fetch(:list_ingredient_ids, []).compact)
-    if params[:commit] == 'bought'
-      @selected_list_ingredients.each do |si|
-        fridge_ingredient = FridgeIngredient.new(fridge_ingredient_params)
-        fridge_ingredient.create(quantity: list_ingredient.quantity, quantity: list_ingredient.quantity)
-      end
-      selected_list_ingredients.destroy_all
-      flash[:notice] = "#{@selected_list_ingredients.count} list_ingredients marked as #{params[:commit]}"
-      redirect_to list_path(@list_ingredient.list)
-    else
-      redirect_to root_path
+  def copy_to_fridge
+    @list = List.find(params[:list_id])
+    @list.user = current_user
+    fridge = current_user.fridge
+    authorize @list
+    params[:list_ingredient_ids].each do |list_ingredient_id|
+      list_ingredient = ListIngredient.find(list_ingredient_id)
+      fridge.fridge_ingredients.create(ingredient_id: list_ingredient.ingredient_id, quantity: list_ingredient.quantity, unit: list_ingredient.unit)
+      list_ingredient.destroy
     end
+
+    redirect_to fridge_path(@user.fridge), notice: "Selected ingredients have been added to your fridge."
   end
+
   private
 
   def list_params

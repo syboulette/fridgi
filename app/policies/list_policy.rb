@@ -29,7 +29,7 @@ class ListPolicy < ApplicationPolicy
     user
   end
 
-  def bulk_update?
-    user = current_user
+  def copy_to_fridge?
+    user = @user
   end
 end
