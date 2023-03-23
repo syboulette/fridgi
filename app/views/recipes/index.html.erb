@@ -1,6 +1,7 @@
 <%# it is only to show the reults, it is NOT in form! %>
 <h1>Cookbook!</h1>
 <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+<p><%= link_to "my recipes", recipes_user_recipes_path, class: "btn btn-info btn-sm "%></p>
 <div class="container">
   <% @recipes.each do |recipe| %>
     <div class="card">
@@ -11,7 +12,6 @@
       <p class="card-text recipe-extract">You have <%= recipe.recipe_ingredients.count %> ingredients in this recipe</p>
       <p class="card-text recipe-extract">Created on <%= recipe.created_at.strftime("%d %b %Y") %></p>
       <p><%= link_to "open my recipe", recipe_path(recipe), class: "btn btn-info btn-sm "%></p>
-       <p><%= link_to "my recipe", my_recipes_path, class: "btn btn-info btn-sm "%></p>
     </div>
   <% end %>
 </div>
