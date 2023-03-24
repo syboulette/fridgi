@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
     authorize @recipe
     @recipe_ingredients = @recipe.recipe_ingredients
     @recipe_ingredient = RecipeIngredient.new
+    @review = Review.new
   end
 
   def new
