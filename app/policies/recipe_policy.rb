@@ -25,6 +25,10 @@ class RecipePolicy < ApplicationPolicy
     user
   end
 
+  def user_recipes?
+    user
+  end
+
   def destroy?
     user
   end
