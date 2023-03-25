@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @reviews = policy_scope(Reviews).all
+  end
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @review = @recipe.reviews.build(review_params)

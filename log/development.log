@@ -2394,3 +2394,84 @@ Processing by ReviewsController#create as TURBO_STREAM
 Completed 422 Unprocessable Entity in 77ms (Views: 48.2ms | ActiveRecord: 14.3ms | Allocations: 21828)
 
 
+Started GET "/recipes/9" for ::1 at 2023-03-25 13:24:45 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (1.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (1.7ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/show.html.erb:20
+  [1m[36mIngredient Load (1.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 209], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 217], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  [1m[36mIngredient Load (1.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  Rendered recipes/_reviews_form.html.erb (Duration: 4.2ms | Allocations: 2055)
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/show.html.erb:32
+  Rendered recipes/show.html.erb within layouts/application (Duration: 44.1ms | Allocations: 12429)
+  Rendered shared/_navbar_login.html.erb (Duration: 6.4ms | Allocations: 1386)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 77.2ms | Allocations: 23334)
+Completed 200 OK in 217ms (Views: 71.6ms | ActiveRecord: 65.6ms | Allocations: 44370)
+
+
+Started POST "/recipes/9/reviews" for ::1 at 2023-03-25 13:24:50 +0100
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "review"=>{"rating"=>"3", "comment"=>"dwaadsa"}, "commit"=>"Create Review", "recipe_id"=>"9"}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (1.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (2.9ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/show.html.erb:20
+  [1m[36mIngredient Load (2.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 209], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  [1m[36mIngredient Load (5.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 217], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  Rendered recipes/_reviews_form.html.erb (Duration: 3.2ms | Allocations: 1994)
+  [1m[36mReview Load (8.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/show.html.erb:32
+  Rendered recipes/show.html.erb within layouts/application (Duration: 57.1ms | Allocations: 5616)
+  Rendered shared/_navbar_login.html.erb (Duration: 3.6ms | Allocations: 1390)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 82.6ms | Allocations: 16810)
+Completed 422 Unprocessable Entity in 107ms (Views: 63.4ms | ActiveRecord: 27.9ms | Allocations: 22129)
+
+
+Started POST "/recipes/9/reviews" for ::1 at 2023-03-25 13:24:55 +0100
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "review"=>{"rating"=>"4", "comment"=>"dwaadsaddsadasd"}, "commit"=>"Create Review", "recipe_id"=>"9"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (1.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (9.9ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/show.html.erb:20
+  [1m[36mIngredient Load (5.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 209], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  [1m[36mIngredient Load (2.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 217], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+  ↳ app/views/recipes/show.html.erb:21
+  Rendered recipes/_reviews_form.html.erb (Duration: 4.6ms | Allocations: 1742)
+  [1m[36mReview Load (6.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/show.html.erb:32
+  Rendered recipes/show.html.erb within layouts/application (Duration: 39.9ms | Allocations: 5196)
+  Rendered shared/_navbar_login.html.erb (Duration: 3.2ms | Allocations: 1357)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 64.9ms | Allocations: 15887)
+Completed 422 Unprocessable Entity in 79ms (Views: 41.7ms | ActiveRecord: 26.8ms | Allocations: 19003)
+
+
