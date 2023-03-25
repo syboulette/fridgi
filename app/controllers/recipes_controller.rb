@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
     authorize @recipe
 
-    if @recipe.save
+    if @recipe.save!
       redirect_to recipe_path(@recipe)
     else
       render :new, status: :unprocessable_entity
@@ -65,4 +65,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
   end
 
+  def review_params
+    params.require(:review).permit(:rating, :comment)
+  end
 end
