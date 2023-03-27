@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   resources :lists do
     post 'lists/copy_to_fridge', to: 'lists#copy_to_fridge', as: 'copy_to_fridge_lists'
   end
-  
   resources :fridges, only: [:show] do
     resources :fridge_ingredients, only: [:new, :create, :edit, :update]
   end
