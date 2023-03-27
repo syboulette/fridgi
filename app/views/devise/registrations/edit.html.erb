@@ -8,7 +8,7 @@
       <% if resource.avatar.attached? %>
         <%= image_tag resource.avatar.variant(resize: "100x100!") %>
       <% else %>
-        <%= image_tag "standard_avatar.jpg", class: "avatar" %>
+        <%= image_tag "standard_avatar.jpg", class: "avatar-large" %>
       <% end %>
       <%= f.input :avatar,
                   required: false,
