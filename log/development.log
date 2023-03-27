@@ -440,3 +440,60 @@ Processing by FridgesController#show as HTML
 Completed 200 OK in 24ms (Views: 19.0ms | ActiveRecord: 1.9ms | Allocations: 22525)
 
 
+Started GET "/recipes" for ::1 at 2023-03-27 19:32:30 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:7
+  [1m[36mRecipeIngredient Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:13
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:13
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:13
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:13
+  Rendered recipes/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 15082)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1792)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 75.7ms | Allocations: 89080)
+Completed 200 OK in 92ms (Views: 73.2ms | ActiveRecord: 6.1ms | Allocations: 107277)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-03-27 19:32:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/recipes" for ::1 at 2023-03-27 19:33:22 +0200
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:7
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:13
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:13
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:13
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:13
+  Rendered recipes/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4814)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.7ms | Allocations: 1376)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 15930)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.1ms | Allocations: 17595)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-03-27 19:33:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
