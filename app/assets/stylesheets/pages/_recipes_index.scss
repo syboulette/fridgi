@@ -48,6 +48,9 @@ body {
 .box-header.box-image {
   padding: 0;
   overflow: hidden;
+  width: 100%;
+  height: 160px;
+  flex-shrink: 0;
 }
 
 .box-header.box-image > img {
@@ -61,7 +64,7 @@ body {
 }
 
 .box-body {
-  --fade: linear-gradient(#000, transparent 99%);
+  --fade: linear-gradient(#000, rgba(0, 0, 0, .1));
   mask-image: var(--fade);
   -webkit-mask-image: var(--fade);
   font-size: .9rem;

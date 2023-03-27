@@ -23,7 +23,7 @@
 <div class="container">
   <div class="box-grid">
   <% @recipes.each do |recipe| %>
-      <div class="box">
+      <%= link_to recipe_path(recipe), class: "box" do %>
         <div class="box-header box-image">
           <%= image_tag "standard_avatar.jpg" %>
         </div>
@@ -32,8 +32,7 @@
         </div>
         <div class="box-footer">
         </div>
-        <%= link_to '', recipe_path(recipe), class: 'box-link'  %>
-      </div>
+      <% end %>
       <div class="box">
         <div class="box-header">
           <h1><%= recipe.title %></h1>
