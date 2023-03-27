@@ -1,0 +1,9 @@
+
+  <%= link_to recipe_path(recipe), class: "box" do %>
+    <div class="box-header">
+      <h1><%= recipe.title %></h1>
+    </div>
+    <div class="box-body">
+      <p>by <%= recipe.user.first_name.capitalize! %> <%= recipe.user.last_name.capitalize! %></p>
+    </div>
+  <% end %>

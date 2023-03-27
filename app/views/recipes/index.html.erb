@@ -1,9 +1,9 @@
 <%# it is only to show the reults, it is NOT in form! %>
 
+<!-- Ariane's stuff
 <h1>Cookbook!</h1>
 <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
 <p><%= link_to "my recipes", recipes_user_recipes_path, class: "btn btn-info btn-sm "%></p>
-<!-- Ariane's stuff
 <div class="container">
 <div class="cards">
   <% @recipes.each do |recipe| %>
@@ -20,47 +20,14 @@
 </div>
 </div>
 -->
-<div class="container">
+<div class="content">
   <div class="box-grid">
-  <% @recipes.each do |recipe| %>
-      <%= link_to recipe_path(recipe), class: "box" do %>
-        <div class="box-header box-image">
-          <%= image_tag "standard_avatar.jpg" %>
-        </div>
-        <div class="box-body">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos optio totam, dolore a, consectetur molestias veritatis animi assumenda, atque quam ducimus quo eaque tenetur in quidem natus cum recusandae aspernatur. Optio quidem reprehenderit aperiam natus facilis neque consectetur quisquam consequatur, ullam suscipit qui in provident aut voluptatum repellendus rerum quae tempora, a, saepe totam est? Ratione numquam veniam esse, aut, nesciunt, consectetur nihil dolor a optio perferendis magni voluptas molestiae consequuntur sit dicta vitae culpa provident adipisci suscipit maiores. Tempore nobis est consequuntur nulla quia aperiam nihil consectetur saepe hic ex a iusto ipsa temporibus maxime, eos qui assumenda atque. Debitis, adipisci eos. Totam repudiandae, iure tempore voluptatum quos sequi natus, est ipsam, odit velit corporis. Esse eaque placeat eveniet architecto quis natus debitis. Maiores hic voluptatem quis impedit illum iure voluptatum saepe excepturi, consequuntur, officiis quo enim perferendis quidem cumque eaque? Aliquid, quaerat commodi eos cumque assumenda aperiam provident.
-        </div>
-        <div class="box-footer">
-        </div>
+    <% @recipes.each do |recipe| %>
+      <% if recipe.image.attached? %>
+        <%= render "card_header_image", recipe: recipe%>
+      <% else %>
+        <%= render "card_header_text", recipe: recipe%>
       <% end %>
-      <div class="box">
-        <div class="box-header">
-          <h1><%= recipe.title %></h1>
-        </div>
-        <div class="box-body">
-          <p>by <%= recipe.user.first_name.capitalize! %> <%= recipe.user.last_name.capitalize! %></p>
-        </div>
-        <div class="box-footer">
-        </div>
-      </div>
-      <div class="box">
-        <div class="box-header">Chocolate Cake</div>
-        <div class="box-body">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Pariatur dolore quia iure suscipit accusantium dolorum id minus, libero nostrum reprehenderit?
-        </div>
-        <div class="box-footer">
-        </div>
-      </div>
-      <div class="box">
-        <div class="box-header">Chocolate Cake</div>
-        <div class="box-body">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Pariatur dolore quia iure suscipit accusantium dolorum id minus, libero nostrum reprehenderit?
-        </div>
-        <div class="box-footer">
-        </div>
-      </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
