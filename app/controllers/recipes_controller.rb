@@ -6,6 +6,11 @@ class RecipesController < ApplicationController
     @recipes = policy_scope(Recipe).all
   end
 
+  def user_recipes
+    @user_recipes = current_user.recipes
+    authorize @user_recipes
+  end
+
   def show
     authorize @recipe
     @recipe_ingredients = @recipe.recipe_ingredients
@@ -34,7 +39,7 @@ class RecipesController < ApplicationController
   def destroy
     authorize @recipe
     @recipe.destroy
-    redirect_to recipes_path, status: :see_other, notice: "The recipe has been deleted!"
+    redirect_to recipes_user_recipes_path, status: :see_other, notice: "The recipe has been deleted!"
   end
 
   def edit

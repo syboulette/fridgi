@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+  get '/recipes/user_recipes', to: 'recipes#user_recipes'
+
   resources :recipes do
     resources :recipe_ingredients, only: [:edit, :update]
     resources :favourite_recipes, only: [:create]
@@ -15,9 +17,7 @@ Rails.application.routes.draw do
   resources :favourite_recipes, only: [:edit, :index, :destroy]
 
   resources :lists do
-    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy] do
-      patch 'list_ingredients/bulk_update', to: 'list_ingredients#bulk_update', as: 'bulk_update'
-    end
+    resources :list_ingredients, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :list_ingredients, only: [:destroy]
 
