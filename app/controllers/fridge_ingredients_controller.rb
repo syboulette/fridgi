@@ -28,6 +28,7 @@ class FridgeIngredientsController < ApplicationController
 
   def edit
     @fridge = Fridge.find(params[:fridge_id])
+    @ingredient = Ingredient.new(ingredient_params)
     authorize @fridge_ingredient
   end
 

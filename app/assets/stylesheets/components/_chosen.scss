@@ -1,0 +1,14 @@
+/* Change the background color of the select box */
+.chosen-container {
+  background-color: #f2f2f2;
+}
+
+/* Change the color of the selected option */
+.chosen-container .chosen-single {
+  color: #333;
+}
+
+/* Change the color of the dropdown list */
+.chosen-container .chosen-results li {
+  color: #666;
+}

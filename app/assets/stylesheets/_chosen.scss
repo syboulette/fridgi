@@ -1,0 +1,22 @@
+/* Make the dropdown menu a fixed height and add a scrollbar */
+.chosen-results {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Add a background color to the search input */
+.chosen-container .chosen-search input[type="text"] {
+  background-color: #d1f0ab;
+}
+
+/* Change the font family and size of the dropdown options */
+.chosen-results li {
+  font-family: 'area-normal', sans-serif;
+  font-size: 14px;
+}
+
+/* Change the background and text color of the selected option */
+.chosen-container-single .chosen-single {
+  background-color: #f5f5f5;
+  color: #333;
+}
