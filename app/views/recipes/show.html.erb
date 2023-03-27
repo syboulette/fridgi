@@ -59,7 +59,7 @@
               <li><%= @recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity %> <%= ingredient.name %></li>
             <% end %>
             <h3>Add missing ingredients </h3>
-            <%= link_to "to list", recipe_add_recipe_ingredient_to_list_recipes(@recipe), class: "btn btn-primary" %>
+            <%= link_to "to list", recipe_add_recipe_ingredient_to_list_recipes_path(@recipe), data: { turbo_method: :post, turbo_confirm: "" }, class: "btn btn-primary" %>
           <% end %>
           
         </div>

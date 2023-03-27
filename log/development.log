@@ -11019,3 +11019,803 @@ Processing by RecipesController#show as HTML
 Completed 200 OK in 62ms (Views: 33.9ms | ActiveRecord: 10.8ms | Allocations: 53154)
 
 
+Started GET "/" for ::1 at 2023-03-23 21:12:37 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 504)
+  Rendered shared/_navbar_home.html.erb (Duration: 1.1ms | Allocations: 1103)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 127.2ms | Allocations: 66853)
+Completed 200 OK in 132ms (Views: 128.6ms | ActiveRecord: 0.0ms | Allocations: 70556)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-03-23 21:12:39 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 672)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 165.2ms | Allocations: 286500)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.4ms | Allocations: 687)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 171.7ms | Allocations: 297862)
+Completed 200 OK in 190ms (Views: 173.1ms | ActiveRecord: 7.7ms | Allocations: 308821)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-03-23 21:12:44 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"lambottesybilley@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "lambottesybilley@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 328ms (ActiveRecord: 1.8ms | Allocations: 5852)
+
+
+Started GET "/" for ::1 at 2023-03-23 21:12:44 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 77)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+  [1m[36mFridge Load (0.4ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 16.9ms | Allocations: 9849)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 42)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 21408)
+Completed 200 OK in 26ms (Views: 17.4ms | ActiveRecord: 8.1ms | Allocations: 21729)
+
+
+Started GET "/lists" for ::1 at 2023-03-23 21:12:49 +0100
+Processing by ListsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (4.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:5
+  [1m[36mListIngredient Count (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/index.html.erb:11
+  Rendered lists/index.html.erb within layouts/application (Duration: 30.3ms | Allocations: 6505)
+  [1m[36mFridge Load (0.6ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 3.2ms | Allocations: 2124)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 48.0ms | Allocations: 18905)
+Completed 200 OK in 59ms (Views: 29.5ms | ActiveRecord: 21.5ms | Allocations: 22850)
+
+
+Started GET "/lists/1" for ::1 at 2023-03-23 21:12:51 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 1.8ms | Allocations: 3049)
+  Rendered lists/show.html.erb within layouts/application (Duration: 21.8ms | Allocations: 18620)
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 1.7ms | Allocations: 2069)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 30563)
+Completed 200 OK in 42ms (Views: 22.4ms | ActiveRecord: 12.1ms | Allocations: 36396)
+
+
+Started GET "/lists/1/list_ingredients/5" for ::1 at 2023-03-23 21:12:52 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/lists/1/list_ingredients/5"):
+  
+Started GET "/lists/1" for ::1 at 2023-03-23 21:15:55 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (2.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 123.6ms | Allocations: 285451)
+  Rendered lists/show.html.erb within layouts/application (Duration: 180.7ms | Allocations: 347937)
+  [1m[36mFridge Load (0.4ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 8.7ms | Allocations: 7749)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 235)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 196.6ms | Allocations: 367014)
+Completed 200 OK in 230ms (Views: 185.9ms | ActiveRecord: 25.1ms | Allocations: 394022)
+
+
+Started GET "/lists/1/list_ingredients/5" for ::1 at 2023-03-23 21:15:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/lists/1/list_ingredients/5"):
+  
+Started GET "/lists/1" for ::1 at 2023-03-23 21:15:59 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 1.7ms | Allocations: 2228)
+  Rendered lists/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 10539)
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 2.1ms | Allocations: 2066)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 22476)
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 2.4ms | Allocations: 24906)
+
+
+Started GET "/lists/1" for ::1 at 2023-03-23 21:16:42 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 2.6ms | Allocations: 2117)
+  Rendered lists/show.html.erb within layouts/application (Duration: 14.6ms | Allocations: 10233)
+  [1m[36mFridge Load (1.6ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 4.1ms | Allocations: 2063)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 22149)
+Completed 200 OK in 37ms (Views: 28.8ms | ActiveRecord: 3.5ms | Allocations: 24278)
+
+
+Started GET "/lists/1/list_ingredients/5" for ::1 at 2023-03-23 21:16:44 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/lists/1/list_ingredients/5"):
+  
+Started GET "/lists/1/list_ingredients/5" for ::1 at 2023-03-23 21:17:33 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/lists/1/list_ingredients/5"):
+  
+Started GET "/lists/1" for ::1 at 2023-03-23 21:17:35 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1424)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1514)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.2ms | Allocations: 4180)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="content-page">
+  <div class="list">
+    <div class="inside-list">
+      <div class="header-list">
+        <h1 class="page_title"><%=@list.name%></h1>
+        <p class="page_subtitle">There is nothing more important than a well made list. </p>
+        <p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
+      </div>
+      <% if @list_ingredients.any? %>
+        <div class="line">
+          <h6 class="header_list ingredient">Ingredients</h6>
+          <h6 class="header_list quantity">Quantity</h6>
+          <h6 class="header_list unit">Units</h6>
+          <h6 class="header_list edit">Edit</h6>
+        </div>
+        <%= form_tag list_copy_to_fridge_lists_path(@list) do %>
+          <% @list_ingredients.each do |list_ingredient| %>
+              <div class="line">
+                <h6 class="content_list ingredient">
+                  <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
+                  <%= list_ingredient.ingredient.name %></h6>
+                <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
+                <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
+                <div class="content_list icon">
+                  <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
+                  <%= link_to image_tag("bin.svg"), list_list_ingredient_path(@list, list_ingredient), data: { confirm: 'Are you sure?', turbo-method: 'delete' } %>
+                </div>
+              </div>
+              <turbo-frame id="edit-form"></turbo-frame>
+          <% end %>
+          <%= submit_tag "Copy to Fridge" %>
+        <% end %>
+      <% else %>
+        <h6>Oups! Your list is empty...</h6>
+      <% end %>
+    </div>
+  </div>
+  <div class="add_ingredient">
+    <%= render "list_ingredients/add_ingredient_form", edit: false %>
+  </div>
+</div>
+
+
+
+):
+1:    <div class="content-page">
+2:      <div class="list">
+3:        <div class="inside-list">
+4:          <div class="header-list">
+5:            <h1 class="page_title"><%=@list.name%></h1>
+6:            <p class="page_subtitle">There is nothing more important than a well made list. </p>
+7:            <p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
+8:          </div>
+9:          <% if @list_ingredients.any? %>
+10:            <div class="line">
+11:              <h6 class="header_list ingredient">Ingredients</h6>
+12:              <h6 class="header_list quantity">Quantity</h6>
+13:              <h6 class="header_list unit">Units</h6>
+14:              <h6 class="header_list edit">Edit</h6>
+15:            </div>
+16:            <%= form_tag list_copy_to_fridge_lists_path(@list) do %>
+17:              <% @list_ingredients.each do |list_ingredient| %>
+18:                  <div class="line">
+19:                    <h6 class="content_list ingredient">
+20:                      <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
+21:                      <%= list_ingredient.ingredient.name %></h6>
+22:                    <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
+23:                    <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
+24:                    <div class="content_list icon">
+25:                      <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
+26:                      <%= link_to image_tag("bin.svg"), list_list_ingredient_path(@list, list_ingredient), data: { confirm: 'Are you sure?', turbo-method: 'delete' } %>
+27:                    </div>
+28:                  </div>
+29:                  <turbo-frame id="edit-form"></turbo-frame>
+30:              <% end %>
+31:              <%= submit_tag "Copy to Fridge" %>
+32:            <% end %>
+33:          <% else %>
+34:            <h6>Oups! Your list is empty...</h6>
+35:          <% end %>
+36:        </div>
+37:      </div>
+38:      <div class="add_ingredient">
+39:        <%= render "list_ingredients/add_ingredient_form", edit: false %>
+40:      </div>
+41:    </div>
+  
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:26: syntax error, unexpected '}', expecting ')'
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:26: syntax error, unexpected '}', expecting ')'
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:26: syntax error, unexpected '}', expecting ')'
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:26: syntax error, unexpected '}', expecting ')'
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:26: syntax error, unexpected '}', expecting ')'
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:26: syntax error, unexpected '}', expecting ')'
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+Started GET "/lists" for ::1 at 2023-03-23 21:18:10 +0100
+Processing by ListsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:5
+  [1m[36mListIngredient Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/index.html.erb:11
+  Rendered lists/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2383)
+  [1m[36mFridge Load (0.4ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 3.8ms | Allocations: 2452)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 16164)
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 2.5ms | Allocations: 18603)
+
+
+Started GET "/lists" for ::1 at 2023-03-23 21:18:11 +0100
+Processing by ListsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:5
+  [1m[36mListIngredient Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/index.html.erb:11
+  Rendered lists/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1617)
+  [1m[36mFridge Load (0.4ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 3.2ms | Allocations: 2064)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 13746)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 1.7ms | Allocations: 15475)
+
+
+Started GET "/lists/1" for ::1 at 2023-03-23 21:18:13 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1374)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1454)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms | Allocations: 3648)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="content-page">
+  <div class="list">
+    <div class="inside-list">
+      <div class="header-list">
+        <h1 class="page_title"><%=@list.name%></h1>
+        <p class="page_subtitle">There is nothing more important than a well made list. </p>
+        <p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
+      </div>
+      <% if @list_ingredients.any? %>
+        <div class="line">
+          <h6 class="header_list ingredient">Ingredients</h6>
+          <h6 class="header_list quantity">Quantity</h6>
+          <h6 class="header_list unit">Units</h6>
+          <h6 class="header_list edit">Edit</h6>
+        </div>
+        <%= form_tag list_copy_to_fridge_lists_path(@list) do %>
+          <% @list_ingredients.each do |list_ingredient| %>
+              <div class="line">
+                <h6 class="content_list ingredient">
+                  <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
+                  <%= list_ingredient.ingredient.name %></h6>
+                <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
+                <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
+                <div class="content_list icon">
+                  <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
+                  <%= link_to image_tag("bin.svg"), list_list_ingredient_path(@list, list_ingredient), data: { confirm: 'Are you sure?', turbo-method: :delete } %>
+                </div>
+              </div>
+              <turbo-frame id="edit-form"></turbo-frame>
+          <% end %>
+          <%= submit_tag "Copy to Fridge" %>
+        <% end %>
+      <% else %>
+        <h6>Oups! Your list is empty...</h6>
+      <% end %>
+    </div>
+  </div>
+  <div class="add_ingredient">
+    <%= render "list_ingredients/add_ingredient_form", edit: false %>
+  </div>
+</div>
+
+
+
+):
+1:    <div class="content-page">
+2:      <div class="list">
+3:        <div class="inside-list">
+4:          <div class="header-list">
+5:            <h1 class="page_title"><%=@list.name%></h1>
+6:            <p class="page_subtitle">There is nothing more important than a well made list. </p>
+7:            <p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
+8:          </div>
+9:          <% if @list_ingredients.any? %>
+10:            <div class="line">
+11:              <h6 class="header_list ingredient">Ingredients</h6>
+12:              <h6 class="header_list quantity">Quantity</h6>
+13:              <h6 class="header_list unit">Units</h6>
+14:              <h6 class="header_list edit">Edit</h6>
+15:            </div>
+16:            <%= form_tag list_copy_to_fridge_lists_path(@list) do %>
+17:              <% @list_ingredients.each do |list_ingredient| %>
+18:                  <div class="line">
+19:                    <h6 class="content_list ingredient">
+20:                      <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
+21:                      <%= list_ingredient.ingredient.name %></h6>
+22:                    <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
+23:                    <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
+24:                    <div class="content_list icon">
+25:                      <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
+26:                      <%= link_to image_tag("bin.svg"), list_list_ingredient_path(@list, list_ingredient), data: { confirm: 'Are you sure?', turbo-method: :delete } %>
+27:                    </div>
+28:                  </div>
+29:                  <turbo-frame id="edit-form"></turbo-frame>
+30:              <% end %>
+31:              <%= submit_tag "Copy to Fridge" %>
+32:            <% end %>
+33:          <% else %>
+34:            <h6>Oups! Your list is empty...</h6>
+35:          <% end %>
+36:        </div>
+37:      </div>
+38:      <div class="add_ingredient">
+39:        <%= render "list_ingredients/add_ingredient_form", edit: false %>
+40:      </div>
+41:    </div>
+  
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:26: syntax error, unexpected ':', expecting =>
+app/views/lists/show.html.erb:30: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:32: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/lists/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+Started GET "/lists/1" for ::1 at 2023-03-23 21:19:29 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 3.3ms | Allocations: 2453)
+  Rendered lists/show.html.erb within layouts/application (Duration: 18.7ms | Allocations: 11500)
+  [1m[36mFridge Load (0.5ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 4.0ms | Allocations: 2420)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | Allocations: 24911)
+Completed 200 OK in 46ms (Views: 36.8ms | ActiveRecord: 3.0ms | Allocations: 27612)
+
+
+Started GET "/lists/1/list_ingredients/5" for ::1 at 2023-03-23 21:19:30 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/lists/1/list_ingredients/5"):
+  
+Started GET "/lists/1" for ::1 at 2023-03-23 21:21:41 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 1.5ms | Allocations: 2819)
+  Rendered lists/show.html.erb within layouts/application (Duration: 16.8ms | Allocations: 17708)
+  [1m[36mFridge Load (0.1ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 11.4ms | Allocations: 7376)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 218)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 36137)
+Completed 200 OK in 64ms (Views: 21.2ms | ActiveRecord: 34.3ms | Allocations: 51271)
+
+
+Started GET "/lists/1" for ::1 at 2023-03-23 21:21:43 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:76:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mListIngredient Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mListIngredient Load (0.2ms)[0m  [1m[34mSELECT "list_ingredients".* FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 393], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:21
+  Rendered list_ingredients/_add_ingredient_form.html.erb (Duration: 2.1ms | Allocations: 2219)
+  Rendered lists/show.html.erb within layouts/application (Duration: 11.6ms | Allocations: 10391)
+  [1m[36mFridge Load (0.2ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."user_id" = $1 LIMIT $2[0m  [["user_id", 22], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar_login.html.erb:5
+  Rendered shared/_navbar_login.html.erb (Duration: 2.0ms | Allocations: 2064)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 22318)
+Completed 200 OK in 27ms (Views: 22.5ms | ActiveRecord: 1.5ms | Allocations: 24604)
+
+
+Started GET "/list_ingredients/5" for ::1 at 2023-03-23 21:21:44 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/list_ingredients/5"):
+  
+Started GET "/favicon.ico" for ::1 at 2023-03-27 17:22:19 +0200
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:87:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-03-27 17:30:46 +0200
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:87:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2023-03-27 17:30:46 +0200
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:87:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'

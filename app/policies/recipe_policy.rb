@@ -32,4 +32,12 @@ class RecipePolicy < ApplicationPolicy
   def destroy?
     user
   end
+
+  def add_recipe_ingredient_to_list?
+    user = @user
+  end
+
+  def remove_recipe_ingredient_from_fridge?
+    user = @user
+  end
 end

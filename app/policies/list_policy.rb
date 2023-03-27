@@ -32,4 +32,6 @@ class ListPolicy < ApplicationPolicy
   def copy_to_fridge?
     user = @user
   end
+
+
 end
