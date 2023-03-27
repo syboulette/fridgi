@@ -38,7 +38,8 @@ puts 'creating users...'
     first_name: Faker::Name.first_name,      #=> "Kaci"
     last_name: Faker::Name.last_name,        #=> "Ernser"
     email: Faker::Internet.email(domain: 'example'), #=> "alice@example.name"
-    password: Faker::Internet.password(min_length: 6)
+    password: Faker::Internet.password(min_length: 6),
+    phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
 end
 puts 'Finished seeding users!'
