@@ -856,3 +856,2211 @@ Processing by RecipesController#index as HTML
 Completed 200 OK in 27ms (Views: 22.8ms | ActiveRecord: 2.1ms | Allocations: 26893)
 
 
+Started GET "/" for ::1 at 2023-03-24 19:24:32 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (16.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 17.8ms | Allocations: 504)
+  Rendered shared/_navbar_home.html.erb (Duration: 15.9ms | Allocations: 1107)
+  Rendered shared/_flashes.html.erb (Duration: 19.6ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 498.5ms | Allocations: 54319)
+Completed 200 OK in 506ms (Views: 500.3ms | ActiveRecord: 0.0ms | Allocations: 58020)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-03-24 19:24:34 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users/sign_in" for ::1 at 2023-03-24 19:24:35 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 672)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 387.9ms | Allocations: 286153)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.7ms | Allocations: 688)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 396.3ms | Allocations: 296834)
+Completed 200 OK in 552ms (Views: 397.2ms | ActiveRecord: 129.3ms | Allocations: 307777)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-03-24 19:24:41 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"vinny@vinbcn.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (36.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vinny@vinbcn.com"], ["LIMIT", 1]]
+Redirected to http://[::1]:3000/
+Completed 303 See Other in 342ms (ActiveRecord: 36.4ms | Allocations: 6331)
+
+
+Started GET "/" for ::1 at 2023-03-24 19:24:41 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 74)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:12
+  Rendered shared/_navbar_login.html.erb (Duration: 39.4ms | Allocations: 1779)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 47.1ms | Allocations: 12592)
+Completed 200 OK in 48ms (Views: 47.2ms | ActiveRecord: 0.2ms | Allocations: 12858)
+
+
+Started GET "/recipes" for ::1 at 2023-03-24 19:24:46 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (26.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (78.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 185.1ms | Allocations: 24970)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1398)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 192.3ms | Allocations: 35915)
+Completed 200 OK in 199ms (Views: 83.5ms | ActiveRecord: 109.8ms | Allocations: 40682)
+
+
+Started GET "/favourite_recipes" for ::1 at 2023-03-24 19:24:48 +0100
+Processing by FavouriteRecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (105.8ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 115.8ms | Allocations: 9304)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1406)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 122.9ms | Allocations: 20467)
+Completed 200 OK in 179ms (Views: 16.7ms | ActiveRecord: 108.3ms | Allocations: 24724)
+
+
+Started DELETE "/favourite_recipes/48" for ::1 at 2023-03-24 19:24:50 +0100
+Processing by FavouriteRecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"48"}
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:23:in `destroy'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mFavouriteRecipe Destroy (0.3ms)[0m  [1m[31mDELETE FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1[0m  [["id", 48]]
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (21.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+Redirected to http://[::1]:3000/favourite_recipes.1
+Completed 303 See Other in 29ms (ActiveRecord: 22.4ms | Allocations: 4112)
+
+
+Started GET "/favourite_recipes.1" for ::1 at 2023-03-24 19:24:50 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3586)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.8ms | Allocations: 1362)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 14297)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.6ms | Allocations: 15686)
+
+
+Started GET "/favourite_recipes.1" for ::1 at 2023-03-24 19:24:50 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3585)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.2ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 14285)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.9ms | Allocations: 15628)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-25 14:09:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (18.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 13.6ms | Allocations: 504)
+  Rendered shared/_navbar_home.html.erb (Duration: 18.1ms | Allocations: 1150)
+  Rendered shared/_flashes.html.erb (Duration: 17.0ms | Allocations: 207)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 536.1ms | Allocations: 54134)
+Completed 200 OK in 555ms (Views: 538.3ms | ActiveRecord: 0.0ms | Allocations: 57836)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-25 14:09:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-03-25 14:09:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 672)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1287.5ms | Allocations: 286181)
+  Rendered shared/_navbar_home.html.erb (Duration: 0.6ms | Allocations: 731)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 1294.5ms | Allocations: 296955)
+Completed 200 OK in 1450ms (Views: 1295.6ms | ActiveRecord: 129.0ms | Allocations: 307951)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-03-25 14:10:07 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"vinny@vinbcn.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (60.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vinny@vinbcn.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 383ms (ActiveRecord: 61.1ms | Allocations: 6449)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-25 14:10:07 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 74)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:12
+  Rendered shared/_navbar_login.html.erb (Duration: 44.3ms | Allocations: 1779)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 54.5ms | Allocations: 12589)
+Completed 200 OK in 55ms (Views: 54.7ms | ActiveRecord: 0.2ms | Allocations: 12855)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:10:12 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (34.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (46.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 159.3ms | Allocations: 24970)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1398)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 165.9ms | Allocations: 35915)
+Completed 200 OK in 174ms (Views: 81.1ms | ActiveRecord: 85.8ms | Allocations: 40664)
+
+
+Started GET "/favourite_recipes" for 127.0.0.1 at 2023-03-25 14:10:14 +0100
+Processing by FavouriteRecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (80.8ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 89.6ms | Allocations: 8307)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1406)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 19470)
+Completed 200 OK in 159ms (Views: 17.0ms | ActiveRecord: 83.0ms | Allocations: 23692)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:10:18 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 14896)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1362)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 25601)
+Completed 200 OK in 31ms (Views: 25.8ms | ActiveRecord: 2.3ms | Allocations: 26926)
+
+
+Started GET "/recipes/4" for 127.0.0.1 at 2023-03-25 14:10:21 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1481)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1561)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.6ms | Allocations: 7058)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS work in progress%>
+
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+
+
+
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
+
+):
+1:    <h1><%= @recipe.title %></h1>
+2:      <div class="container">
+3:        <%# if @recipe.photo.present? %>
+4:          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+5:        <%#else%>
+6:          <%#end%>
+7:          <div class="info">
+8:            <h5>Prep Time</h5>
+9:            <p><%= @recipe.prep_time %> minutes</p>
+10:            <h5>Cooking Time</h5>
+11:            <p><%= @recipe.cooking_time %> minutes</p>
+12:            <h5>Total Time</h5>
+13:            <p><%= @recipe.total_time %> minutes</p>
+14:            <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+15:            <p><%= @recipe.serving %></p>
+16:            <h5>Difficulty</h5>
+17:            <%= @recipe.difficulty %> </p>
+18:            <h5>Utensils:</h5>
+19:            <p><%= @recipe.utensil %></p>
+20:          </div>
+21:            <div class="ingredients">
+22:              <h5>Ingredients</h5>
+23:                <ul>
+24:                  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+25:                    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+26:                    <% end  %>
+27:                </ul>
+28:            </div>
+29:              <div class="description">
+30:                <h5>Instruction</h5>
+31:                <p><%= @recipe.instruction %></p>
+32:              </div>
+33:          </div>
+34:        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+35:       </div>
+36:    
+37:    <%# BOOKMARKS work in progress%>
+38:    
+39:    
+40:    <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+41:    <%#= raise %>
+42:      <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+43:        <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+44:      <% else %>
+45:        <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+46:      <% end %>
+47:    <% end %>
+48:    
+49:    
+50:    
+51:    <%# check if recipe is favorited %>
+52:    <%# if recipe is favorited! link to delete %>
+53:    <%# if no link to create %>
+  
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:10:24 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 44.7ms | Allocations: 14870)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.5ms | Allocations: 1366)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 55.0ms | Allocations: 25994)
+Completed 200 OK in 59ms (Views: 53.0ms | ActiveRecord: 2.8ms | Allocations: 27232)
+
+
+Started GET "/recipes/5" for 127.0.0.1 at 2023-03-25 14:10:26 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1506)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1586)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3759)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS work in progress%>
+
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+
+
+
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
+
+):
+1:    <h1><%= @recipe.title %></h1>
+2:      <div class="container">
+3:        <%# if @recipe.photo.present? %>
+4:          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+5:        <%#else%>
+6:          <%#end%>
+7:          <div class="info">
+8:            <h5>Prep Time</h5>
+9:            <p><%= @recipe.prep_time %> minutes</p>
+10:            <h5>Cooking Time</h5>
+11:            <p><%= @recipe.cooking_time %> minutes</p>
+12:            <h5>Total Time</h5>
+13:            <p><%= @recipe.total_time %> minutes</p>
+14:            <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+15:            <p><%= @recipe.serving %></p>
+16:            <h5>Difficulty</h5>
+17:            <%= @recipe.difficulty %> </p>
+18:            <h5>Utensils:</h5>
+19:            <p><%= @recipe.utensil %></p>
+20:          </div>
+21:            <div class="ingredients">
+22:              <h5>Ingredients</h5>
+23:                <ul>
+24:                  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+25:                    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+26:                    <% end  %>
+27:                </ul>
+28:            </div>
+29:              <div class="description">
+30:                <h5>Instruction</h5>
+31:                <p><%= @recipe.instruction %></p>
+32:              </div>
+33:          </div>
+34:        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+35:       </div>
+36:    
+37:    <%# BOOKMARKS work in progress%>
+38:    
+39:    
+40:    <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+41:    <%#= raise %>
+42:      <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+43:        <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+44:      <% else %>
+45:        <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+46:      <% end %>
+47:    <% end %>
+48:    
+49:    
+50:    
+51:    <%# check if recipe is favorited %>
+52:    <%# if recipe is favorited! link to delete %>
+53:    <%# if no link to create %>
+  
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:10:29 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 14870)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.2ms | Allocations: 1366)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 25994)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 2.3ms | Allocations: 27237)
+
+
+Started GET "/recipes/3" for 127.0.0.1 at 2023-03-25 14:10:30 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1506)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1586)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 3763)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS work in progress%>
+
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+
+
+
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
+
+):
+1:    <h1><%= @recipe.title %></h1>
+2:      <div class="container">
+3:        <%# if @recipe.photo.present? %>
+4:          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+5:        <%#else%>
+6:          <%#end%>
+7:          <div class="info">
+8:            <h5>Prep Time</h5>
+9:            <p><%= @recipe.prep_time %> minutes</p>
+10:            <h5>Cooking Time</h5>
+11:            <p><%= @recipe.cooking_time %> minutes</p>
+12:            <h5>Total Time</h5>
+13:            <p><%= @recipe.total_time %> minutes</p>
+14:            <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+15:            <p><%= @recipe.serving %></p>
+16:            <h5>Difficulty</h5>
+17:            <%= @recipe.difficulty %> </p>
+18:            <h5>Utensils:</h5>
+19:            <p><%= @recipe.utensil %></p>
+20:          </div>
+21:            <div class="ingredients">
+22:              <h5>Ingredients</h5>
+23:                <ul>
+24:                  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+25:                    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+26:                    <% end  %>
+27:                </ul>
+28:            </div>
+29:              <div class="description">
+30:                <h5>Instruction</h5>
+31:                <p><%= @recipe.instruction %></p>
+32:              </div>
+33:          </div>
+34:        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+35:       </div>
+36:    
+37:    <%# BOOKMARKS work in progress%>
+38:    
+39:    
+40:    <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+41:    <%#= raise %>
+42:      <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+43:        <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+44:      <% else %>
+45:        <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+46:      <% end %>
+47:    <% end %>
+48:    
+49:    
+50:    
+51:    <%# check if recipe is favorited %>
+52:    <%# if recipe is favorited! link to delete %>
+53:    <%# if no link to create %>
+  
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:10:36 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 14872)
+  Rendered shared/_navbar_login.html.erb (Duration: 3.1ms | Allocations: 1366)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 25996)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 2.0ms | Allocations: 27245)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:10:55 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1506)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1586)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3753)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS work in progress%>
+
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+
+
+
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
+
+):
+1:    <h1><%= @recipe.title %></h1>
+2:      <div class="container">
+3:        <%# if @recipe.photo.present? %>
+4:          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+5:        <%#else%>
+6:          <%#end%>
+7:          <div class="info">
+8:            <h5>Prep Time</h5>
+9:            <p><%= @recipe.prep_time %> minutes</p>
+10:            <h5>Cooking Time</h5>
+11:            <p><%= @recipe.cooking_time %> minutes</p>
+12:            <h5>Total Time</h5>
+13:            <p><%= @recipe.total_time %> minutes</p>
+14:            <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+15:            <p><%= @recipe.serving %></p>
+16:            <h5>Difficulty</h5>
+17:            <%= @recipe.difficulty %> </p>
+18:            <h5>Utensils:</h5>
+19:            <p><%= @recipe.utensil %></p>
+20:          </div>
+21:            <div class="ingredients">
+22:              <h5>Ingredients</h5>
+23:                <ul>
+24:                  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+25:                    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+26:                    <% end  %>
+27:                </ul>
+28:            </div>
+29:              <div class="description">
+30:                <h5>Instruction</h5>
+31:                <p><%= @recipe.instruction %></p>
+32:              </div>
+33:          </div>
+34:        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+35:       </div>
+36:    
+37:    <%# BOOKMARKS work in progress%>
+38:    
+39:    
+40:    <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+41:    <%#= raise %>
+42:      <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+43:        <%= f.submit <i class="fas fa-heart"></i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+44:      <% else %>
+45:        <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+46:      <% end %>
+47:    <% end %>
+48:    
+49:    
+50:    
+51:    <%# check if recipe is favorited %>
+52:    <%# if recipe is favorited! link to delete %>
+53:    <%# if no link to create %>
+  
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected '<'
+app/views/recipes/show.html.erb:55: unterminated regexp meets end of file
+app/views/recipes/show.html.erb:55: regexp encoding option 'n' differs from source encoding 'UTF-8'
+app/views/recipes/show.html.erb:55: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /i>, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" );@output_buffer.safe_append='
+app/views/recipes/show.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:15:10 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 20.1ms | Allocations: 15478)
+  Rendered shared/_navbar_login.html.erb (Duration: 2.4ms | Allocations: 1734)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 27843)
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 2.8ms | Allocations: 29642)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:15:12 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 14872)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.8ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 25572)
+Completed 200 OK in 27ms (Views: 23.0ms | ActiveRecord: 2.0ms | Allocations: 26896)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:15:14 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1545)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1625)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3860)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS work in progress%>
+
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit "<i class="fas fa-heart"></i>", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+
+
+
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
+
+):
+1:    <h1><%= @recipe.title %></h1>
+2:      <div class="container">
+3:        <%# if @recipe.photo.present? %>
+4:          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+5:        <%#else%>
+6:          <%#end%>
+7:          <div class="info">
+8:            <h5>Prep Time</h5>
+9:            <p><%= @recipe.prep_time %> minutes</p>
+10:            <h5>Cooking Time</h5>
+11:            <p><%= @recipe.cooking_time %> minutes</p>
+12:            <h5>Total Time</h5>
+13:            <p><%= @recipe.total_time %> minutes</p>
+14:            <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+15:            <p><%= @recipe.serving %></p>
+16:            <h5>Difficulty</h5>
+17:            <%= @recipe.difficulty %> </p>
+18:            <h5>Utensils:</h5>
+19:            <p><%= @recipe.utensil %></p>
+20:          </div>
+21:            <div class="ingredients">
+22:              <h5>Ingredients</h5>
+23:                <ul>
+24:                  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+25:                    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+26:                    <% end  %>
+27:                </ul>
+28:            </div>
+29:              <div class="description">
+30:                <h5>Instruction</h5>
+31:                <p><%= @recipe.instruction %></p>
+32:              </div>
+33:          </div>
+34:        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+35:       </div>
+36:    
+37:    <%# BOOKMARKS work in progress%>
+38:    
+39:    
+40:    <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+41:    <%#= raise %>
+42:      <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+43:        <%= f.submit "<i class="fas fa-heart"></i>", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+44:      <% else %>
+45:        <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+46:      <% end %>
+47:    <% end %>
+48:    
+49:    
+50:    
+51:    <%# check if recipe is favorited %>
+52:    <%# if recipe is favorited! link to delete %>
+53:    <%# if no link to create %>
+  
+app/views/recipes/show.html.erb:43: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+app/views/recipes/show.html.erb:43: syntax error, unexpected ',', expecting ')'
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:21:31 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.2ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 4197)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.8ms | Allocations: 1730)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 16547)
+Completed 200 OK in 25ms (Views: 15.3ms | ActiveRecord: 3.2ms | Allocations: 22302)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:21:41 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 15205)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.8ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 25906)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 1.5ms | Allocations: 27284)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:21:43 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1681)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 12373)
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 14579)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:22:11 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2548)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.7ms | Allocations: 1722)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 14474)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 0.6ms | Allocations: 17229)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:22:12 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1681)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.4ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 12373)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 14682)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:23:29 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2672)
+  Rendered shared/_navbar_login.html.erb (Duration: 2.1ms | Allocations: 1717)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 14592)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 1.1ms | Allocations: 17332)
+
+
+Started POST "/recipes/2/favourite_recipes" for 127.0.0.1 at 2023-03-25 14:23:35 +0100
+Processing by FavouriteRecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"🖤", "recipe_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: FavouriteRecipesController, action: create, request: #<ActionDispatch::Request:0x00007f2c628173c0>, params: {"authenticity_token"=>"[FILTERED]", "commit"=>"🖤", "controller"=>"favourite_recipes", "action"=>"create", "recipe_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mFavouriteRecipe Create (77.7ms)[0m  [1m[32mINSERT INTO "favourite_recipes" ("recipe_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 2], ["user_id", 1], ["created_at", "2023-03-25 13:23:35.151765"], ["updated_at", "2023-03-25 13:23:35.151765"]]
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (19.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1 AND "favourite_recipes"."recipe_id" = $2 LIMIT $3[0m  [["user_id", 1], ["recipe_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:13:in `create'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/recipes/2
+Completed 302 Found in 107ms (ActiveRecord: 97.6ms | Allocations: 8117)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:23:35 +0100
+Processing by RecipesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1794)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.2ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 12537)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.4ms | Allocations: 14810)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:24:22 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2690)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.7ms | Allocations: 1717)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 14610)
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 0.5ms | Allocations: 17358)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:28:33 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 3675)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.4ms | Allocations: 1717)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 15595)
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.3ms | Allocations: 18463)
+
+
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:29:04 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  Rendered recipes/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1586)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1675)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 4534)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @recipe.title %></h1>
+  <div class="container">
+    <%# if @recipe.photo.present? %>
+      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+    <%#else%>
+      <%#end%>
+      <div class="info">
+        <h5>Prep Time</h5>
+        <p><%= @recipe.prep_time %> minutes</p>
+        <h5>Cooking Time</h5>
+        <p><%= @recipe.cooking_time %> minutes</p>
+        <h5>Total Time</h5>
+        <p><%= @recipe.total_time %> minutes</p>
+        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+        <p><%= @recipe.serving %></p>
+        <h5>Difficulty</h5>
+        <%= @recipe.difficulty %> </p>
+        <h5>Utensils:</h5>
+        <p><%= @recipe.utensil %></p>
+      </div>
+        <div class="ingredients">
+          <h5>Ingredients</h5>
+            <ul>
+              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+                <% end  %>
+            </ul>
+        </div>
+          <div class="description">
+            <h5>Instruction</h5>
+            <p><%= @recipe.instruction %></p>
+          </div>
+      </div>
+    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS work in progress%>
+
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit "❤️", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+
+<%= link_to 'My favourite recipes' favourite_recipes_path, class: "btn btn-info btn-sm " %>
+
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
+
+):
+1:    <h1><%= @recipe.title %></h1>
+2:      <div class="container">
+3:        <%# if @recipe.photo.present? %>
+4:          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
+5:        <%#else%>
+6:          <%#end%>
+7:          <div class="info">
+8:            <h5>Prep Time</h5>
+9:            <p><%= @recipe.prep_time %> minutes</p>
+10:            <h5>Cooking Time</h5>
+11:            <p><%= @recipe.cooking_time %> minutes</p>
+12:            <h5>Total Time</h5>
+13:            <p><%= @recipe.total_time %> minutes</p>
+14:            <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
+15:            <p><%= @recipe.serving %></p>
+16:            <h5>Difficulty</h5>
+17:            <%= @recipe.difficulty %> </p>
+18:            <h5>Utensils:</h5>
+19:            <p><%= @recipe.utensil %></p>
+20:          </div>
+21:            <div class="ingredients">
+22:              <h5>Ingredients</h5>
+23:                <ul>
+24:                  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+25:                    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
+26:                    <% end  %>
+27:                </ul>
+28:            </div>
+29:              <div class="description">
+30:                <h5>Instruction</h5>
+31:                <p><%= @recipe.instruction %></p>
+32:              </div>
+33:          </div>
+34:        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+35:       </div>
+36:    
+37:    <%# BOOKMARKS work in progress%>
+38:    
+39:    
+40:    <%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+41:    <%#= raise %>
+42:      <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+43:        <%= f.submit "❤️", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+44:      <% else %>
+45:        <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+46:      <% end %>
+47:    <% end %>
+48:    
+49:    <%= link_to 'My favourite recipes' favourite_recipes_path, class: "btn btn-info btn-sm " %>
+50:    
+51:    <%# check if recipe is favorited %>
+52:    <%# if recipe is favorited! link to delete %>
+53:    <%# if no link to create %>
+  
+app/views/recipes/show.html.erb:49: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:49: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:49: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:49: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:49: syntax error, unexpected local variable or method, expecting ')'
+app/views/recipes/show.html.erb:49: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/recipes/2" for 127.0.0.1 at 2023-03-25 14:29:11 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2749)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.5ms | Allocations: 1725)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 190)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 15093)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.5ms | Allocations: 18066)
+
+
+Started GET "/favourite_recipes" for 127.0.0.1 at 2023-03-25 14:29:17 +0100
+Processing by FavouriteRecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 5080)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.6ms | Allocations: 1398)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 16010)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 17820)
+
+
+Started DELETE "/favourite_recipes/49" for 127.0.0.1 at 2023-03-25 14:29:22 +0100
+Processing by FavouriteRecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"49"}
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:23:in `destroy'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mFavouriteRecipe Destroy (0.2ms)[0m  [1m[31mDELETE FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1[0m  [["id", 49]]
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+Redirected to http://127.0.0.1:3000/favourite_recipes.3
+Completed 303 See Other in 13ms (ActiveRecord: 7.4ms | Allocations: 3897)
+
+
+Started GET "/favourite_recipes.3" for 127.0.0.1 at 2023-03-25 14:29:22 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 3585)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 14291)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 15763)
+
+
+Started GET "/favourite_recipes.3" for 127.0.0.1 at 2023-03-25 14:29:22 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 3585)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 14285)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.5ms | Allocations: 15611)
+
+
+Started DELETE "/favourite_recipes/50" for 127.0.0.1 at 2023-03-25 14:29:24 +0100
+Processing by FavouriteRecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"50"}
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:23:in `destroy'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mFavouriteRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1[0m  [["id", 50]]
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+Redirected to http://127.0.0.1:3000/favourite_recipes.5
+Completed 303 See Other in 9ms (ActiveRecord: 5.7ms | Allocations: 3128)
+
+
+Started GET "/favourite_recipes.5" for 127.0.0.1 at 2023-03-25 14:29:24 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2587)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 13292)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 14643)
+
+
+Started GET "/favourite_recipes.5" for 127.0.0.1 at 2023-03-25 14:29:24 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2587)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.9ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 13287)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.4ms | Allocations: 14619)
+
+
+Started DELETE "/favourite_recipes/51" for 127.0.0.1 at 2023-03-25 14:29:26 +0100
+Processing by FavouriteRecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"51"}
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:23:in `destroy'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mFavouriteRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1[0m  [["id", 51]]
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (16.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+Redirected to http://127.0.0.1:3000/favourite_recipes.14
+Completed 303 See Other in 21ms (ActiveRecord: 16.4ms | Allocations: 3131)
+
+
+Started GET "/favourite_recipes.14" for 127.0.0.1 at 2023-03-25 14:29:26 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1589)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.9ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 12297)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 13639)
+
+
+Started GET "/favourite_recipes.14" for 127.0.0.1 at 2023-03-25 14:29:26 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1589)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.3ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 12289)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.3ms | Allocations: 13618)
+
+
+Started DELETE "/favourite_recipes/52" for 127.0.0.1 at 2023-03-25 14:29:26 +0100
+Processing by FavouriteRecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"52"}
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:23:in `destroy'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mFavouriteRecipe Destroy (0.2ms)[0m  [1m[31mDELETE FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1[0m  [["id", 52]]
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+Redirected to http://127.0.0.1:3000/favourite_recipes.2
+Completed 303 See Other in 19ms (ActiveRecord: 14.2ms | Allocations: 3110)
+
+
+Started GET "/favourite_recipes.2" for 127.0.0.1 at 2023-03-25 14:29:27 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 577)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.3ms | Allocations: 1367)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 11291)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 12654)
+
+
+Started GET "/favourite_recipes.2" for 127.0.0.1 at 2023-03-25 14:29:27 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 577)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.7ms | Allocations: 1367)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 11286)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 12633)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-25 14:35:42 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 243)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:12
+  Rendered shared/_navbar_login.html.erb (Duration: 1.3ms | Allocations: 1400)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 15374)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 2.2ms | Allocations: 15994)
+
+
+Started GET "/fridges/1" for 127.0.0.1 at 2023-03-25 14:35:47 +0100
+Processing by FridgesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFridge Load (70.9ms)[0m  [1m[34mSELECT "fridges".* FROM "fridges" WHERE "fridges"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/fridges_controller.rb:18:in `set_fridge'
+  Rendering layout layouts/application.html.erb
+  Rendering fridges/show.html.erb within layouts/application
+  [1m[36mFridgeIngredient Exists? (42.5ms)[0m  [1m[34mSELECT 1 AS one FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1 LIMIT $2[0m  [["fridge_id", 1], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:2
+  [1m[36mFridgeIngredient Load (0.1ms)[0m  [1m[34mSELECT "fridge_ingredients".* FROM "fridge_ingredients" WHERE "fridge_ingredients"."fridge_id" = $1[0m  [["fridge_id", 1]]
+  ↳ app/views/fridges/show.html.erb:3
+  [1m[36mIngredient Load (22.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 430], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 431], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 432], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 433], ["LIMIT", 1]]
+  ↳ app/views/fridges/show.html.erb:5
+  Rendered fridge_ingredients/_add_ingredient_form.html.erb (Duration: 15.1ms | Allocations: 3106)
+  Rendered fridges/show.html.erb within layouts/application (Duration: 230.6ms | Allocations: 17965)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.4ms | Allocations: 1360)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 237.9ms | Allocations: 28976)
+Completed 200 OK in 375ms (Views: 170.6ms | ActiveRecord: 143.5ms | Allocations: 40160)
+
+
+Started GET "/lists" for 127.0.0.1 at 2023-03-25 14:37:38 +0100
+Processing by ListsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:5
+  [1m[36mListIngredient Count (41.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "list_ingredients" WHERE "list_ingredients"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/index.html.erb:11
+  Rendered lists/index.html.erb within layouts/application (Duration: 79.9ms | Allocations: 6038)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1398)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 86.9ms | Allocations: 16990)
+Completed 200 OK in 145ms (Views: 43.2ms | ActiveRecord: 44.7ms | Allocations: 20834)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2023-03-25 14:37:40 +0100
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:9
+  [1m[36mRecipeIngredient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 2]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 3]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 4]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 5]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 6]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 7]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 9]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 10]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 12]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 13]]
+  ↳ app/views/recipes/index.html.erb:15
+  [1m[36mRecipeIngredient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 14]]
+  ↳ app/views/recipes/index.html.erb:15
+  Rendered recipes/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 15207)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 25908)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 1.9ms | Allocations: 27347)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2023-03-25 14:37:48 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1808)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 12500)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 14712)
+
+
+Started POST "/recipes/1/favourite_recipes" for 127.0.0.1 at 2023-03-25 14:37:52 +0100
+Processing by FavouriteRecipesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"🖤", "recipe_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: FavouriteRecipesController, action: create, request: #<ActionDispatch::Request:0x00007f2c63a80020>, params: {"authenticity_token"=>"[FILTERED]", "commit"=>"🖤", "controller"=>"favourite_recipes", "action"=>"create", "recipe_id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mFavouriteRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "favourite_recipes" ("recipe_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 1], ["user_id", 1], ["created_at", "2023-03-25 13:37:52.448727"], ["updated_at", "2023-03-25 13:37:52.448727"]]
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (26.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:12:in `create'
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1 AND "favourite_recipes"."recipe_id" = $2 LIMIT $3[0m  [["user_id", 1], ["recipe_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:13:in `create'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed 302 Found in 34ms (ActiveRecord: 27.5ms | Allocations: 5503)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2023-03-25 14:37:52 +0100
+Processing by RecipesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:65:in `set_recipe'
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 1]]
+  ↳ app/views/recipes/show.html.erb:24
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/recipes/show.html.erb:42:in `map'
+  Rendered recipes/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1775)
+  Rendered shared/_navbar_login.html.erb (Duration: 0.8ms | Allocations: 1366)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 12942)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 15204)
+
+
+Started GET "/favourite_recipes" for 127.0.0.1 at 2023-03-25 14:37:56 +0100
+Processing by FavouriteRecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:5
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1587)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1358)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 12287)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.4ms | Allocations: 13643)
+
+
+Started DELETE "/favourite_recipes/53" for 127.0.0.1 at 2023-03-25 14:37:59 +0100
+Processing by FavouriteRecipesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"53"}
+  [1m[36mFavouriteRecipe Load (0.2ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:23:in `destroy'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mFavouriteRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "favourite_recipes" WHERE "favourite_recipes"."id" = $1[0m  [["id", 53]]
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favourite_recipes_controller.rb:25:in `destroy'
+Redirected to http://127.0.0.1:3000/favourite_recipes.1
+Completed 303 See Other in 10ms (ActiveRecord: 6.2ms | Allocations: 3144)
+
+
+Started GET "/favourite_recipes.1" for 127.0.0.1 at 2023-03-25 14:37:59 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 577)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.1ms | Allocations: 1367)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 29)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 11291)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 12660)
+
+
+Started GET "/favourite_recipes.1" for 127.0.0.1 at 2023-03-25 14:37:59 +0100
+Processing by FavouriteRecipesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/favourite_recipes_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering favourite_recipes/index.html.erb within layouts/application
+  [1m[36mFavouriteRecipe Load (0.1ms)[0m  [1m[34mSELECT "favourite_recipes".* FROM "favourite_recipes" WHERE "favourite_recipes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/favourite_recipes/index.html.erb:2
+  Rendered favourite_recipes/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 577)
+  Rendered shared/_navbar_login.html.erb (Duration: 1.0ms | Allocations: 1367)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 11286)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 12616)
+
+
