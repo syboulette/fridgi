@@ -1,0 +1,14 @@
+<div>
+  <% @favourite_recipes.each do |fr| %>
+    <div class ="row hoverable posts-background">
+      <div class ="col s10">
+        <%= link_to "#{fr.recipe.title}", recipe_path(fr.recipe)%>
+        <p>Added on: <%=fr.created_at.strftime("%b %d, %Y")%></p>
+        <%= button_to "💔", favourite_recipe_path(fr), method: :delete, class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%#= link_to "unfavourite", favourite_recipe_path(fr), method: :delete %>
