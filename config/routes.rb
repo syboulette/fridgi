@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :recipe_ingredients, only: [:edit, :update]
-    resources :reviews, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :reviews, only: [:index, :new, :create]
   end
+
+  resources :reviews, only: [:show, :edit, :update, :destroy]
 
   resources :recipe_ingredients, only: [:new, :create, :destroy]
   resources :favorite_recipes, only: [:new, :create, :edit, :index]
