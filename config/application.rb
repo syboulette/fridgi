@@ -25,5 +25,3 @@ module Fridgi
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-config.action_controller.perform_caching = false
