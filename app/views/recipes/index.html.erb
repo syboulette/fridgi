@@ -8,7 +8,7 @@
 <div class="cards">
   <% @recipes.each do |recipe| %>
     <div class="card">
-      <h6 class="card-text recipe-title"><em><%= recipe.title %></em></h6>
+      <h6 class="card-text recipe-title"><em><%= link_to recipe.title, recipe_path(recipe)%></em></h6>
       <div class="inner-flex">
         <%= button_to "Delete", recipe, method: :delete, class:"btn btn-danger" %>
       </div>
