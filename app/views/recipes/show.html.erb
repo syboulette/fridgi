@@ -33,11 +33,11 @@
             Be the first to leave a review for <%= @recipe.title %>
           <% else %>
           <h3>Reviews:</h3>
-            <% @recipe.reviews.each do |review| %>
+           <% @recipe.reviews.each do |review| %>
               <p><%= review.rating %> stars </p>
               <p>Comment: <%= review.comment %></p>
-              <%= button_to "Delete", recipe_review_path(@recipe), method: :destroy, class: "btn btn-primary" %>
-              <%= link_to "Edit", edit_recipe_review_path(@recipe), method: :edit, class: "btn btn-primary" %>
+              <%= button_to "Delete", review_path(review), method: :delete, class: "btn btn-primary" %>
+              <%= link_to "Edit", edit_review_path(review), edit: :true, class: "btn btn-primary" %>
             <% end %>
           <% end %></div>
         </div>
