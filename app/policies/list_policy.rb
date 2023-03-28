@@ -28,4 +28,8 @@ class ListPolicy < ApplicationPolicy
   def destroy?
     user
   end
+
+  def copy_to_fridge?
+    user = @user
+  end
 end
