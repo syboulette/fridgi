@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
     authorize @recipe
     @recipe_ingredients = @recipe.recipe_ingredients
     @recipe_ingredient = RecipeIngredient.new
+    @review = Review.new
     @favourite_recipe = FavouriteRecipe.new
   end
 
@@ -65,4 +66,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
   end
 
+  def review_params
+    params.require(:review).permit(:rating, :comment)
+  end
 end

@@ -4,5 +4,28 @@ class ReviewPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    def resolve
+      scope.all
+    end
+  end
+
+  def new?
+    create?
+  end
+
+  def create?
+    true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    user
+  end
+
+  def destroy?
+    user
   end
 end
