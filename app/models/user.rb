@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :list, dependent: :destroy
   has_many :recipes
   has_many :reviews
-  validates :phone_number, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/ }
+  # validates :phone_number, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/ }
 
 end

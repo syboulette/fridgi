@@ -41,5 +41,20 @@ puts 'creating users...'
     password: Faker::Internet.password(min_length: 6),
     phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
+  2.times do
+    recipe = user.recipes.create(
+      title: Faker::Food.dish,
+      prep_time: Faker::Number.between(from: 5, to: 60),
+      instruction: Faker::Food.description,
+      difficulty: Faker::Number.between(from: 1, to: 5),
+      utensil: Faker::Food.measurement,
+      cooking_time: Faker::Number.between(from: 5, to: 120),
+      total_time: 5,
+      serving: Faker::Number.between(from: 1, to: 12)
+    )
+    total_time = recipe.cooking_time + recipe.cooking_time
+    recipe.update(total_time: total_time)
+  end
 end
+
 puts 'Finished seeding users!'
