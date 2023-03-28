@@ -1,5 +1,6 @@
 require "open-uri"
 require "csv"
+require 'unsplash'
 
 start = Time.now
 
@@ -33,11 +34,17 @@ end
 #############################################
 puts 'creating users...'
 
+Unsplash.configure do |config|
+  config.application_access_key = 'm4QufnEnY8uVSt7OOABFNNPI-bJzMkuFULZTgIdd6kY'
+  config.application_secret = '2iOdSd572TZ3rVT10Ftl_lw1Cx_xc9AxAXEcugwfDTY'
+  config.utm_source = 'fridgi'
+end
+
 20.times do
   user = User.create!(
-    first_name: Faker::Name.first_name,      #=> "Kaci"
-    last_name: Faker::Name.last_name,        #=> "Ernser"
-    email: Faker::Internet.email(domain: 'example'), #=> "alice@example.name"
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email(domain: 'example'),
     password: Faker::Internet.password(min_length: 6),
     phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
@@ -53,6 +60,12 @@ puts 'creating users...'
       serving: Faker::Number.between(from: 1, to: 12)
     )
     total_time = recipe.cooking_time + recipe.cooking_time
+
+    # Fetch a random food image from Unsplash
+    query = ['food', 'cuisine', 'cooking', 'meal'].sample
+    image = Unsplash::Photo.random(query: query, orientation: 'landscape')
+    recipe.image.attach(io: URI.open(image.urls.regular), filename: 'recipe_image.jpg')
+
     recipe.update(total_time: total_time)
   end
 end
