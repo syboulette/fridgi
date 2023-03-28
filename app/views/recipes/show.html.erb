@@ -1,9 +1,5 @@
 <h1><%= @recipe.title %></h1>
   <div class="container">
-    <%# if @recipe.photo.present? %>
-      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
-    <%#else%>
-      <%#end%>
       <div class="info">
         <h5>Prep Time</h5>
         <p><%= @recipe.prep_time %> minutes</p>
@@ -30,6 +26,19 @@
             <h5>Instruction</h5>
             <p><%= @recipe.instruction %></p>
           </div>
-      </div>
-    <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+           <div>
+          <%= render "recipes/reviews_form" %>
+          </div>
+          <div><% if @recipe.reviews.blank? %>
+            Be the first to leave a review for <%= @recipe.title %>
+          <% else %>
+          <h3>Reviews:</h3>
+            <% @recipe.reviews.each do |review| %>
+              <p><%= review.rating %> stars </p>
+              <p>Comment: <%= review.comment %></p>
+              <%= button_to "Delete", review_path(@recipe), method: :destroy, class: "btn btn-primary" %>
+            <% end %>
+          <% end %></div>
+        </div>
+    <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
    </div>
