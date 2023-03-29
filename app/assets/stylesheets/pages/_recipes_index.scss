@@ -90,7 +90,7 @@ body {
   font-size: .9rem;
   overflow: auto;
   height: 100%;
-  padding: 0 var(--padding);
+  padding: var(--padding);
 }
 
 .box-body p {
