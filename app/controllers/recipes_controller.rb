@@ -4,15 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = <<~SQL
-        recipes.title @@ :query
-        OR recipes.instruction @@ :query
-        OR users.first_name @@ :query
-        OR users.first_name @@ :query
-      SQL
-
-      @recipes = policy_scope(Recipe).joins(:user).where(sql_query, query: "%#{params[:query]}%")
-
+      @recipes = policy_scope(Recipe).search_by_title_and_instruction(params[:query])
     else
       @recipes = policy_scope(Recipe).all
     end
