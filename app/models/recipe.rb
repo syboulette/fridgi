@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :recipe_ingredients
   validates_presence_of :title, :total_time, :instruction
   has_many :favourite_recipes #It can be handle by the policy to only allow the owner to see/edit
+  has_many :users, through: :favourite_recipes
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_instruction,
