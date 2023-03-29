@@ -19,7 +19,7 @@
         <li class="nav-item dropdown">
           <%= image_tag "standard_avatar.jpg" , alt: "Avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "My Account", "/", class: "dropdown-item" %>
+            <%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Settings", "/", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           </div>
