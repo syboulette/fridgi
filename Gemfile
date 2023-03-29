@@ -11,6 +11,8 @@ gem "pundit"
 
 gem "cloudinary"
 
+gem "pg_search"
+
 # gem 'country_select', '~> 8.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

@@ -3,7 +3,19 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = policy_scope(Recipe).all
+    if params[:query].present?
+      sql_query = <<~SQL
+        recipes.title @@ :query
+        OR recipes.instruction @@ :query
+        OR users.first_name @@ :query
+        OR users.first_name @@ :query
+      SQL
+
+      @recipes = policy_scope(Recipe).joins(:user).where(sql_query, query: "%#{params[:query]}%")
+
+    else
+      @recipes = policy_scope(Recipe).all
+    end
   end
 
   def user_recipes
