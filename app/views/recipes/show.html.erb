@@ -37,7 +37,7 @@
               <p><%= review.rating %> stars </p>
               <p>Comment: <%= review.comment %></p>
               <%= button_to "Delete", review_path(review), method: :delete, class: "btn btn-primary" %>
-              <%= link_to "Edit", edit_review_path(review), edit: :true, class: "btn btn-primary" %>
+              <%= link_to "Edit", edit_review_path(@recipe), edit: :true, class: "btn btn-primary" %>
             <% end %>
           <% end %></div>
         </div>
