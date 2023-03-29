@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
     @recipe_ingredients = @recipe.recipe_ingredients
     @recipe_ingredient = RecipeIngredient.new
     @review = Review.new
+    @favourite_recipe = FavouriteRecipe.new
   end
 
   def new
