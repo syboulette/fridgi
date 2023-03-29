@@ -6,6 +6,8 @@ class Recipe < ApplicationRecord
   has_many :reviews
   accepts_nested_attributes_for :recipe_ingredients
   validates_presence_of :title, :total_time, :instruction
+
+  has_one_attached :image
   has_many :users, through: :favourite_recipes
   has_many :favourite_recipes #It can be handle by the policy to only allow the owner to see/edit
 end

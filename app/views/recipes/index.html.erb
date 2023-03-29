@@ -1,4 +1,6 @@
 <%# it is only to show the reults, it is NOT in form! %>
+
+<!-- Ariane's stuff
 <h1>Cookbook!</h1>
 <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
 <p><%= link_to "my recipes", recipes_user_recipes_path, class: "btn btn-info btn-sm "%></p>
@@ -17,4 +19,16 @@
     </div>
   <% end %>
 </div>
+</div>
+-->
+<div class="content" id="content-recipe">
+  <div class="box-grid">
+    <% @recipes.each do |recipe| %>
+      <% if recipe.image.attached? %>
+        <%= render "card_header_image", recipe: recipe%>
+      <% else %>
+        <%= render "card_header_text", recipe: recipe%>
+      <% end %>
+    <% end %>
+  </div>
 </div>
