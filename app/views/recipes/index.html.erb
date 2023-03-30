@@ -42,7 +42,7 @@
            step: 'any',
           min: 0
       %>
-      <%= select_tag "difficulty", options_for_select(["1", "2", "3", "4", "5"]), {:prompt => 'Difficulty', class: "form-control"} %>
+      <%= select_tag "difficulty", options_for_select(["1", "2", "3"]), {:prompt => 'Difficulty', class: "form-control"} %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>

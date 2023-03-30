@@ -13,16 +13,13 @@ class RecipesController < ApplicationController
       @recipes = @recipes.where(total_time: 0..params[:total_time].to_i)
     end
 
-    if
-      params[:serving].present?
+    if params[:serving].present?
       @recipes = @recipes.where(serving: 0..params[:serving].to_i)
     end
 
     if params[:difficulty].present?
       @recipes = @recipes.where(difficulty: params[:difficulty].to_i)
     end
-
-
   end
 
   def user_recipes
