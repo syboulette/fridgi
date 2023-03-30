@@ -13,7 +13,6 @@ class FavouriteRecipesController < ApplicationController
     authorize @favourite_recipe
 
     @favourite_recipe.save ? flash[:notice] = "Recipe was saved" : flash[:alert] = "Recipe not saved"
-    redirect_to recipes_path
   end
 
   def destroy
