@@ -1,9 +1,5 @@
 <h1><%= @recipe.title %></h1>
   <div class="container">
-    <%# if @recipe.photo.present? %>
-      <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill  %>
-    <%#else%>
-      <%#end%>
       <div class="info">
         <h5>Prep Time</h5>
         <p><%= @recipe.prep_time %> minutes</p>
@@ -65,3 +61,35 @@
         </div>
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
   </div>
+           <div>
+          <%= render "recipes/reviews_form" %>
+          </div>
+          <div><% if @recipe.reviews.blank? %>
+            Be the first to leave a review for <%= @recipe.title %>
+          <% else %>
+          <h3>Reviews:</h3>
+           <% @recipe.reviews.each do |review| %>
+              <p><%= review.rating %> stars </p>
+              <p>Comment: <%= review.comment %></p>
+              <%= button_to "Delete", review_path(review), method: :delete, class: "btn btn-primary" %>
+              <%= link_to "Edit", edit_review_path(@recipe), edit: :true, class: "btn btn-primary" %>
+            <% end %>
+          <% end %></div>
+        </div>
+    <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+   </div>
+
+<%# BOOKMARKS%>
+
+<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
+<%#= raise %>
+  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
+    <%= f.submit "❤️", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
+  <% else %>
+    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+  <% end %>
+<% end %>
+<%= link_to 'My favourite recipes', favourite_recipes_path, class: "btn btn-info btn-sm " %>
+<%# check if recipe is favorited %>
+<%# if recipe is favorited! link to delete %>
+<%# if no link to create %>
