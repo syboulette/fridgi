@@ -1,0 +1,22 @@
+<div>
+  <div class="like-button">
+    <% if current_user.favourited_recipes.include?(recipe) %>
+      <%= link_to favourite_recipe_path(current_user.favourite_recipes.find_by(recipe: recipe)), data: { turbo_method: :delete } do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= form_with model: [recipe, FavouriteRecipe.new] do %>
+        <button><i class="far fa-heart"></i></button>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= link_to recipe_path(recipe), class: "box" do %>
+    <div class="box-header box-image" style="background-image: url(<%= recipe.image.url %>);">
+    </div>
+    <div class="box-body">
+      <h2><%= recipe.title %></h2>
+      <p>by <%= recipe.user.first_name.capitalize %></p>
+    </div>
+  <% end %>
+</div>
