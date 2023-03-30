@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :favourite_recipes
   has_many :recipes, through: :favourite_recipes
+  validates :phone_number, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/ }
 end
