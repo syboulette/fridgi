@@ -11,7 +11,10 @@ gem "pundit"
 
 gem "cloudinary"
 
+gem "pg_search"
+
 gem 'unsplash'
+
 
 # gem 'country_select', '~> 8.0'
 
