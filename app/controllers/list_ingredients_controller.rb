@@ -71,19 +71,6 @@ class ListIngredientsController < ApplicationController
     end
   end
 
-  def copy_to_fridge
-    user = current_user
-    fridge = user.fridge
-
-    params[:list_ingredient_ids].each do |list_ingredient_id|
-      list_ingredient = ListIngredient.find(list_ingredient_id)
-      fridge.fridge_ingredients.create(list_ingredient_params)
-      list_ingredient.destroy
-    end
-
-    redirect_to lists_path, notice: "Selected ingredients have been added to your fridge."
-  end
-
   private
 
   def list_ingredient_params

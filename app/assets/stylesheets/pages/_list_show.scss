@@ -2,6 +2,7 @@
 .content-page {
   display: flex;
   align-items: center;
+  min-height: 80vh;
 }
 .list {
   background-image: url("note_book.svg");
@@ -10,9 +11,10 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  padding-top: 5%;
+  padding-top: 9%;
   justify-content: center;
   padding-bottom: 5%;
+  padding-inline: 2%;
 }
 .hidden {
   display: none;
@@ -25,23 +27,27 @@
   padding-right: 5%;
 }
 .header-list {
-  padding-bottom: 5%;
+  height:100%;
+  padding-bottom: 2.5%;
 }
 .line {
   display: flex;
-  flex: 2;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
   border-bottom: 1px solid $dark-green;
-  margin-right: 0;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .header_list{
   font-weight: 700;
-  align-self: center;
+  align-items: center;
   min-width: 25%;
+  min-height: 100%;
+  align-self: center;
   text-align: center;
+  padding-top: 1%;
+  position: relative;
 }
 .content_list {
   align-items: center;
@@ -70,23 +76,37 @@
   width: 100%;
 }
 form.simple_form.new_list_ingredient{
-  align-items: end;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
   margin-right: 0;
 }
-.submit_button{
+.mb-3 {
+  display: flex;
+  width: 23%!important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem;
+}
+.button_add {
   height: 30pt;
+  width: 25%;
+  background-color: $light-green;
+  border: 1px solid $dark-green;
+  border-radius: 10%;
 }
-.submit_button:hover{
-  flex-grow: 1;
+.add_button{
+  height: 30pt;
+  width: 25%;
 }
-.svg:hover .st0 {
+
+svg:hover .st0 {
   stroke: $dark_green;
 }
 
-.svg:hover .st1 {
+svg:hover .st1 {
   fill: $light-gray; 
+}
+.content_list.ingredient{
+  text-align: start;
 }

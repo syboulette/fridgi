@@ -8,15 +8,16 @@ class FridgeIngredientsController < ApplicationController
 
   def create
     @fridge_ingredient = FridgeIngredient.new(fridge_ingredient_params)
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = Ingredient.find(@fridge_ingredient.ingredient_id)
     @fridge_ingredient.fridge = Fridge.find(params[:fridge_id])
     @fridge_ingredient.ingredient = @ingredient
     authorize @ingredient
     authorize @fridge_ingredient
+  
     if @ingredient.save! && @fridge_ingredient.save!
       redirect_to fridge_path(@fridge_ingredient.fridge)
     else
-      render fridge_path(@fridge_ingredient.fridge), status: :unprocessable_entity
+      render "fridges/show", status: :unprocessable_entity
     end
   end
 
@@ -46,7 +47,7 @@ class FridgeIngredientsController < ApplicationController
   private
 
   def fridge_ingredient_params
-    params.require(:fridge_ingredient).permit(:quantity, :unit)
+    params.require(:fridge_ingredient).permit(:ingredient_id, :quantity, :unit)
   end
   def fridge_params
     params.require(:fridge_ingredient).permit(:name)

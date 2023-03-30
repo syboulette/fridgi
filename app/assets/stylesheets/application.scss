@@ -11,3 +11,10 @@
 @import "components/index";
 @import "pages/index";
 @import "chosen";
+
+body {
+  min-height: 100%;
+  margin-bottom: 6%;
+  margin-top: 7.5%;
+  margin-inline: 10%;
+}

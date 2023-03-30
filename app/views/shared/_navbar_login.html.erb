@@ -8,6 +8,21 @@
         <%#= link_to "My Cookbook", favorite_recipes_path, class: "nav-link" %>
       </li>
     </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <%= <p classe: "nav-link">"Cookbook" , alt: "Avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "All Recipes", recipes_path, class: "dropdown-item" %>
+            <%= link_to "My Recipes", recipes_user_recipes_path, class: "dropdown-item" %>
+            <%= link_to "Ma Favourite Recipes", favourite_recipes_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+          </div>
+        </li>
+      </ul>
+    </div>
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logo_fridgi_horz.svg" %>
     <% end %>

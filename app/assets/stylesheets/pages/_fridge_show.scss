@@ -1,15 +1,10 @@
-.content-page {
-  display: flex;
-  align-items: center;
-}
-
 .fridge {
   background-image: url("fridge.svg");
   flex: 2;
   min-height: 400px;
   background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
+  background-size: 100% 100%;
   padding-top: 9.5%;
   justify-content: center;
   padding-bottom: 5%;
@@ -27,23 +22,24 @@
   background-image: url("brown_bag.svg");
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   background-repeat: no-repeat;
   background-size: auto 100%;
-  min-height: 240px;
-  margin: 0 10px;
-  width: 135px;
+  min-height: 200px;
+  width: 120px;
+  margin: 0 1%;
+  word-wrap: break-word;
   text-align: center;
-  justify-content: space-between;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 90px;
-  margin-bottom: 20px;
+  justify-content: space-around;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 9%;
+  margin-bottom: 2%;
 }
 
 .content_fridge {
-  align-items: start;
+  align-items: end;
 }
 .fridge-icon {
   overflow: hidden;
@@ -70,15 +66,16 @@
   background-position: top;
   background-size: cover;
   padding-top: 60px;
-  padding-bottom: 50px;
+  padding-bottom: 2%;
   padding-right: 20px;
   padding-left: 20px;
   margin: 10px 50px;
 }
-form.simple_form.new_list_ingredient{
-  align-items: end;
-  justify-content: space-between;
+form.simple_form.new_fridge_ingredient{
+  align-items: center;
   border-radius: 20px;
-  margin: 10px 50px;
-  padding: 5px 10px;
+  .mb-3 {
+    width: 100%!important;
+    margin: 4%!important;
+  }
 }
