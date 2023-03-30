@@ -14,19 +14,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def show?
-    user
-  end
-
-  def edit?
-    update?
-  end
-
-  def update?
-    user
-  end
-
-  def destroy?
-    user
+    user = @user
   end
 
   def copy_to_fridge?
