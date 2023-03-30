@@ -12,12 +12,13 @@ class Recipe < ApplicationRecord
   has_many :users, through: :favourite_recipes
 
   include PgSearch::Model
+
   pg_search_scope :search_by_title_and_instruction,
-    against: [ :title, :instruction ],
-    associated_against: {
-    user: [ :first_name, :last_name ]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: [ :title, :instruction ],
+                  associated_against: {
+                  user: [ :first_name ]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
