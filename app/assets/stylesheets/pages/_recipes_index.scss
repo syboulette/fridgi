@@ -3,14 +3,14 @@
   flex-wrap: wrap;
   align-content: center;
   height: fit-content;
-  padding-top: 60px;
+  margin-top: 80px;
   flex-direction: column;
 }
 
 .box-grid {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  column-gap: 30px;
+  column-gap: 20px;
   padding: 16px;
 }
 
@@ -31,15 +31,14 @@
   display: flex;
   flex-direction: column;
   background: #eee;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+  // box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
   height: 360px;
   width: 300px;
-  border-radius: 0%;
   border: none;
   align-items: flex-start;
   position: relative;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 8px;
 
   &:hover .box-image {
     background-size: 110%;
@@ -83,8 +82,8 @@
   background-size: 100%;
   background-position: center;
   transition: all 0.3s ease-in-out;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 .box-body {
@@ -107,31 +106,22 @@
 
 .box-footer {
   margin-top: 1rem;
-}
-
-.box-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  padding: var(--padding);
 }
 
 .like-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 15px;
+  left: 255px;
   top: 39px;
   z-index: 10;
   position: relative;
   font-size: 25px;
-  border-radius: 50%;
+  padding: 5px;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
-  padding: 10px 10px 9px 10px;
-  background-color: white;
-  box-shadow: 0 ;
 
   a, form {
     display: flex;
@@ -151,7 +141,11 @@
 
   i {
     color: $light-green;
-    // text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    // background-color: white;
+    // padding: 5px;
+    // border-radius: 50%;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
 
     &:hover {
       color: $dark-green;

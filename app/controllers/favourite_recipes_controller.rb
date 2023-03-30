@@ -11,8 +11,7 @@ class FavouriteRecipesController < ApplicationController
     @favourite_recipe.recipe = @recipe
     @favourite_recipe.user = current_user
     authorize @favourite_recipe
-
-    @favourite_recipe.save ? flash[:notice] = "Recipe was saved" : flash[:alert] = "Recipe not saved"
+    @favourite_recipe.save
     redirect_to recipes_path
   end
 
@@ -20,7 +19,8 @@ class FavouriteRecipesController < ApplicationController
     @favourite_recipe = FavouriteRecipe.find(params[:id])
     authorize @favourite_recipe
     @favourite_recipe.destroy
-    redirect_to recipes_path, status: :see_other, notice: "The recipe has been removed from favourites!"
+    @favourite_recipe.save
+    redirect_to recipes_path
   end
 
   def favourited

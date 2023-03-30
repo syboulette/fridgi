@@ -12,11 +12,23 @@
   </div>
 
   <%= link_to recipe_path(recipe), class: "box" do %>
-    <div class="box-header box-image" style="background-image: url(<%= recipe.image.url %>);">
+    <div class="box-header box-image" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent), url(<%= recipe.image.url %>);">
     </div>
     <div class="box-body">
       <h2><%= recipe.title %></h2>
       <p>by <%= recipe.user.first_name.capitalize %></p>
+    </div>
+    <div class="box-footer">
+      <% if recipe.reviews.any? %>
+        <% average_rating = recipe.reviews.average(:rating).round(1) %>
+        <% (1..5).each do |i| %>
+          <% if i <= average_rating %>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="far fa-star"></i>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
