@@ -39,6 +39,7 @@
   align-items: flex-start;
   position: relative;
   text-decoration: none;
+  border-radius: 10px;
 
   &:hover .box-image {
     background-size: 110%;
@@ -82,6 +83,8 @@
   background-size: 100%;
   background-position: center;
   transition: all 0.3s ease-in-out;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .box-body {
@@ -123,10 +126,12 @@
   z-index: 10;
   position: relative;
   font-size: 25px;
-  padding: 5px;
-  border-radius: 5px;
+  border-radius: 50%;
   width: 30px;
   height: 30px;
+  padding: 10px 10px 9px 10px;
+  background-color: white;
+  box-shadow: 0 ;
 
   a, form {
     display: flex;
@@ -146,7 +151,7 @@
 
   i {
     color: $light-green;
-    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    // text-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
     &:hover {
       color: $dark-green;
