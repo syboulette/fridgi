@@ -1,7 +1,3 @@
-body {
-  background-color: white;
-}
-
 #content-recipe {
   display: flex;
   flex-wrap: wrap;
@@ -14,8 +10,20 @@ body {
 .box-grid {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  grid-gap: 1.25rem;
+  column-gap: 30px;
   padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .box-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .box-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .box {
@@ -23,7 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   background: #eee;
-  // box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
   height: 360px;
   width: 300px;
   border-radius: 0%;
@@ -31,6 +39,10 @@ body {
   align-items: flex-start;
   position: relative;
   text-decoration: none;
+
+  &:hover .box-image {
+    background-size: 110%;
+  }
 }
 
 .box-header h1 {
@@ -67,20 +79,9 @@ body {
   width: 100%;
   height: 190px;
   flex-shrink: 0;
-}
-
-.box-header.box-image > img {
-  display: block;
-  width: 100%;
-  height: 190px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: center;
-  transition: 200ms transform ease-in-out;
-}
-
-.box:hover > .box-header.box-image > img {
-  transform: scale(1.025);
+  background-size: 100%;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .box-body {
@@ -111,6 +112,47 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 15px;
+  top: 39px;
+  z-index: 10;
+  position: relative;
+  font-size: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+
+  a, form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  i {
+    color: $light-green;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+
+    &:hover {
+      color: $dark-green;
+    }
+  }
+
 }
 
 // .button {
