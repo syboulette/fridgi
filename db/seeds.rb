@@ -62,7 +62,7 @@ end
     total_time = recipe.cooking_time + recipe.cooking_time
 
     # Fetch a random food image from Unsplash
-    query = ['food', 'cuisine', 'cooking', 'meal'].sample
+    query = recipe.title
     image = Unsplash::Photo.random(query: query, orientation: 'landscape')
     recipe.image.attach(io: URI.open(image.urls.regular), filename: 'recipe_image.jpg')
 
