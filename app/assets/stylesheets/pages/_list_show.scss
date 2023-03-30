@@ -1,6 +1,5 @@
 
 .content-page {
-  padding: 2.5%;
   display: flex;
   align-items: center;
 }
@@ -70,19 +69,24 @@
   left: 0;
   width: 100%;
 }
-
-.add_ingredient {
-  background-image: url("postit.svg");
-  flex: 1;
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  padding-top: 60px;
-}
 form.simple_form.new_list_ingredient{
   align-items: end;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  border-radius: 20px;
-  margin: 10px 50px;
-  padding: 5px 10px;
+  height: 50px;
+  margin-right: 0;
+}
+.submit_button{
+  height: 30pt;
+}
+.submit_button:hover{
+  flex-grow: 1;
+}
+.svg:hover .st0 {
+  stroke: $dark_green;
+}
+
+.svg:hover .st1 {
+  fill: $light-gray; 
 }

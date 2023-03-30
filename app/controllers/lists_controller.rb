@@ -19,7 +19,7 @@ class ListsController < ApplicationController
       list_ingredient.destroy
     end
 
-    redirect_to fridge_path(@user.fridge), notice: "Selected ingredients have been added to your fridge."
+    redirect_to fridge_path(current_user.fridge), notice: "Selected ingredients have been added to your fridge."
   end
 
   private

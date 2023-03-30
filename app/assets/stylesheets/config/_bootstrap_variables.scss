@@ -10,6 +10,11 @@ $headings-font-family:   $headers-font;
 $body-bg:                $ultra-light-gray;
 $font-size-base:         1rem;
 
+body {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
 // Colors
 $body-color: $black;
 $primary:    $dark-green;

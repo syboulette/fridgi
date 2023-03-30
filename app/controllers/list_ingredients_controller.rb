@@ -1,6 +1,6 @@
 class ListIngredientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list_ingredient, only: [:show, :edit, :update, :destroy, :bulk_update]
+  before_action :set_list_ingredient, only: [:show, :edit, :update, :destroy]
 
   def show
     authorize @list_ingredient
@@ -8,17 +8,33 @@ class ListIngredientsController < ApplicationController
 
   def create
     @list_ingredient = ListIngredient.new(list_ingredient_params)
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = Ingredient.find(@list_ingredient.ingredient_id)
     @list_ingredient.list = List.find(params[:list_id])
     @list_ingredient.ingredient = @ingredient
     authorize @ingredient
     authorize @list_ingredient
+  
     if @ingredient.save! && @list_ingredient.save!
       redirect_to list_path(@list_ingredient.list)
     else
       render "lists/show", status: :unprocessable_entity
     end
   end
+  
+
+  # def create
+  #   @list_ingredient = ListIngredient.new(list_ingredient_params)
+  #   @ingredient = Ingredient.new(ingredient_params)
+  #   @list_ingredient.list = List.find(params[:list_id])
+  #   @list_ingredient.ingredient = @ingredient
+  #   authorize @ingredient
+  #   authorize @list_ingredient
+  #   if @ingredient.save! && @list_ingredient.save!
+  #     redirect_to list_path(@list_ingredient.list)
+  #   else
+  #     render "lists/show", status: :unprocessable_entity
+  #   end
+  # end
 
   def destroy
     authorize @list_ingredient
@@ -71,10 +87,10 @@ class ListIngredientsController < ApplicationController
   private
 
   def list_ingredient_params
-    params.require(:list_ingredient).permit(:quantity, :unit)
+    params.require(:list_ingredient).permit(:ingredient_id, :quantity, :unit)
   end
   def fridge_ingredient_params
-    params.require(:list_ingredient).permit(:quantity, :unit)
+    params.require(:list_ingredient).permit(:ingredient_id, :quantity, :unit)
   end
   def ingredient_params
     params.require(:list_ingredient).permit(:name)
