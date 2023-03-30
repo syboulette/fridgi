@@ -13,6 +13,9 @@ gem "cloudinary"
 
 gem "pg_search"
 
+gem 'unsplash'
+
+
 # gem 'country_select', '~> 8.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
