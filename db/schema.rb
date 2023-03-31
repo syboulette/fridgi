@@ -112,7 +112,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_171909) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unit"
-    t.boolean "bought", default: false
     t.index ["ingredient_id"], name: "index_list_ingredients_on_ingredient_id"
     t.index ["list_id"], name: "index_list_ingredients_on_list_id"
   end
