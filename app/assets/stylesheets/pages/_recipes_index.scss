@@ -4,7 +4,6 @@
   align-content: center;
   justify-content: center;
   height: fit-content;
-  margin-top: 80px;
   flex-direction: column;
   background-color: $ultra-light-gray;
 }
@@ -107,12 +106,21 @@
 .box-footer {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  background: $dark-green;
+  color: $light-green;
+  text-shadow: 0 0 5px rgba(255, 255, 255, .6);
   margin-top: 1rem;
   padding: var(--padding);
   width: 100%;
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  p {
+    color: $ultra-light-gray;
+    text-shadow: none;
+  }
 }
 
 .footer-left {

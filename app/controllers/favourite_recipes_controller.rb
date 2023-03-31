@@ -3,6 +3,8 @@ class FavouriteRecipesController < ApplicationController
 
   def index
     @favourite_recipes = policy_scope(current_user.favourite_recipes)
+
+    @favourite_recipes = policy_scope(current_user.favourite_recipes).paginate(page: params[:page], per_page: 20)
   end
 
   def create
