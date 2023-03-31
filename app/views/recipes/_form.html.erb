@@ -3,7 +3,7 @@
   <%= f.input :prep_time, placeholder: "in minutes" %>
   <%= f.input :cooking_time, label: "Cook Time", placeholder: "in minutes"  %>
   <%= f.input :total_time, placeholder: "in minutes"   %>
-  <%= f.input :difficulty, collection: %w[1 2 3 4 5], label: "Difficulty level: 1 = easy, 5 = challenging" %>
+  <%= f.input :difficulty, collection: %w[1 2 3], label: "Difficulty level: 1 = easy, 2 = average, 3 = challenging" %>
   <%= f.input :dietary_information_recipes, collection: %w[Vegetarian Vegan Pescetarian Gluten-Free Dairy-Free Low-Carb Healthy], label: "Dietary information", as: :check_boxes %>
   <%= f.input :serving, label: "Servings" %>
   <%= f.input :photo, as: :file, label: "Show us what it looks like:" %>
