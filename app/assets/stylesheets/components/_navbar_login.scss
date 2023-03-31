@@ -29,6 +29,10 @@
   font-size: 18px;
   color: $light-green;
 }
+
+.dropdown-item:hover {
+  background-color: rgba(0, 106, 117, .5);
+}
 .nav-link:hover {
   color: $white;
 }
