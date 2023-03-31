@@ -3,7 +3,7 @@
     <div class="inside-list" data-controller="forms">
       <div class="header-list">
         <h1 class="page_title"><%=@list.name%></h1>
-        <p class="page_subtitle">Plan ahead. Write a List. Save food. </p>
+        <p class="page_subtitle">Plan ahead. Write a list. Save food. </p>
       </div>
       <%= form_tag list_copy_to_fridge_lists_path(@list), data: { forms_target: "form", action: "submit->forms#submitForm" } do %>
         <%= hidden_field_tag :ids, nil, multiple: true, data: { forms_target: "input" } %>
