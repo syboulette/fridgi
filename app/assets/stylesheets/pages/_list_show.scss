@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   min-height: 80vh;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 .list {
   background-image: url("note_book.svg");
@@ -33,10 +35,16 @@
 .line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: stretch;
   border-bottom: 1px solid $dark-green;
   padding-top: 1%;
   padding-bottom: 1%;
+}
+.line-inside {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  flex-grow: 1;
 }
 
 .header_list{
@@ -57,6 +65,10 @@
   padding-top: 1%;
   position: relative;
 }
+.svg-button{
+  background-color:white;
+  border: 0px;
+}
 .content_list .icon {
   overflow: hidden;
   display: flex;
@@ -67,6 +79,9 @@
   color: $primary;
   justify-content: space-between;
   margin-right: 20px
+}
+.hidden {
+  display: none !important;
 }
 
 .edit-form-container {
@@ -79,6 +94,15 @@ form.simple_form.new_list_ingredient{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  margin-right: 0;
+}
+.edit_form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   height: 50px;
   margin-right: 0;
 }
@@ -88,18 +112,28 @@ form.simple_form.new_list_ingredient{
   margin-bottom: 0 !important;
   font-size: 0.75rem;
 }
-.button_add {
-  height: 30pt;
-  width: 25%;
-  background-color: $light-green;
-  border: 1px solid $dark-green;
-  border-radius: 10%;
+.field {
+  display: flex;
+  width: 23%!important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem;
+  align-self: center;
+}
+.action {
+  display: flex;
+  width: 23%!important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem;
+  align-self: center;
 }
 .add_button{
   height: 30pt;
   width: 25%;
 }
 
+#add_to_fridge {
+  margin-top: 10px;
+}
 svg:hover .st0 {
   stroke: $dark_green;
 }
@@ -110,3 +144,4 @@ svg:hover .st1 {
 .content_list.ingredient{
   text-align: start;
 }
+

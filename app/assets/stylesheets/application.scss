@@ -13,8 +13,11 @@
 @import "chosen";
 
 body {
-  min-height: 100%;
-  margin-bottom: 6%;
-  margin-top: 7.5%;
-  margin-inline: 10%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content-wrapper{
+  min-height: 82.5vh;
+  margin-top: 80px;
 }

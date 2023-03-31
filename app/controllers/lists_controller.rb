@@ -13,14 +13,23 @@ class ListsController < ApplicationController
     @list.user = current_user
     fridge = current_user.fridge
     authorize @list
-    params[:list_ingredient_ids].each do |list_ingredient_id|
-      list_ingredient = ListIngredient.find(list_ingredient_id)
-      fridge.fridge_ingredients.create(ingredient_id: list_ingredient.ingredient_id, quantity: list_ingredient.quantity, unit: list_ingredient.unit)
-      list_ingredient.destroy
+    list_ingredient_ids = params[:ids].split(",").map(&:to_i)
+    if list_ingredient_ids.present?
+      list_ingredients = @list.list_ingredients.where(id: list_ingredient_ids)
+      list_ingredients.each do |list_ingredient|
+        fridge.fridge_ingredients.create(
+          ingredient_id: list_ingredient.ingredient_id,
+          quantity: list_ingredient.quantity,
+          unit: list_ingredient.unit
+        )
+        list_ingredient.destroy
+      end
+      redirect_to fridge_path(current_user.fridge), notice: "Selected ingredients have been added to your fridge."
+    else
+      redirect_to @list, alert: "Please select at least one ingredient to copy to your fridge."
     end
-
-    redirect_to fridge_path(current_user.fridge), notice: "Selected ingredients have been added to your fridge."
   end
+  
 
   private
 

@@ -1,15 +1,13 @@
 .footer {
-  position: fixed; 
-  left: 0 ; right: 0; bottom: 0; 
+  width: 100%;
   flex-shrink: 0;
-  margin-top: auto;
+  justify-content: space-between;
   background: $primary;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 50px;
-  border-color: black;
-  border: 1px;
+  height: 60px;
 }
 .footer-links {
   display: flex;
