@@ -1,16 +1,14 @@
-<div class="top_recipe">
-  <div class="illustration">
-    <%if @recipe.image.nil? %>
-      <%= image-tag("recipe_placeholder.svg")%>
-    <%else%>
+<div class="heading">
+  <div class="photos">
+    <% if @recipe && @recipe.image.present? %>
       <%= image_tag @recipe.image %>
-    <%end%>
+    <% else %>
+      <%= image_tag "recipe_placeholder.svg" %>
+    <% end %>
   </div>
   <div class="photos-side-text">
-    <div class="row_picture">
-      <div class="title">
-        <h1><%= @recipe.title %></h1>
-      </div>
+    <div class="row_picture title">
+      <h1><%= @recipe.title %></h1>
       <div class="love-button">
         <% if current_user.favourited_recipes.include?(@recipe) %>
           <%= link_to favourite_recipe_path(current_user.favourite_recipes.find_by(recipe: @recipe)), data: { turbo_method: :delete } do %>
@@ -18,31 +16,62 @@
           <% end %>
         <% else %>
           <%= form_with model: [@recipe, FavouriteRecipe.new] do %>
-            <button><i class="far fa-heart"></i></button>
+            <i class="far fa-heart"></i>
           <% end %>
         <% end %>
       </div>      
     </div>
     <div class="row_picture">
+      <% if @recipe.reviews.any? %>
+        <% average_rating = @recipe.reviews.average(:rating).round(1) %>
+        <% (1..5).each do |i| %>
+          <% if i <= average_rating %>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="far fa-star"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+      <div class="row_picture">
+      <p><%=@recipe.reviews.count%> reviews</p>
+      </div>
     </div>
     <div class="row_picture">
+      <%= image_tag("serving.svg", class: "icon_recipe")%>
+      <p>this recipe serves <%= @recipe.serving %> people</p>
     </div>
-    <div class="row_picture">
-    </div>
-    <div class="row_picture">
-    </div>
-    <div class="row_picture">
-    </div>
-    <div class="row_picture">
-    </div>
-    <div class="row_picture">
-    </div>    
+    <div class="row_picture_timings">
+      <%if @recipe.prep_time.present?%>
+        <div class="timings">
+          <%= image_tag("prep_time.svg", class: "icon_recipe")%>
+          <p><%=@recipe.prep_time %> minutes</p>
+        </div>
+      <%end%>
+      <%if @recipe.cooking_time.present?%>
+        <div class="timings">
+          <%= image_tag("cooking_time.svg", class: "icon_recipe")%>
+          <p><%=@recipe.cooking_time %> minutes</p>
+        </div>
+      <%end%>
+        <div class="timings">
+          <%= image_tag("total_time.svg", class: "icon_recipe")%>
+          <p><%=@recipe.total_time %> minutes</p>
+        </div>
+    </div>  
   </div>
 </div>
 <div class="utensils_n_ingredients">
-  <div class="utensils_recipe">
-  </div>
+  <%if @recipe.utensil.present?%>
+    <div class="utensils_recipe">
+      <h3>Utensils</h3>
+      <p>You will need those utensils to make your recipe successfully!</p>
+      <%= @recipe.utensil %>
+    </div>
+  <%end%> 
   <div class="ingredients_recipe">
+    <%= @recipe.recipe_ingredients.each do |i|%>
+    <ul><%= i.quantity %> <%=i.unit.name%> of <%=i.ingredient.name%></ul>
+    <%end%>
   </div>
 </div>
 <div class="instructions">

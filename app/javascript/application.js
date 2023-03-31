@@ -11,4 +11,4 @@ import 'chosen-js'
 //= require rails-ujs
 //= require stimulus
 //= require_tree ./controllers
-
+//= require select2

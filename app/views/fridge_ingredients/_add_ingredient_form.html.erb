@@ -1,6 +1,6 @@
 <%= simple_form_for [@fridge, @fridge_ingredient], url: fridge_fridge_ingredients_path(@fridge) do |f| %>
   <%= f.input :ingredient_id, collection: Ingredient.all, label_method: :name, label_value: :id, label: false %>
   <%= f.input :quantity, label: false %>
-  <%= f.input :unit, collection: Unit.all, label: false, include_blank: true, input_html: { class: "form-control" } %>
+    <%= f.input :unit, collection: Unit.all, label_method: :name, value_method: :name, label: false, input_html: { class: 'select2' } %>
   <%= image_submit_tag ("plus.svg"), class: "add_button", data: { method: :post }%>
 <% end %>

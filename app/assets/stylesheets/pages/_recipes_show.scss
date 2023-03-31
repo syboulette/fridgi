@@ -1,59 +1,88 @@
-.top_recipe{
-  padding-top: 20px;
-  padding-inline: 10%;
-  max-width: 100vh;
+.heading{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-inline: 10%;
+  border: 2px solid $dark-green;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  background-color: $dark-green;
+  h1, p{
+    color: $ultra-light-gray;
+  }
 }
-.illustration {
+.utensils_n_ingredients {
+  display: flex;
+  flex-direction: row;
+  margin-inline: 10%;
+  border: 2px solid $dark-green;
+  padding: 20px;
+}
+.photos {
   flex: 1;
-  height:150px;
-  width:200px;
+  height:350px;
+  width:400px;
+  border-radius: 10px;
   overflow: hidden;
   img {
-    height:150px;
-    width:200px;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 }
+.icon_recipe{
+  width: 50px;
+  object-fit: cover;
+}
 .photos-side-text{
-  flex: 1;
+  display: flex;
   flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
 }
 .row_picture {
   display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  p {
+    margin-block: 0;
+  }
+}
+.row_picture.title{
+  flex-direction: column;
+}
+
+.row_picture_timings {
+  display: flex;
   flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.timings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  p {
+    margin-top: 10px;
+  }
+}
+.timings img{
+  width: 60px;
+  object-fit: cover;
+}
+.fa-star {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, .6);
 }
 .love-button {
   display: flex;
-  font-size: 25px;
-  padding: 5px;
-  width: 30px;
-  height: 30px;
-  a, form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-  }
-  button {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  i {
-    color: $light-green;
-    text-shadow: 0 0 5px rgba(255, 255, 255, .6);
-    // background-color: white;
-    // padding: 5px;
-    // border-radius: 50%;
-    // box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-
+  font-size: 40px;
+  color: $light-green;
     &:hover {
-      color: $dark-green;
+      color: $light-gray;
     }
-  }
-
 }

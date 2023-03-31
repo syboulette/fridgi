@@ -15,6 +15,8 @@ gem "pg_search"
 
 gem 'unsplash'
 
+gem 'select2-rails'
+
 gem "will_paginate"
 
 # gem 'country_select', '~> 8.0'
