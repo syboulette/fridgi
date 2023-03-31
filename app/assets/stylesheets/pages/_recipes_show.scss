@@ -1,0 +1,59 @@
+.top_recipe{
+  padding-top: 20px;
+  padding-inline: 10%;
+  max-width: 100vh;
+}
+.illustration {
+  flex: 1;
+  height:150px;
+  width:200px;
+  overflow: hidden;
+  img {
+    height:150px;
+    width:200px;
+    object-fit: cover;
+  }
+}
+.photos-side-text{
+  flex: 1;
+  flex-direction: column;
+}
+.row_picture {
+  display: flex;
+  flex-direction: row;
+}
+.love-button {
+  display: flex;
+  font-size: 25px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  a, form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  i {
+    color: $light-green;
+    text-shadow: 0 0 5px rgba(255, 255, 255, .6);
+    // background-color: white;
+    // padding: 5px;
+    // border-radius: 50%;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+
+    &:hover {
+      color: $dark-green;
+    }
+  }
+
+}

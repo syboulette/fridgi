@@ -37,7 +37,7 @@ CSV.foreach(filepath2, headers: :first_row) do |row|
   # API search here for nutrient score
   # save nutriscore to a variable like score
   # You might need a condition to not create an Ingredient without a nutriscore, unless a nutriscore is not required
-  Ingredient.create!(name: row['UnitEN']) # nutriscore: score
+  Unit.create!(name: row['UnitEN']) # nutriscore: score
 end
 
 puts "=== UNIT SEEDED ==="
