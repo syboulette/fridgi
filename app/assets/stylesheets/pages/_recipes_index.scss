@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  justify-content: center;
   height: fit-content;
   margin-top: 80px;
   flex-direction: column;
@@ -40,6 +41,7 @@
   position: relative;
   text-decoration: none;
   border-radius: 8px;
+  overflow: hidden;
 
   &:hover .box-image {
     background-size: 110%;
@@ -77,6 +79,7 @@
   overflow: auto;
   height: 100%;
   padding: var(--padding);
+  width: 100%;
 }
 
 .box-body h2 {
@@ -107,6 +110,9 @@
   margin-top: 1rem;
   padding: var(--padding);
   width: 100%;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .footer-left {
