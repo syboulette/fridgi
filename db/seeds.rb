@@ -25,28 +25,25 @@ CSV.foreach(filepath, headers: :first_row) do |row|
   Ingredient.create!(name: row['IngredientNameEN']) # nutriscore: score
 end
 
-filepath = "db/ingredients.csv"
+puts "=== INGREDIENT SEEDED ==="
 
-CSV.foreach(filepath, headers: :first_row) do |row|
+
+
+puts "=== START SEEDING UNIT ==="
+
+filepath2 = "db/units.csv"
+
+CSV.foreach(filepath2, headers: :first_row) do |row|
   # API search here for nutrient score
   # save nutriscore to a variable like score
   # You might need a condition to not create an Ingredient without a nutriscore, unless a nutriscore is not required
-  Ingredient.create!(name: row['IngredientNameEN']) # nutriscore: score
-end
-#############################################
-# Recipe
-#############################################
-
-#############################################
-# User
-#############################################
-puts 'creating users...'
-
-filepath = "db/units.csv"
-CSV.foreach(filepath2, headers: :first_row) do |row|
-  Unit.create!(name: row['UnitEN'])
+  Ingredient.create!(name: row['UnitEN']) # nutriscore: score
 end
 
+puts "=== UNIT SEEDED ==="
+
+
+puts "=== START SEEDING USER AND RECIPES ==="
 20.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
@@ -77,4 +74,4 @@ end
   end
 end
 
-puts 'Finished seeding users!'
+puts "=== USER AND RECIPES SEEDED==="
