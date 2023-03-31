@@ -11,3 +11,13 @@
 @import "components/index";
 @import "pages/index";
 @import "chosen";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content-wrapper{
+  min-height: 82.5vh;
+  margin-top: 80px;
+}

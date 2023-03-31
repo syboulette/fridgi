@@ -1,6 +1,6 @@
-<%= simple_form_for [@list, @list_ingredient] do |f| %>
-  <%= f.input :name, collection: @ingredients, input_html: (edit ? {value: list_ingredient.ingredient.name} : {value: ""}) %> 
-  <%= f.input :quantity %>
-  <%= f.input :unit %>
-  <%= f.button :submit, (edit ? "Save" : "+ Ingredient")%>
+<%= simple_form_for [@list, @list_ingredient], url: list_list_ingredients_path(@list) do |f| %>
+  <%= f.input :ingredient_id, collection: Ingredient.all, label_method: :name, label_value: :id, label: false %>
+  <%= f.input :quantity, label: false %>
+  <%= f.input :unit, label: false %>
+  <%= image_submit_tag ("plus.svg"), class: "add_button", data: { method: :post }%>
 <% end %>
