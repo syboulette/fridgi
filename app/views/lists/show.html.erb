@@ -1,43 +1,43 @@
 <div class="content-page">
   <div class="list">
-    <div class="inside-list">
+    <div class="inside-list" data-controller="forms">
       <div class="header-list">
         <h1 class="page_title"><%=@list.name%></h1>
         <p class="page_subtitle">There is nothing more important than a well made list. </p>
         <p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
       </div>
-      <% if @list_ingredients.any? %>
-        <div class="line">
-          <h6 class="header_list ingredient">Ingredients</h6>
-          <h6 class="header_list quantity">Quantity</h6>
-          <h6 class="header_list unit">Units</h6>
-          <h6 class="header_list edit">Edit</h6>
+      <%= form_tag list_copy_to_fridge_lists_path(@list), data: { forms_target: "form", action: "submit->forms#submitForm" } do %>
+        <%= hidden_field_tag :ids, nil, multiple: true, data: { forms_target: "input" } %>
+        <%= submit_tag "+ to Fridge", class: "btn", id: "add_to_fridge" %>
+      <% end %>
+      <div class="line">
+        <h6 class="header_list ingredient">Ingredients</h6>
+        <h6 class="header_list quantity">Quantity</h6>
+        <h6 class="header_list unit">Units</h6>
+        <h6 class="header_list edit">Edit</h6>
+      </div>
+      <div class="line">
+        <%= render "list_ingredients/add_ingredient_form", edit: false %>
+      </div>
+      <% @list_ingredients.each do |list_ingredient| %>
+        <div class="line" >
+          <div class="line-inside">
+            <h6 class="content_list ingredient">
+              <input type="checkbox" id="<%=list_ingredient.id%>" data-forms-target="checkbox" >
+              <%= list_ingredient.ingredient.name %>
+            </h6>
+            <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
+            <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
+            <div class="content_list icon">
+              <button data-action="click->forms#toggleFields" class="svg-button">
+                <img src="<%= asset_path('edit.svg') %>" alt="Button Label">
+              </button>
+              <%= link_to image_tag("bin.svg"), list_ingredient_path(list_ingredient), data: {turbo_method: :delete, turbo_confirm: ""}%>
+            </div>
+          </div>
+          <%= render "list_ingredients/edit_ingredient_form", list: @list, list_ingredient: list_ingredient %>
         </div>
-        <%= form_tag list_copy_to_fridge_lists_path(@list) do %>
-          <% @list_ingredients.each do |list_ingredient| %>
-              <div class="line">
-                <h6 class="content_list ingredient">
-                  <%= check_box_tag "list_ingredient_ids[]", list_ingredient.id %>
-                  <%= list_ingredient.ingredient.name %></h6>
-                <h6 class="content_list quantity"><%= list_ingredient.quantity %></h6>
-                <h6 class="content_list unit"><%= list_ingredient.unit %></h6>
-                <div class="content_list icon">
-                  <%= link_to image_tag("edit.svg"), edit_list_list_ingredient_path(@list, list_ingredient), class: "edit-link", data: { turbo_frame: "edit-form", action: "click->list-ingredients-edit-form#openEditForm" } %>
-                  <%= link_to image_tag("bin.svg"), list_list_ingredient_path(list_ingredient), data: { turbo_method: :delete, turbo_confirm: "" } %>
-                </div>
-              </div>
-              <turbo-frame id="edit-form"></turbo-frame>
-          <% end %>
-          <%= submit_tag "Copy to Fridge" %>
-        <% end %>
-      <% else %>
-        <h6>Oups! Your list is empty...</h6>
       <% end %>
     </div>
   </div>
-  <div class="add_ingredient">
-    <%= render "list_ingredients/add_ingredient_form", edit: false %>
-  </div>
 </div>
-
-

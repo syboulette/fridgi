@@ -1,8 +1,10 @@
 
 .content-page {
-  padding: 2.5%;
   display: flex;
   align-items: center;
+  min-height: 80vh;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 .list {
   background-image: url("note_book.svg");
@@ -11,9 +13,10 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  padding-top: 5%;
+  padding-top: 9%;
   justify-content: center;
   padding-bottom: 5%;
+  padding-inline: 2%;
 }
 .hidden {
   display: none;
@@ -26,23 +29,33 @@
   padding-right: 5%;
 }
 .header-list {
-  padding-bottom: 5%;
+  height:100%;
+  padding-bottom: 2.5%;
 }
 .line {
   display: flex;
-  flex: 2;
   align-items: center;
-  justify-content: space-between;
-  height: 50px;
+  justify-content: stretch;
   border-bottom: 1px solid $dark-green;
-  margin-right: 0;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.line-inside {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  flex-grow: 1;
 }
 
 .header_list{
   font-weight: 700;
-  align-self: center;
+  align-items: center;
   min-width: 25%;
+  min-height: 100%;
+  align-self: center;
   text-align: center;
+  padding-top: 1%;
+  position: relative;
 }
 .content_list {
   align-items: center;
@@ -51,6 +64,10 @@
   text-align: center;
   padding-top: 1%;
   position: relative;
+}
+.svg-button{
+  background-color:white;
+  border: 0px;
 }
 .content_list .icon {
   overflow: hidden;
@@ -63,6 +80,9 @@
   justify-content: space-between;
   margin-right: 20px
 }
+.hidden {
+  display: none !important;
+}
 
 .edit-form-container {
   position: absolute;
@@ -70,19 +90,58 @@
   left: 0;
   width: 100%;
 }
-
-.add_ingredient {
-  background-image: url("postit.svg");
-  flex: 1;
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  padding-top: 60px;
-}
 form.simple_form.new_list_ingredient{
-  align-items: end;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  border-radius: 20px;
-  margin: 10px 50px;
-  padding: 5px 10px;
+  width: 100%;
+  height: 50px;
+  margin-right: 0;
 }
+.edit_form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  margin-right: 0;
+}
+.mb-3 {
+  display: flex;
+  width: 23%!important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem;
+}
+.field {
+  display: flex;
+  width: 23%!important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem;
+  align-self: center;
+}
+.action {
+  display: flex;
+  width: 23%!important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem;
+  align-self: center;
+}
+.add_button{
+  height: 30pt;
+  width: 25%;
+}
+
+#add_to_fridge {
+  margin-top: 10px;
+}
+svg:hover .st0 {
+  stroke: $dark_green;
+}
+
+svg:hover .st1 {
+  fill: $light-gray; 
+}
+.content_list.ingredient{
+  text-align: start;
+}
+
