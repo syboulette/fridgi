@@ -26,28 +26,35 @@
     <div class="row">
       <div class="col-md-6 side-image">
         <!-------Image-------->
-        <%= image_tag "logo_fridgi_empty.svg", alt: "Fridgi Logo" %>
+        <%= image_tag "logo_fridgi_empty.svg", alt: "Fridgi Logo", class: "imglogo" %>
         <div class="text">
           <p>Cooking is love you can taste<i>- Fridgi</i></p>
         </div>
       </div>
       <div class="col-md-6 right">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
         <div class="input-box">
           <header>Login</header>
             <div class="input-field">
-              <input type="text" class="input" id="email" required autocomplete="off">
-                <label for="email">Email</label>
+              <input type="email" class="input" id="user_email" name="user[email]" required="false" autofocus="true" autocomplete="off">
+              <label for="email">Email</label>
             </div>
             <div class="input-field">
-              <input type="password" class="input" id="password" required>
-                <label for="password">Password</label>
+              <input type="password" class="input" id="user_password" name="user[password]" required="false" autofocus="true" autocomplete="off">
+              <label for="user_password">Password</label>
             </div>
-            <div class="input-field">
-              <input type="submit" class="submit" value="Sign in">
-
+            <div class="">
+              <% if devise_mapping.rememberable? %>
+                <%= f.input :remember_me, as: :boolean %>
+              <% end %>
+              <div class="input-field">
+              <button type="submit" class="submit">Log in</button>
+              </div>
             </div>
             <div class="signin">
               <span>Don't have an account? <a href="#">Register in here</a></span>
+            </div>
+<% end %>
             </div>
           </div>
       </div>
