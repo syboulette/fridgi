@@ -1,15 +1,16 @@
-<h1>I created those Recipes:</h1>
-<p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
-<div class="cards">
-  <% @user_recipes.each do |user_recipe| %>
-    <div class="card">
-      <h6 class="card-text recipe-title"><em><%= link_to user_recipe.title, recipe_path(user_recipe)%></em></h6>
-      <div class="inner-flex">
-        <p class="card-text recipe-extract">You have <%= user_recipe.recipe_ingredients.count %> ingredients in this recipe</p>
-        <p class="card-text recipe-extract">Created on <%= user_recipe.created_at.strftime("%d %b %Y") %></p>
-      <%= link_to "Edit", edit_recipe_path(user_recipe), class: "btn btn-info btn-sm "%>
-       <%= button_to "Delete", user_recipe, method: :delete, class:"btn btn-danger" %>
+<h1 class="page_title">My Recipes</h1>
+  <p class="page_subtitle">Thank you for sharing those tasty recipes!</p>
+    <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+      <div class="cards">
+        <% @user_recipes.each do |user_recipe| %>
+          <div class="card">
+            <h6 class="card-text recipe-title"><em><%= link_to user_recipe.title, recipe_path(user_recipe)%></em></h6>
+            <div class="inner-flex">
+              <p class="card-text recipe-extract">You have <%= user_recipe.recipe_ingredients.count %> ingredients in this recipe</p>
+              <p class="card-text recipe-extract">Created on <%= user_recipe.created_at.strftime("%d %b %Y") %></p>
+            <%= link_to "Edit", edit_recipe_path(user_recipe), class: "btn btn-info btn-sm "%>
+            <%= button_to "Delete", user_recipe, method: :delete, class:"btn btn-danger" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </div>
-  <% end %>
-</div>
