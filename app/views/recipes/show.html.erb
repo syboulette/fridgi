@@ -42,7 +42,7 @@
           <% end %>
           <% if missing_ingredients.empty? %>
             <h3>You have everything for your recipe!</h3>
-            <p>If you want to make your recipe now, we can automatically remove the ingredietn fromyour fridgi by clicking the link below!</p>
+            <p>If you want to make your recipe now, we can automatically remove the ingredients from your fridgi by clicking the link below!</p>
             <%= link_to "make recipe now", edit_recipe_path(@recipe), class: "btn btn-primary" %>
           <% else %>
 
