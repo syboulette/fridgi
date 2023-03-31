@@ -1,3 +1,4 @@
+<!--
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
@@ -18,3 +19,38 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+-->
+
+<div class="wrapper">
+  <div class="container main">
+    <div class="row">
+      <div class="col-md-6 side-image">
+        <!-------Image-------->
+        <%= image_tag "logo_fridgi_empty.svg", alt: "Fridgi Logo" %>
+        <div class="text">
+          <p>Cooking is love you can taste<i>- Fridgi</i></p>
+        </div>
+      </div>
+      <div class="col-md-6 right">
+        <div class="input-box">
+          <header>Login</header>
+            <div class="input-field">
+              <input type="text" class="input" id="email" required autocomplete="off">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+              <input type="password" class="input" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <div class="input-field">
+              <input type="submit" class="submit" value="Sign in">
+
+            </div>
+            <div class="signin">
+              <span>Don't have an account? <a href="#">Register in here</a></span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
