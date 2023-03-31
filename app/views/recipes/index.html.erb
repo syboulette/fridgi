@@ -20,41 +20,44 @@
   </div>
 </div>
 -->
-<div class="content" id="content-recipe">
-  <div class="container">
-    <%= form_tag recipes_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a recipe"
-      %>
-      <%= number_field_tag :total_time,
-          params[:total_time],
-          class: "form-control",
-          placeholder: "Max cooking time",
-          step: 'any',
-          min: 0
-      %>
-      <%= number_field_tag :serving,
-          params[:serving],
-          class: "form-control",
-          placeholder: "Serving",
-           step: 'any',
-          min: 0
-      %>
-      <%= select_tag "difficulty", options_for_select(["1", "2", "3"]), {:prompt => 'Difficulty', class: "form-control"} %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
-  <div class="box-grid">
-    <% @recipes.each do |recipe| %>
-      <% if recipe.image.attached? %>
-        <%= render "card_header_image", recipe: recipe%>
-      <% else %>
-        <%= render "card_header_text", recipe: recipe%>
+<br>
+  <p class="page_subtitle">The ingredients in your fridge can't wait to be cooked up in these delicious recipes!</p>
+  <div class="content" id="content-recipe">
+    <div class="container">
+      <%= form_tag recipes_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a recipe"
+        %>
+        <%= number_field_tag :total_time,
+            params[:total_time],
+            class: "form-control",
+            placeholder: "Max cooking time",
+            step: 'any',
+            min: 0
+        %>
+        <%= number_field_tag :serving,
+            params[:serving],
+            class: "form-control",
+            placeholder: "Servings",
+            step: 'any',
+            min: 0
+        %>
+        <%= select_tag "difficulty", options_for_select(["1", "2", "3"]), {:prompt => 'Difficulty', class: "form-control"} %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
-    <% end %>
+    </div>
+    <br>
+    <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+    <div class="box-grid">
+      <% @recipes.each do |recipe| %>
+        <% if recipe.image.attached? %>
+          <%= render "card_header_image", recipe: recipe%>
+        <% else %>
+          <%= render "card_header_text", recipe: recipe%>
+        <% end %>
+      <% end %>
+    </div>
+    <%= will_paginate @recipes, class: "apple_pagination" %>
   </div>
-  <%= will_paginate @recipes, class: "apple_pagination" %>
-</div>
