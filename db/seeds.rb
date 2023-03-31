@@ -16,15 +16,23 @@ puts "Ingredient destroyed"
 # Ingredient
 #############################################
 
-filepath = "db/updated_ingredients.csv"
+filepath = "db/ingredients.csv"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
   # API search here for nutrient score
   # save nutriscore to a variable like score
   # You might need a condition to not create an Ingredient without a nutriscore, unless a nutriscore is not required
-  Ingredient.create!(name: row['name']) # nutriscore: score
+  Ingredient.create!(name: row['IngredientNameEN']) # nutriscore: score
 end
 
+filepath = "db/ingredients.csv"
+
+CSV.foreach(filepath, headers: :first_row) do |row|
+  # API search here for nutrient score
+  # save nutriscore to a variable like score
+  # You might need a condition to not create an Ingredient without a nutriscore, unless a nutriscore is not required
+  Ingredient.create!(name: row['IngredientNameEN']) # nutriscore: score
+end
 #############################################
 # Recipe
 #############################################
@@ -34,10 +42,9 @@ end
 #############################################
 puts 'creating users...'
 
-Unsplash.configure do |config|
-  config.application_access_key = 'm4QufnEnY8uVSt7OOABFNNPI-bJzMkuFULZTgIdd6kY'
-  config.application_secret = '2iOdSd572TZ3rVT10Ftl_lw1Cx_xc9AxAXEcugwfDTY'
-  config.utm_source = 'fridgi'
+filepath = "db/units.csv"
+CSV.foreach(filepath2, headers: :first_row) do |row|
+  Unit.create!(name: row['UnitEN'])
 end
 
 20.times do
