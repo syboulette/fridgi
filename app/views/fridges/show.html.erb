@@ -1,10 +1,11 @@
-<h1 class="page_title"><%=@fridge.name%></h1>
-<p class="page_subtitle">There is nothing more important than a well made list. </p>
-<p class="page_subtitle">So you don't buy useless things or forget the important ones!</p>
-<div class="content-page">
-  <div class="fridge">
-    <div class="inside-fridge">
-      <% if @fridge_ingredients.any? %>
+<div class="content">
+  <h1 class="page_title"><%=@fridge.name%></h1>
+  <p class="page_subtitle">Your Fridgi is your best ally to combat food waste </p>
+  <p class="page_subtitle">No matter where you are, check what is in your fridge and plan your meals!</p>
+  <div class="content-page">
+    <div class="fridge">
+      <div class="inside-fridge">
+        <% if @fridge_ingredients.any? %>
           <% @fridge_ingredients.each do |fridge_ingredient| %>
             <div class="fridge-item">
               <h6 class="content_fridge"><%= fridge_ingredient.ingredient.name %></em></h6>
@@ -18,12 +19,14 @@
               </div>
             </div>
           <% end %>
-      <% else %>
-        <h6>Oups! your fridge is empty...</h6>
-      <% end %>
+        <% else %>
+          <h6>Oups! your fridge is empty...</h6>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="add_ingredient">
-  <%= render "fridge_ingredients/add_ingredient_form", edit: false %>
+    <div class="add_ingredient">
+      <h5>Fill my fridge</h5>
+      <%= render "fridge_ingredients/add_ingredient_form"%>
+    </div>
   </div>
 </div>

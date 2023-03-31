@@ -2,10 +2,23 @@
   <div class="container-fluid">
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
-        <%= link_to "My Fridgi", fridge_path(current_user.fridge), class: "nav-link" %>
-        <%= link_to "My List", lists_path, class: "nav-link" %>
-        <%= link_to "Cookbook", recipes_path, class: "nav-link" %>
-        <%#= link_to "My Cookbook", favorite_recipes_path, class: "nav-link" %>
+        <%= link_to "Fridge", fridge_path(current_user.fridge), class: "nav-link" %>
+        <%= link_to "Shopping List", list_path(current_user.list), class: "nav-link" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <%= link_to 'Cookbook', '#', class: 'nav-link dropdown-toggle', id: 'dropdownMenuLink', data: { bs_toggle: 'dropdown', boundary: 'viewport', target: '#cookbookDropdown' }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="cookbook dropdown-menu dropdown-menu-start" id="cookbookDropdown" aria-labelledby="navbarDropdown">
+                <%= link_to "All Recipes", recipes_path, class: "dropdown-item" %>
+                <%= link_to "My Recipes", recipes_user_recipes_path, class: "dropdown-item" %>
+                <%= link_to "My Favourite Recipes", favourite_recipes_path, class: "dropdown-item" %>
+              </div>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
     <%= link_to "/", class: "navbar-brand" do %>
