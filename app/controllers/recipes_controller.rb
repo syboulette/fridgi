@@ -20,6 +20,8 @@ class RecipesController < ApplicationController
     if params[:difficulty].present?
       @recipes = @recipes.where(difficulty: params[:difficulty].to_i)
     end
+
+    @recipes = @recipes.paginate(page: params[:page], per_page: 20)
   end
 
   def user_recipes
