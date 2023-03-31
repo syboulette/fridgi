@@ -5,15 +5,16 @@
 *{
   font-family: "area-normal", sans-serif;
 }
-.wrapper{
+.login-wrapper{
   background: #ececec;
-  // padding: 0 20px 0 20px;
+  padding: 0 20px 0 20px;
+  height: 90vh;
 }
 .main{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 85vh;
 }
 .row{
   width: 900px;
@@ -38,13 +39,16 @@
 }
 .text{
   position: absolute;
-  top: 30%;
+  top: 49%;
   left: 40%;
   transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 1px #333;
 }
 .text p{
+  font-style: italic;
   color: #fff;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: 600;
 }
 i{
   font-weight: 400;
@@ -131,7 +135,7 @@ span a:hover{
   .side-image{
     border-radius: 10px 10px 0 0;
   }
-  img{
+  .imglogo{
     width: 35px;
     position: absolute;
     top: 20px;
