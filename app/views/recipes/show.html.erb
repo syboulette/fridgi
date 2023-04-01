@@ -19,27 +19,31 @@
             <i class="far fa-heart"></i>
           <% end %>
         <% end %>
-      </div>      
-    </div>
-    <div class="row_picture">
-      <% if @recipe.reviews.any? %>
-        <% average_rating = @recipe.reviews.average(:rating).round(1) %>
-        <% (1..5).each do |i| %>
-          <% if i <= average_rating %>
-            <i class="fas fa-star"></i>
-          <% else %>
-            <i class="far fa-star"></i>
-          <% end %>
-        <% end %>
-      <% end %>
-      <div class="row_picture">
-      <p><%=@recipe.reviews.count%> reviews</p>
       </div>
     </div>
-    <div class="row_picture">
-      <%= image_tag("serving.svg", class: "icon_recipe")%>
-      <p>this recipe serves <%= @recipe.serving %> people</p>
-    </div>
+    <% if @recipe.reviews.present? %>
+      <div class="row_picture">
+        <% if @recipe.reviews.any? %>
+          <% average_rating = @recipe.reviews.average(:rating).round(1) %>
+          <% (1..5).each do |i| %>
+            <% if i <= average_rating %>
+              <i class="fas fa-star"></i>
+            <% else %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row_picture">
+        <p><%=@recipe.reviews.count%> reviews</p>
+      </div>
+    <% end %> 
+    <% if @recipe.serving.present? %>
+      <div class="row_picture">
+        <%= image_tag("serving.svg", class: "icon_recipe")%>
+        <p>this recipe serves <%= @recipe.serving %> people</p>
+      </div>
+    <% end %>  
     <div class="row_picture_timings">
       <%if @recipe.prep_time.present?%>
         <div class="timings">
@@ -53,26 +57,77 @@
           <p><%=@recipe.cooking_time %> minutes</p>
         </div>
       <%end%>
-        <div class="timings">
-          <%= image_tag("total_time.svg", class: "icon_recipe")%>
-          <p><%=@recipe.total_time %> minutes</p>
-        </div>
-    </div>  
+      <div class="timings">
+        <%= image_tag("total_time.svg", class: "icon_recipe")%>
+        <p><%=@recipe.total_time %> minutes</p>
+      </div>
+    </div>
   </div>
 </div>
-<div class="utensils_n_ingredients">
+<div class="middle_section_double">
   <%if @recipe.utensil.present?%>
     <div class="utensils_recipe">
-      <h3>Utensils</h3>
+      <h2>Utensils</h2>
       <p>You will need those utensils to make your recipe successfully!</p>
       <%= @recipe.utensil %>
     </div>
-  <%end%> 
+  <%end%>
   <div class="ingredients_recipe">
+    <h2>Ingredients</h2>
     <%= @recipe.recipe_ingredients.each do |i|%>
-    <ul><%= i.quantity %> <%=i.unit.name%> of <%=i.ingredient.name%></ul>
+      <ul><%= i.quantity %> <%=i.unit%> of <%=i.ingredient.name%></ul>
     <%end%>
   </div>
 </div>
-<div class="instructions">
+
+<div class="middle_section">
+  <h2>Directions</h2>
+  <%= @recipe.instruction%>
+  <%= link_to image_tag("edit.svg"), edit_recipe_path(@recipe), class: "edit_button" %>
+</div>
+
+
+<div class="end_section">
+  <% recipe_ingredient_ids = @recipe_ingredients.pluck(:ingredient_id) %>
+  <% missing_ingredients = [] %>
+  <% recipe_ingredient_ids.each do |ingredient_id| %>
+    <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient_id) %>
+    <% if fridge_ingredient.nil? %>
+      <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient_id, quantity: 0) %>
+    <% end %>
+    <% if fridge_ingredient.quantity < @recipe_ingredients.find_by(ingredient_id: ingredient_id).quantity %>
+      <% missing_ingredients << Ingredient.find(ingredient_id) %>
+    <% end %>
+  <% end %>
+  <% if missing_ingredients.empty? %>
+    <p><%= link_to "Make the recipe now!", edit_recipe_path(@recipe) %> and take out the ingredients from your fridge!</p>
+    
+  <% else %>
+    <% missing_ingredients.each do |ingredient| %>
+      <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient.id) %>
+      <% if fridge_ingredient.nil? %>
+        <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient.id, quantity: 0) %>
+      <% end %>
+      <li><%= @recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity %> <%= ingredient.name %></li>
+    <% end %>
+    <h3>Add missing ingredients 
+    <%= link_to "to my shopping list", recipe_add_recipe_ingredient_to_list_recipes_path(@recipe), data: { turbo_method: :post, turbo_confirm: "" } %></h3>
+  <% end %>
+</div>
+
+<div class="middle_section" id="review">
+  <div class: "review_line" data-controller="forms">
+    <% if @recipe.reviews.blank? %>
+      Be the first to leave a review for <%= @recipe.title %>  
+      <%= render "recipes/reviews_form" %>
+    <% else %>
+      <%= render "recipes/reviews_form" %>
+      <% @recipe.reviews.each do |review| %>
+        <p><%= review.rating %> stars </p>
+        <p>Comment: <%= review.comment %></p>
+        <%= button_to "Delete", review_path(review), method: :delete, class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_review_path(@recipe), edit: :true, class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
