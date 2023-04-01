@@ -1,15 +1,15 @@
-// #content-recipe {
-//   display: flex;
-//   flex-wrap: wrap;
-//   align-content: center;
-//   justify-content: center;
-//   height: fit-content;
-//   flex-direction: column;
-//   background-color: $ultra-light-gray;
-//   max-width: 1260px;
-//   margin: 0 auto;
-//   padding: 0;
-// }
+#content-recipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  height: fit-content;
+  flex-direction: column;
+  background-color: $ultra-light-gray;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0;
+}
 
 #container-fluid_title_and_search-bar  {
   background: $light-gray;
