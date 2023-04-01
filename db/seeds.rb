@@ -52,5 +52,35 @@ puts "=== START SEEDING USER AND RECIPES ==="
     password: Faker::Internet.password(min_length: 6),
     phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
+
+  num_recipes = rand(1..5)
+
+  num_recipes.times do
+    recipe = user.recipes.create(
+      title: Faker::Food.dish,
+      prep_time: Faker::Number.between(from: 5, to: 60),
+      instruction: Faker::Food.description,
+      difficulty: Faker::Number.between(from: 1, to: 5),
+      utensil: Faker::Food.measurement,
+      cooking_time: Faker::Number.between(from: 5, to: 120),
+      total_time: 5,
+      serving: Faker::Number.between(from: 1, to: 12),
+    )
+    total_time = recipe.cooking_time + recipe.prep_time
+
+    # Fetch a random food image from Unsplash
+    query = ["food", "meal", "dish", "repas"].sample
+    image = Unsplash::Photo.random(query: query, orientation: 'landscape')
+    recipe.image.attach(io: URI.open(image.urls.regular), filename: 'recipe_image.jpg')
+
+    recipe.update(total_time: total_time)
+
+    3.times do
+      rating = Faker::Number.between(from: 2, to: 5)
+      review = recipe.reviews.build(rating: rating, comment: Faker::Restaurant.review)
+      review.user = user
+      review.save!
+    end
+  end
 end
 puts "=== USER AND RECIPES SEEDED==="

@@ -1,0 +1,55 @@
+<div class="container">
+    <%= form_tag recipes_path, method: :get, class: "search-form" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "search-bar_input",
+          placeholder: "Find a recipe",
+          style: "width: 1260px;"
+      %>
+      <%= button_tag(type: "submit", class: "magnifying-glass_icon") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+</div>
+<div class="container_filterbar">
+  <div class="container_filter-by">
+    <p>Filter by:</p>
+  </div>
+  <div class="container_filterbar_items">
+      <%= select_tag "Difficulty", options_for_select(["1", "2", "3"]), {:prompt => 'Difficulty', class: "filterbar_filter", id: "difficulty_filter" } %>
+      <%= select_tag "Ingredient", options_for_select(ingredients_from_csv), {:prompt => 'Ingredient', class: "filterbar_filter", id: "ingredient_filter" } %>
+      <%= number_field_tag :prep_time,
+          params[:prep_time],
+          class: "filterbar_filter",
+          id: "prep_time_filter",
+          placeholder: "Prep time",
+          step: 'any',
+          min: 0,
+          data: { placeholder_width: true }
+      %>
+      <%= number_field_tag :cooking_time,
+          params[:cooking_time],
+          class: "filterbar_filter",
+          id: "cooking_time_filter",
+          placeholder: "Cooking time",
+          step: 'any',
+          min: 0
+      %>
+      <%= number_field_tag :total_time,
+          params[:total_time],
+          class: "filterbar_filter",
+          id: "total_time_filter",
+          placeholder: "Total time",
+          step: 'any',
+          min: 0
+      %>
+      <%= number_field_tag :serving,
+          params[:serving],
+          class: "filterbar_filter",
+          id: "serving_filter",
+          placeholder: "Serving",
+          step: 'any',
+          min: 0
+      %>
+    <% end %>
+  </div>
+</div>
