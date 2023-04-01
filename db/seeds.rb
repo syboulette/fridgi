@@ -4,14 +4,12 @@ require 'unsplash'
 
 start = Time.now
 
-puts "=== DESTROYING TABLES ==="
-
-User.destroy_all
-puts "User destroyed"
-
-Ingredient.destroy_all
-puts "Ingredient destroyed"
-
+puts "=== DESTROYherING TABLES ==="
+# Review.destroy_all
+# FavouriteRecipe.destroy_all
+# Recipe.destroy_all
+# Ingredient.destroy_all
+# Unit.destroy_all
 #############################################
 # Ingredient
 #############################################
@@ -44,7 +42,7 @@ puts "=== UNIT SEEDED ==="
 
 
 puts "=== START SEEDING USER AND RECIPES ==="
-10.times do
+5.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -53,7 +51,7 @@ puts "=== START SEEDING USER AND RECIPES ==="
     phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
 
-  num_recipes = rand(1..5)
+  num_recipes = rand(1..2)
 
   num_recipes.times do
     recipe = user.recipes.create(

@@ -94,14 +94,14 @@
     <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient_id) %>
     <% if fridge_ingredient.nil? %>
       <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient_id, quantity: 0) %>
-    <% end %>
-    <% if fridge_ingredient.quantity < @recipe_ingredients.find_by(ingredient_id: ingredient_id).quantity %>
-      <% missing_ingredients << Ingredient.find(ingredient_id) %>
+    <%else%>
+      <% if fridge_ingredient.quantity < @recipe_ingredients.find_by(ingredient_id: ingredient_id).quantity %>
+        <% missing_ingredients << Ingredient.find(ingredient_id) %>
+      <% end %>
     <% end %>
   <% end %>
   <% if missing_ingredients.empty? %>
     <p><%= link_to "Make the recipe now!", edit_recipe_path(@recipe) %> and take out the ingredients from your fridge!</p>
-    
   <% else %>
     <% missing_ingredients.each do |ingredient| %>
       <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient.id) %>
