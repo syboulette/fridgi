@@ -5,11 +5,11 @@ require 'unsplash'
 start = Time.now
 
 puts "=== DESTROYherING TABLES ==="
-Review.destroy_all
-FavouriteRecipe.destroy_all
-Recipe.destroy_all
-Ingredient.destroy_all
-Unit.destroy_all
+# Review.destroy_all
+# FavouriteRecipe.destroy_all
+# Recipe.destroy_all
+# Ingredient.destroy_all
+# Unit.destroy_all
 #############################################
 # Ingredient
 #############################################
