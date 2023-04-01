@@ -1,0 +1,166 @@
+.search-form {
+  display: flex;
+  padding-top: 32px;
+
+}
+
+.search-bar_input {
+  background-color: $ultra-light-gray;
+  font-family: "area-normal", normal;
+  border: none;
+  color: black;
+  font-size: 16px;
+  padding: 10px 14px;
+  padding-right: 0;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.container_filterbar {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 16px 20px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.container_filter-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_filterbar_items {
+  display: flex;
+  justify-content: center;
+  flex-grow: 0;
+  padding: 0;
+  padding-bottom: 0;
+}
+
+.filterbar_filter {
+  flex-grow: 1;
+  background-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+  border: none;
+  border-right: 1.5px solid $dark-green;
+  padding: 0 10px;
+  margin: 10px 0;
+  border-bottom: 3px solid transparent;
+  width: 168px;
+  color: $dark-green;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-bottom: 3px solid $dark-green ;
+  }
+
+  &::placeholder {
+    text-align: center;
+    font-weight: bold;
+    color: $dark-green;
+  }
+}
+
+#difficulty_filter {
+  text-align: center;
+  width: 168px;
+  font-weight: bold;
+  border-left: 1.5px solid $dark-green;
+}
+
+#ingredient_filter {
+  text-align: center;
+  width: 168px;
+  font-weight: bold;
+}
+
+.container_filterbar_pills {
+  padding-bottom: 16px;
+}
+
+.filter_pill {
+  display: inline-block;
+  background-color: $dark-green;
+  padding: 6px 12px;
+  // border-radius: 16px;
+  margin: 4px;
+  color: $ultra-light-gray;
+  font-weight: bold;
+}
+
+
+// .container-search_bar {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 1260px;
+//   padding: 1rem;
+//   background: $light-gray;
+//   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+// }
+
+// .container-filter_inputs {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   padding: 1rem;
+//   background: $light-gray;
+//   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+// }
+
+
+// .search-filterbar__container {
+//   background-color: transparent;
+//   border: 1px solid #dcdcdc;
+//   border-radius: 3px;
+//   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+//   color: #333;
+//   font-size: 16px;
+//   padding: 10px 14px;
+//   transition: all 0.2s ease-in-out;
+//   width: 100%;
+//   max-width: 200px;
+// }
+
+// .search-filterbar__container:focus {
+//   background-color: #fff;
+//   border-color: #999;
+//   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+//   outline: none;
+// }
+
+// .search-filterbar__container::-webkit-calendar-picker-indicator {
+//   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23111" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>') no-repeat;
+//   background-size: auto;
+//   color: transparent;
+//   cursor: pointer;
+//   display: block;
+//   height: 1em;
+//   margin-right: -14px;
+//   padding: 0 7px;
+//   position: relative;
+//   right: 5px;
+//   text-align: center;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   width: 1em;
+//   z-index: 2;
+// }
+
+// .search-filterbar__container::-webkit-inner-spin-button,
+// .search-filterbar__container::-webkit-outer-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
+
+// /* For Firefox */
+// .search-filterbar__container[type="number"] {
+//   -moz-appearance: textfield;
+// }

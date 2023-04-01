@@ -62,7 +62,7 @@ end
       total_time: 5,
       serving: Faker::Number.between(from: 1, to: 12),
     )
-    total_time = recipe.cooking_time + recipe.cooking_time
+    total_time = recipe.cooking_time + recipe.prep_time
 
     # Fetch a random food image from Unsplash
     query = ["food", "meal", "dish", "repas"].sample

@@ -1,18 +1,54 @@
-#content-recipe {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  height: fit-content;
-  flex-direction: column;
+// #content-recipe {
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-content: center;
+//   justify-content: center;
+//   height: fit-content;
+//   flex-direction: column;
+//   background-color: $ultra-light-gray;
+//   max-width: 1260px;
+//   margin: 0 auto;
+//   padding: 0;
+// }
+
+#container-fluid_title_and_search-bar  {
+  background: $light-gray;
+}
+
+#container-fluid_filter-pills {
   background-color: $ultra-light-gray;
 }
+
+.container_filterbar_pills {
+  display: none;
+  padding: 16px 0;
+  width: 1260px;
+  margin: 0 auto;
+  border-bottom: 1px solid grey ;
+}
+// #container-fluid_search-bar {
+//   background: $light-gray;
+// }
+
+.container  {
+  width: 1260px;
+  padding: 0;
+
+  h1 {
+    text-align: left;
+    padding-top: 16px;
+    margin: 0;
+    color: black;
+  }
+}
+
 
 .box-grid {
   display: grid;
   grid-template-columns: repeat(4, 300px);
   column-gap: 20px;
-  padding: 16px;
+  width: 1260px;
+  // padding: 16px;
 }
 
 @media (min-width: 768px) {

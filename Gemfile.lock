@@ -344,7 +344,7 @@ DEPENDENCIES
   unsplash
   web-console
   webdrivers
-  will_paginate
+  will_paginate (~> 3.3)
 
 RUBY VERSION
    ruby 3.1.2p20

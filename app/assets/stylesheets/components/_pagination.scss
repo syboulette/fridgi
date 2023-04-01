@@ -1,4 +1,4 @@
-.apple_pagination {
+.fridgi_pagination {
   display: flex;
   gap: 1em ;
   text-align: center;
@@ -9,28 +9,28 @@
   justify-content: center;
 
 }
-.apple_pagination a, .apple_pagination span {
+.fridgi_pagination a, .fridgi_pagination span {
   padding: 0.75em 1.2em;
   border-radius: 5px;
 }
-.apple_pagination .disabled {
+.fridgi_pagination .disabled {
   background: $light-gray;
   color: $light-gray;
   color: grey;
 }
-.apple_pagination .current {
+.fridgi_pagination .current {
   background: $dark-green;
   color: $light-green;
   padding: 0.75em 1.2em;
   font-style: normal;
   border-radius: 5px;
 }
-.apple_pagination a {
+.fridgi_pagination a {
     text-decoration: none;
     color: black;
     background: $light-gray;
   }
-    .apple_pagination a:hover, .apple_pagination a:focus {
+    .fridgi_pagination a:hover, .fridgi_pagination a:focus {
       color: white;
       background: $light-green;
     }

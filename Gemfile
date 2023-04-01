@@ -15,7 +15,7 @@ gem "pg_search"
 
 gem 'unsplash'
 
-gem "will_paginate"
+gem 'will_paginate', '~> 3.3'
 
 # gem 'country_select', '~> 8.0'
 
