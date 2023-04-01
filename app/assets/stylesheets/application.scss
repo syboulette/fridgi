@@ -20,4 +20,7 @@ body {
 .content-wrapper {
   min-height: 82.5vh;
   margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
 }

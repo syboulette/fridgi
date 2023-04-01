@@ -37,5 +37,9 @@ Rails.application.routes.draw do
 
   resources :fridge_ingredients, only: [:destroy]
 
-  resources :ingredients, only: [:create, :edit, :update]
+  resources :ingredients do
+    collection do
+      get 'search'
+    end
+  end
 end

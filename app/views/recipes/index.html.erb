@@ -63,7 +63,19 @@
       <% else %>
         <%= render "card_header_text", recipe: recipe%>
       <% end %>
-    <% end %>
+    </div>
+    <br>
+    <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+    <div class="box-grid">
+      <% @recipes.each do |recipe| %>
+        <% if recipe.image.attached? %>
+          <%= render "card_header_image", recipe: recipe%>
+        <% else %>
+          <%= render "card_header_text", recipe: recipe%>
+        <% end %>
+      <% end %>
+    </div>
+    <%= will_paginate @recipes, class: "apple_pagination" %>
   </div>
 </div>
 <div class="container">

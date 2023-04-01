@@ -4,7 +4,6 @@ class CreateFridgeIngredients < ActiveRecord::Migration[7.0]
       t.references :ingredient, null: false, foreign_key: true
       t.references :fridge, null: false, foreign_key: true
       t.integer :quantity
-
       t.timestamps
     end
   end

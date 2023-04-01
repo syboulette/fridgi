@@ -1,0 +1,19 @@
+UnitEN,Quantity,SIUnit
+Cup,240 mL,Volume
+Tablespoon,14 mL,Volume
+Teaspoon,"4,5 mL",Volume
+Pinch,1,Other
+Ounce,"0,0284 kg",Weight
+Pound,"0,454 kg",Weight
+Slice,1,Other
+Head,1,Other
+Lb,"0,454 kg",Weight
+Ingredient,1,Other
+mL,1,Volume
+kg,1,Weight
+g,0.001,Weight
+Cg,0.00001,Weight
+Dg,0.0001,Weight
+L,1000,Volume
+Cl,10,Volume
+Dl,100,Volume

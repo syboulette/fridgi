@@ -16,15 +16,17 @@
 <%#= link_to "unfavourite", favourite_recipe_path(fr), method: :delete %>
 <div class="content" id="content-recipe">
   <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
-  <div class="box-grid">
-    <% @favourite_recipes.each do |favourite_recipe| %>
-      <% recipe = favourite_recipe.recipe %>
-      <% if recipe.image.attached? %>
-        <%= render "recipes/card_header_image", recipe: recipe%>
-      <% else %>
-        <%= render "recipes/card_header_text", recipe: recipe%>
+    <h1 class="page_title">My Favourite Recipes</h1>
+    <p class="page_subtitle">Those might be the best recipes in the world! Have fun cooking - and preventing food waste.</p>
+    <div class="box-grid">
+      <% @favourite_recipes.each do |favourite_recipe| %>
+        <% recipe = favourite_recipe.recipe %>
+        <% if recipe.image.attached? %>
+          <%= render "recipes/card_header_image", recipe: recipe%>
+        <% else %>
+          <%= render "recipes/card_header_text", recipe: recipe%>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <%= will_paginate @recipes, class: "apple_pagination" %>
   </div>
-  <%= will_paginate @recipes, class: "apple_pagination" %>
-</div>

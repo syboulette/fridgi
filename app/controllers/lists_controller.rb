@@ -24,12 +24,12 @@ class ListsController < ApplicationController
         )
         list_ingredient.destroy
       end
-      redirect_to fridge_path(current_user.fridge), notice: "Selected ingredients have been added to your fridge."
+      redirect_to fridge_path(current_user.fridge), notice: "The ingredients are now in your fridge."
     else
-      redirect_to @list, alert: "Please select at least one ingredient to copy to your fridge."
+      redirect_to @list, alert: "Select at least one ingredient to put into your fridge."
     end
   end
-  
+
 
   private
 

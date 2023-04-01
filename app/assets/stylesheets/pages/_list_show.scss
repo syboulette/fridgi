@@ -1,15 +1,16 @@
 
 .content-page {
   display: flex;
-  align-items: center;
-  min-height: 80vh;
+  align-items: stretch;
   padding-right: 10%;
   padding-left: 10%;
+  padding-top: 4vh;
+  min-height: 83vh;
 }
 .list {
-  background-image: url("note_book.svg");
+  background-image: url(/assets/note_book.svg);
   flex: 2;
-  min-height: 400px;
+  min-height: 435px;
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
