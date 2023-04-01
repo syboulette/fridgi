@@ -1,95 +1,133 @@
-<h1><%= @recipe.title %></h1>
-  <div class="container">
-      <div class="info">
-        <h5>Prep Time</h5>
-        <p><%= @recipe.prep_time %> minutes</p>
-        <h5>Cooking Time</h5>
-        <p><%= @recipe.cooking_time %> minutes</p>
-        <h5>Total Time</h5>
-        <p><%= @recipe.total_time %> minutes</p>
-        <i class="fa-duotone fa-cake-slice"></i> <h5>Servings</h5>
-        <p><%= @recipe.serving %></p>
-        <h5>Difficulty</h5>
-        <%= @recipe.difficulty %> </p>
-        <h5>Utensils:</h5>
-        <p><%= @recipe.utensil %></p>
-      </div>
-        <div class="ingredients">
-          <h5>Ingredients</h5>
-            <ul>
-              <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-                <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.unit %> <%= recipe_ingredient.ingredient.name %></li>
-                <% end  %>
-            </ul>
-        </div>
-          <div class="description">
-            <h5>Instruction</h5>
-            <p><%= @recipe.instruction %></p>
-          </div>
-      </div>
-      <div class="missing_ingredient">
-        <h2>Missing Ingredients</h2>
-          <% recipe_ingredient_ids = @recipe_ingredients.pluck(:ingredient_id) %>
-          <% missing_ingredients = [] %>
-          <% recipe_ingredient_ids.each do |ingredient_id| %>
-            <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient_id) %>
-            <% if fridge_ingredient.nil? %>
-              <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient_id, quantity: 0) %>
-            <% end %>
-            <% if fridge_ingredient.quantity < @recipe_ingredients.find_by(ingredient_id: ingredient_id).quantity %>
-              <% missing_ingredients << Ingredient.find(ingredient_id) %>
-            <% end %>
-          <% end %>
-          <% if missing_ingredients.empty? %>
-            <h3>You have everything for your recipe!</h3>
-            <p>If you want to make your recipe now, we can automatically remove the ingredients from your fridgi by clicking the link below!</p>
-            <%= link_to "make recipe now", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-          <% else %>
-
-            <h3>You are missing</h3>
-            <% missing_ingredients.each do |ingredient| %>
-              <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient.id) %>
-              <% if fridge_ingredient.nil? %>
-                <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient.id, quantity: 0) %>
-              <% end %>
-              <li><%= @recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity %> <%= ingredient.name %></li>
-            <% end %>
-            <h3>Add missing ingredients </h3>
-            <%= link_to "to list", recipe_add_recipe_ingredient_to_list_recipes_path(@recipe), data: { turbo_method: :post, turbo_confirm: "" }, class: "btn btn-primary" %>
-          <% end %>
-          
-        </div>
-        <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+<div class="heading">
+  <div class="photos">
+    <% if @recipe && @recipe.image.present? %>
+      <%= image_tag @recipe.image %>
+    <% else %>
+      <%= image_tag "recipe_placeholder.svg" %>
+    <% end %>
   </div>
-           <div>
-          <%= render "recipes/reviews_form" %>
-          </div>
-          <div><% if @recipe.reviews.blank? %>
-            Be the first to leave a review for <%= @recipe.title %>
-          <% else %>
-          <h3>Reviews:</h3>
-           <% @recipe.reviews.each do |review| %>
-              <p><%= review.rating %> stars </p>
-              <p>Comment: <%= review.comment %></p>
-              <%= button_to "Delete", review_path(review), method: :delete, class: "btn btn-primary" %>
-              <%= link_to "Edit", edit_review_path(@recipe), edit: :true, class: "btn btn-primary" %>
+  <div class="photos-side-text">
+    <div class="row_picture title">
+      <h1><%= @recipe.title %></h1>
+      <div class="love-button">
+        <% if current_user.favourited_recipes.include?(@recipe) %>
+          <%= link_to favourite_recipe_path(current_user.favourite_recipes.find_by(recipe: @recipe)), data: { turbo_method: :delete } do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= form_with model: [@recipe, FavouriteRecipe.new] do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% if @recipe.reviews.present? %>
+      <div class="row_picture">
+        <% if @recipe.reviews.any? %>
+          <% average_rating = @recipe.reviews.average(:rating).round(1) %>
+          <% (1..5).each do |i| %>
+            <% if i <= average_rating %>
+              <i class="fas fa-star"></i>
+            <% else %>
+              <i class="far fa-star"></i>
             <% end %>
-          <% end %></div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row_picture">
+        <p><%=@recipe.reviews.count%> reviews</p>
+      </div>
+    <% end %> 
+    <% if @recipe.serving.present? %>
+      <div class="row_picture">
+        <%= image_tag("serving.svg", class: "icon_recipe")%>
+        <p>this recipe serves <%= @recipe.serving %> people</p>
+      </div>
+    <% end %>  
+    <div class="row_picture_timings">
+      <%if @recipe.prep_time.present?%>
+        <div class="timings">
+          <%= image_tag("prep_time.svg", class: "icon_recipe")%>
+          <p><%=@recipe.prep_time %> minutes</p>
         </div>
-    <%= link_to "Edit Recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-   </div>
+      <%end%>
+      <%if @recipe.cooking_time.present?%>
+        <div class="timings">
+          <%= image_tag("cooking_time.svg", class: "icon_recipe")%>
+          <p><%=@recipe.cooking_time %> minutes</p>
+        </div>
+      <%end%>
+      <div class="timings">
+        <%= image_tag("total_time.svg", class: "icon_recipe")%>
+        <p><%=@recipe.total_time %> minutes</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="middle_section_double">
+  <%if @recipe.utensil.present?%>
+    <div class="utensils_recipe">
+      <h2>Utensils</h2>
+      <p>You will need those utensils to make your recipe successfully!</p>
+      <%= @recipe.utensil %>
+    </div>
+  <%end%>
+  <div class="ingredients_recipe">
+    <h2>Ingredients</h2>
+    <%= @recipe.recipe_ingredients.each do |i|%>
+      <ul><%= i.quantity %> <%=i.unit%> of <%=i.ingredient.name%></ul>
+    <%end%>
+  </div>
+</div>
 
-<%# BOOKMARKS%>
+<div class="middle_section">
+  <h2>Directions</h2>
+  <%= @recipe.instruction%>
+  <%= link_to image_tag("edit.svg"), edit_recipe_path(@recipe), class: "edit_button" %>
+</div>
 
-<%= simple_form_for [@recipe, @favourite_recipe] do |f| %>
-<%#= raise %>
-  <% if current_user.favourite_recipes.map {|recipe| recipe.recipe_id}.include?(@recipe.id) %>
-    <%= f.submit "❤️", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;", disabled: "true" %>
-  <% else %>
-    <%= f.submit "🖤", class: "btn bg-light-gray border-0", id: "buttonz", style: "background-color: transparent;" %>
+
+<div class="end_section">
+  <% recipe_ingredient_ids = @recipe_ingredients.pluck(:ingredient_id) %>
+  <% missing_ingredients = [] %>
+  <% recipe_ingredient_ids.each do |ingredient_id| %>
+    <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient_id) %>
+    <% if fridge_ingredient.nil? %>
+      <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient_id, quantity: 0) %>
+    <% end %>
+    <% if fridge_ingredient.quantity < @recipe_ingredients.find_by(ingredient_id: ingredient_id).quantity %>
+      <% missing_ingredients << Ingredient.find(ingredient_id) %>
+    <% end %>
   <% end %>
-<% end %>
-<%= link_to 'My favourite recipes', favourite_recipes_path, class: "btn btn-info btn-sm " %>
-<%# check if recipe is favorited %>
-<%# if recipe is favorited! link to delete %>
-<%# if no link to create %>
+  <% if missing_ingredients.empty? %>
+    <p><%= link_to "Make the recipe now!", edit_recipe_path(@recipe) %> and take out the ingredients from your fridge!</p>
+    
+  <% else %>
+    <% missing_ingredients.each do |ingredient| %>
+      <% fridge_ingredient = FridgeIngredient.find_by(ingredient_id: ingredient.id) %>
+      <% if fridge_ingredient.nil? %>
+        <% fridge_ingredient = FridgeIngredient.new(ingredient_id: ingredient.id, quantity: 0) %>
+      <% end %>
+      <li><%= @recipe_ingredients.find_by(ingredient_id: ingredient.id).quantity - fridge_ingredient.quantity %> <%= ingredient.name %></li>
+    <% end %>
+    <h3>Add missing ingredients 
+    <%= link_to "to my shopping list", recipe_add_recipe_ingredient_to_list_recipes_path(@recipe), data: { turbo_method: :post, turbo_confirm: "" } %></h3>
+  <% end %>
+</div>
+
+<div class="middle_section" id="review">
+  <div class: "review_line" data-controller="forms">
+    <% if @recipe.reviews.blank? %>
+      Be the first to leave a review for <%= @recipe.title %>  
+      <%= render "recipes/reviews_form" %>
+    <% else %>
+      <%= render "recipes/reviews_form" %>
+      <% @recipe.reviews.each do |review| %>
+        <p><%= review.rating %> stars </p>
+        <p>Comment: <%= review.comment %></p>
+        <%= button_to "Delete", review_path(review), method: :delete, class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_review_path(@recipe), edit: :true, class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

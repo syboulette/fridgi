@@ -1,6 +1,9 @@
-<%= simple_form_for([@recipe, @review]) do |f| %>
-  <%= f.input :rating, collection: %w[1 2 3 4 5] %>
-  <%= f.input :comment, as: :text %>
+<%= simple_form_for [@recipe, @review], data: { target: "forms.reviewTemplate" }, class: "add_review hidden" do |f| %>
+  <div class="rating">
+    <%= f.input :rating, collection: %w[1 2 3 4 5], placeholder: "5 🌟", label: false %>
+  </div>
+  <div class="comment">
+    <%= f.input :comment, as: :text, placeholder: "Your comment", label: false %>
+  </div>
   <%= f.button :submit %>
 <% end %>
-<%= link_to "Back to all recipes", recipes_path %>
