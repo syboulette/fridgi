@@ -5,33 +5,57 @@
 -->
 <!--
 -->
-<div class="content" id="content-recipe">
+<div class="container-fluid" id="container-fluid_title_and_search-bar">
   <div class="container">
-    <%= form_tag recipes_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a recipe"
-      %>
-      <%= number_field_tag :total_time,
-          params[:total_time],
-          class: "form-control",
-          placeholder: "Max cooking time",
-          step: 'any',
-          min: 0
-      %>
-      <%= number_field_tag :serving,
-          params[:serving],
-          class: "form-control",
-          placeholder: "Serving",
-          step: 'any',
-          min: 0
-      %>
-      <%= select_tag "difficulty", options_for_select(["1", "2", "3"]), {:prompt => 'Difficulty', class: "form-control"} %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+    <h1><b>RECIPES</b></h1>
+    <%= render "search_bar" %>
   </div>
+</div>
+
+<div class="container_filterbar_pills">
+  <script>
+    $(document).ready(function() {
+      const updateFilterPills = () => {
+        const container = $('.container_filterbar_pills');
+        container.empty();
+
+        const filters = [
+          { id: 'difficulty_filter', label: 'Difficulty' },
+          { id: 'ingredient_filter', label: 'Ingredient' },
+          { id: 'prep_time_filter', label: 'Prep' },
+          { id: 'cooking_time_filter', label: 'Cook' },
+          { id: 'total_time_filter', label: 'Total' },
+          // Add other filters here
+        ];
+
+        let hasPills = false;
+        filters.forEach(filter => {
+          const value = $('#' + filter.id).val();
+          if (value) {
+            const pill = $('<span class="filter_pill">').text(`${filter.label}: ${value}`);
+            container.append(pill);
+            hasPills = true;
+          }
+        });
+
+        if (hasPills) {
+          container.show();
+        } else {
+          container.hide();
+        }
+      };
+
+      // Update filter pills when filters change
+      $('.filterbar_filter').on('change', updateFilterPills);
+    });
+  </script>
+</div>
+
+
+<div class="container">
+<!--
   <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+-->
   <div class="box-grid">
     <% @recipes.each do |recipe| %>
       <% if recipe.image.attached? %>
@@ -39,7 +63,21 @@
       <% else %>
         <%= render "card_header_text", recipe: recipe%>
       <% end %>
-    <% end %>
+    </div>
+    <br>
+    <p><%= link_to "create a new recipe!", new_recipe_path, class: "btn btn-info btn-sm "%></p>
+    <div class="box-grid">
+      <% @recipes.each do |recipe| %>
+        <% if recipe.image.attached? %>
+          <%= render "card_header_image", recipe: recipe%>
+        <% else %>
+          <%= render "card_header_text", recipe: recipe%>
+        <% end %>
+      <% end %>
+    </div>
+    <%= will_paginate @recipes, class: "apple_pagination" %>
   </div>
-  <%= will_paginate @recipes, class: "apple_pagination" %>
+</div>
+<div class="container">
+  <%= will_paginate @recipes, class: "fridgi_pagination" %>
 </div>
